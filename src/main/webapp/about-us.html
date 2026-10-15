@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Udaanix | Clarity Before Choice</title>
+<meta name="description" content="Learn how Udaanix helps students understand themselves, explore career pathways, and connect with counsellors and experts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.about-page{overflow:hidden;background:var(--cream,#fbfaf7);color:var(--ink,#172b3a)}
+.about-hero{position:relative;padding:100px 0 86px;background:linear-gradient(135deg,#f4f7f0 0%,#fbf7f0 55%,#f2f0fa 100%);isolation:isolate}
+.about-hero:before,.about-hero:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);z-index:-1}
+.about-hero:before{width:330px;height:330px;right:-75px;top:-105px;background:rgba(177,211,178,.32)}
+.about-hero:after{width:210px;height:210px;left:-80px;bottom:-95px;background:rgba(244,198,167,.28)}
+.about-hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:55px}
+.about-kicker{display:inline-flex;align-items:center;gap:9px;padding:9px 14px;border:1px solid rgba(47,94,70,.16);border-radius:100px;background:rgba(255,255,255,.68);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#52745b}
+.about-kicker i{color:#d88e66}
+.about-hero h1{font:800 clamp(42px,5.6vw,72px)/1.06 Manrope,sans-serif;letter-spacing:-.055em;margin:22px 0;color:#1d3440}
+.about-hero h1 em,.about-section h2 em{font-family:"Playfair Display",serif;font-weight:600;color:#62866a}
+.about-lead{max-width:650px;color:#66736e;font-size:17px;line-height:1.85}
+.about-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}
+.about-visual{position:relative;min-height:350px;display:grid;place-items:center}
+.about-visual-halo{position:absolute;width:290px;height:290px;border-radius:50%;border:1px solid rgba(91,132,100,.25);box-shadow:0 0 0 25px rgba(255,255,255,.35),0 0 0 55px rgba(255,255,255,.22)}
+.about-compass-card{position:relative;width:min(310px,90%);padding:30px;border-radius:28px;background:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.95);box-shadow:0 25px 75px rgba(44,69,52,.13);transform:rotate(-2deg)}
+.about-compass-top{display:flex;justify-content:space-between;align-items:center;color:#819087;font-size:11px;font-weight:800;letter-spacing:.12em}
+.about-compass-icon{height:105px;width:105px;margin:25px auto 20px;border-radius:30px;display:grid;place-items:center;font-size:43px;color:#fff;background:linear-gradient(145deg,#86a98a,#52795e);box-shadow:0 12px 28px rgba(82,121,94,.28)}
+.about-compass-card h3{text-align:center;font:800 23px Manrope,sans-serif;color:#203a30;margin:0}
+.about-compass-card p{text-align:center;color:#7b8780;font-size:13px;margin:8px 0 0}
+.about-float{position:absolute;display:flex;gap:10px;align-items:center;padding:13px 16px;border-radius:15px;background:#fff;box-shadow:0 12px 35px rgba(40,60,48,.12);font-size:12px;font-weight:800;color:#344c3a}
+.about-float i{color:#64896b;font-size:17px}.float-one{top:30px;right:0}.float-two{bottom:28px;left:0}
+.about-section{padding:88px 0}.about-section.soft{background:#fff}.about-section.tint{background:#f3f6ef}
+.about-section-head{max-width:720px;margin:0 auto 42px;text-align:center}
+.about-eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#78927a}
+.about-section h2{font:800 clamp(30px,4vw,47px)/1.17 Manrope,sans-serif;letter-spacing:-.04em;color:#203640;margin:13px 0 17px}
+.about-section-head p,.about-copy p{color:#718078;line-height:1.85}
+.about-values{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.about-value{padding:28px;border:1px solid #e9eee6;border-radius:22px;background:#fff;box-shadow:0 12px 35px rgba(32,54,42,.04);transition:transform .25s,box-shadow .25s}
+.about-value:hover{transform:translateY(-6px);box-shadow:0 20px 42px rgba(32,54,42,.09)}
+.about-value-icon{height:52px;width:52px;display:grid;place-items:center;border-radius:16px;background:#edf4e9;color:#5e8466;font-size:21px;margin-bottom:21px}
+.about-value:nth-child(2) .about-value-icon{background:#f8eee7;color:#c17e56}.about-value:nth-child(3) .about-value-icon{background:#efedf8;color:#8274b5}
+.about-value h3{font:800 19px Manrope,sans-serif;color:#263b34;margin:0 0 10px}.about-value p{color:#748078;line-height:1.75;font-size:14px;margin:0}
+.about-purpose-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.about-purpose{position:relative;overflow:hidden;padding:34px;border-radius:24px;background:#fff;border:1px solid #e7ece3}
+.about-purpose:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-55px;bottom:-70px;background:rgba(187,212,181,.2)}
+.about-purpose .purpose-num{font-size:12px;letter-spacing:.14em;font-weight:800;color:#8ba18a}
+.about-purpose h3{font:800 25px Manrope,sans-serif;margin:12px 0;color:#243a31}.about-purpose p{position:relative;z-index:1;color:#728078;line-height:1.85;margin:0}
+.about-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:steps}
+.about-step{padding:24px 20px;border-radius:18px;background:#fff;border:1px solid #e8eee5}
+.about-step-num{height:39px;width:39px;border-radius:13px;display:grid;place-items:center;background:#eaf2e7;color:#5b8062;font-weight:800;margin-bottom:17px}
+.about-step h3{font:800 16px Manrope,sans-serif;margin:0 0 9px;color:#2b4036}.about-step p{font-size:13px;line-height:1.75;color:#78847c;margin:0}
+.about-bottom-cta{padding:65px 0;background:#263f34;color:#fff;text-align:center;position:relative;overflow:hidden}
+.about-bottom-cta h2{font:800 clamp(30px,4vw,45px)/1.2 Manrope,sans-serif;margin:0 0 15px}.about-bottom-cta h2 em{font-family:"Playfair Display",serif;color:#c4ddbd}
+.about-bottom-cta p{max-width:620px;margin:0 auto 26px;color:#d5e0d6;line-height:1.8}
+.about-bottom-cta .primary-btn{display:inline-flex}
+@media(max-width:850px){.about-hero-grid{grid-template-columns:1fr;gap:20px}.about-visual{min-height:310px}.about-values{grid-template-columns:1fr}.about-steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.about-hero{padding:65px 0 55px}.about-section{padding:62px 0}.about-purpose-grid{grid-template-columns:1fr}.about-steps{grid-template-columns:1fr}.about-float{font-size:11px;padding:10px 12px}.float-one{right:-3px}.float-two{left:-3px}}
+</style>
+</head>
+<body class="about-page">
+<div class="scroll-line" id="scrollLine"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><img class="brand-logo-img" src="images/udaanix-logo.png" alt="Udaanix — Guiding the path to Excellence"></a>
+    <nav class="desktop-nav">
+      <a href="index.html#streams">Streams</a><a href="streams/career-explorer.html">Careers</a><a href="assessment/assessment.html">Assessment</a><a href="index.html#counsellors">Experts</a><a href="index.html#community">Community</a><a href="about-us.html" aria-current="page">About</a>
+<a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-right"><a href="auth/login.html" class="login-link">Sign in</a><a href="auth/login.html" class="nav-cta">Start your journey <i class="fa-solid fa-arrow-up-right-from-square"></i></a><button class="menu-btn" id="menuToggle" aria-label="Open navigation"><i class="fa-solid fa-bars"></i></button></div>
+  </div>
+  <div class="mobile-nav" id="mobileNav"><a href="index.html#streams">Explore Streams</a><a href="streams/career-explorer.html">Career Paths</a><a href="assessment/assessment.html">Assessment</a><a href="index.html#counsellors">Experts & Counsellors</a><a href="index.html#community">Community</a><a href="about-us.html">About Udaanix</a><a href="auth/login.html">Sign in</a></div>
+</header>
+<main>
+<section class="about-hero">
+ <div class="container about-hero-grid">
+  <div class="reveal">
+   <span class="about-kicker"><i class="fa-solid fa-compass"></i> Get to know Udaanix</span>
+   <h1>Every future deserves<br><em>a clearer beginning.</em></h1>
+   <p class="about-lead">Choosing a stream, course, or career can feel overwhelming. Udaanix brings self-discovery, career exploration, and human guidance together—so students can move forward with more clarity and confidence.</p>
+   <div class="about-actions"><a href="assessment/assessment.html" class="primary-btn"><span>Discover your direction</span><i class="fa-solid fa-arrow-right"></i></a><a href="streams/career-explorer.html" class="ghost-btn"><span>Explore career paths</span></a></div>
+  </div>
+  <div class="about-visual reveal" aria-label="Udaanix career compass illustration">
+   <div class="about-visual-halo"></div>
+   <div class="about-float float-one"><i class="fa-solid fa-lightbulb"></i><span>Understand yourself</span></div>
+   <div class="about-compass-card"><div class="about-compass-top"><span>YOUR NEXT CHAPTER</span><i class="fa-solid fa-ellipsis"></i></div><div class="about-compass-icon"><i class="fa-solid fa-compass"></i></div><h3>Your Career Compass</h3><p>Interests · Strengths · Possibilities</p></div>
+   <div class="about-float float-two"><i class="fa-solid fa-route"></i><span>Find your next step</span></div>
+  </div>
+ </div>
+</section>
+<section class="about-section soft">
+ <div class="container">
+  <div class="about-section-head reveal"><span class="about-eyebrow">01 / Who we are</span><h2>Career guidance that starts with <em>you.</em></h2><p>Udaanix is a career guidance and development platform designed to help students make informed choices about their education and future. Rather than treating career decisions as a single test or a one-time choice, we bring together reflection, information, and conversations.</p></div>
+  <div class="about-values">
+   <article class="about-value reveal"><div class="about-value-icon"><i class="fa-solid fa-fingerprint"></i></div><h3>Self-discovery</h3><p>Explore your interests, aptitude, personality, and ambitions as useful signals—not labels that define your future.</p></article>
+   <article class="about-value reveal"><div class="about-value-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Career exploration</h3><p>Discover streams and career pathways, and learn more about the skills and study routes that can help you progress.</p></article>
+   <article class="about-value reveal"><div class="about-value-icon"><i class="fa-solid fa-people-arrows-left-right"></i></div><h3>Human guidance</h3><p>Connect your questions with guidance from counsellors and subject experts when you need another perspective.</p></article>
+  </div>
+ </div>
+</section>
+<section class="about-section tint">
+ <div class="container">
+  <div class="about-section-head reveal"><span class="about-eyebrow">02 / Our purpose</span><h2>Clarity before <em>choice.</em></h2><p>Our purpose is to make career exploration feel less confusing, more personal, and easier to act on.</p></div>
+  <div class="about-purpose-grid">
+   <article class="about-purpose reveal"><span class="purpose-num">OUR MISSION</span><h3>Help every student take a thoughtful next step.</h3><p>We bring self-understanding, aptitude and interest assessments, career information, and access to human guidance into one connected experience—helping students understand both themselves and the opportunities open to them.</p></article>
+   <article class="about-purpose reveal"><span class="purpose-num">OUR VISION</span><h3>A more informed, confident future.</h3><p>We envision a trusted career-guidance ecosystem where students, families, counsellors, and experts can work together to support education and career decisions that feel informed, individual, and future-ready.</p></article>
+  </div>
+ </div>
+</section>
+<section class="about-section soft">
+ <div class="container">
+  <div class="about-section-head reveal"><span class="about-eyebrow">03 / How it works</span><h2>Turn uncertainty into <em>action.</em></h2><p>You don't need to have every answer before you begin. Start wherever you are.</p></div>
+  <div class="about-steps">
+   <article class="about-step reveal"><div class="about-step-num">01</div><h3>Know yourself</h3><p>Reflect on your interests, strengths, and preferences through guided assessments.</p></article>
+   <article class="about-step reveal"><div class="about-step-num">02</div><h3>Explore options</h3><p>Browse streams and career paths to understand the possibilities ahead.</p></article>
+   <article class="about-step reveal"><div class="about-step-num">03</div><h3>Ask and connect</h3><p>Bring your questions to counsellors, experts, and the learning community.</p></article>
+   <article class="about-step reveal"><div class="about-step-num">04</div><h3>Choose your next step</h3><p>Use what you've learned to plan a practical next move—one step at a time.</p></article>
+  </div>
+ </div>
+</section>
+<section class="about-bottom-cta">
+ <div class="container reveal"><h2>Your journey doesn't need<br><em>all the answers today.</em></h2><p>Begin with one question, explore one possibility, and take one step toward a future that fits you.</p><a href="auth/login.html" class="primary-btn"><span>Begin your Udaanix journey</span><i class="fa-solid fa-arrow-right"></i></a></div>
+</section>
+</main>
+<footer class="footer">
+ <div class="container footer-grid">
+  <div class="footer-brand"><a href="index.html" class="brand light footer-brand-logo"><img class="brand-logo-img" src="images/udaanix-logo.png" alt="Udaanix"></a><p>A human-first career guidance platform helping students make informed choices—one step at a time.</p><div class="socials"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></div></div>
+  <div><h4>Explore</h4><a href="index.html#streams">Streams</a><a href="streams/career-explorer.html">Career Paths</a><a href="assessment/assessment.html">Assessment</a><a href="index.html#resources">Resources</a></div>
+  <div><h4>People</h4><a href="index.html#counsellors">Counsellors & Experts</a><a href="index.html#community">Community</a><a href="auth/login.html">Student Login</a><a href="auth/student-register.html">Create Account</a></div>
+  <div><h4>Udaanix</h4><a href="about-us.html">About Us</a><a href="auth/login.html">Get guidance</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a></div>
+ </div>
+ <div class="container footer-bottom"><span>© 2026 Udaanix. All rights reserved.</span><span>Clarity before choice.</span></div>
+</footer>
+<button class="back-top" id="backTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udaanix | Clarity Before Choice</title>
+<meta name="description" content="Udaanix — a human-first career guidance platform for discovering streams, careers, experts and your next move.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="preloader" id="preloader">
+  <div class="preloader-plane"><i class="fa-solid fa-paper-plane"></i></div>
+  <div class="preloader-name">UDAANIX</div>
+  <div class="loader-track"><span></span></div>
+  <small>Clarity before choice.</small>
+</div>
+
+<div class="scroll-line" id="scrollLine"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <img class="brand-logo-img" src="images/udaanix-logo.png" alt="Udaanix — Guiding the path to Excellence">
+    </a>
+
+    <nav class="desktop-nav">
+      <a href="#streams">Streams</a>
+      <a href="streams/career-explorer.html">Careers</a>
+      <a href="assessment/assessment.html">Assessment</a>
+      <a href="#counsellors">Experts</a>
+      <a href="#community">Community</a>
+      <a href="about-us.html">About</a>
+<a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="search-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="careerSearch" type="search" placeholder="Search anything..." autocomplete="off">
+        <kbd>⌘ K</kbd>
+        <div class="search-pop" id="searchPop"></div>
+      </div>
+      <a href="auth/login.html" class="login-link">Sign in</a>
+      <a href="auth/login.html" class="nav-cta">Book a counsellor <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      <button class="menu-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#streams">Explore Streams</a>
+    <a href="streams/career-explorer.html">Career Paths</a>
+    <a href="assessment/assessment.html">Assessment</a>
+    <a href="#counsellors">Counsellors</a>
+    <a href="#community">Community</a>
+    <a href="about-us.html">About Udaanix</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="auth/login.html">Sign in</a>
+  </div>
+</header>
+
+<main id="home">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-orb orb-a"></div>
+  <div class="hero-orb orb-b"></div>
+  <div class="hero-orb orb-c"></div>
+
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <div class="eyebrow-pill"><span class="pulse-dot"></span> Built for the moment before you choose</div>
+
+      <h1>Don't just pick<br>a career.<br><em>Find your why.</em></h1>
+
+      <p class="hero-lead">
+        Udaanix turns career confusion into a clear next step — combining
+        <b>self-discovery, real career intelligence and human guidance</b> in one place.
+      </p>
+
+      <div class="hero-actions">
+        <a href="assessment/assessment.html" class="magnetic primary-btn"><span><i class="fa-solid fa-wand-magic-sparkles"></i> Discover my direction</span><i class="fa-solid fa-arrow-right arrow"></i></a>
+        <a href="#counsellors" class="magnetic ghost-btn"><span><i class="fa-solid fa-user-tie"></i> Talk to a human</span></a>
+      </div>
+
+      <div class="hero-proof">
+        <div class="mini-avatars">
+          <span>A</span><span>S</span><span>R</span><span>+</span>
+        </div>
+        <div><b>50,000+ students</b><small>are already exploring with Udaanix</small></div>
+      </div>
+    </div>
+
+    <div class="hero-stage reveal">
+      <div class="stage-ring ring-one"></div>
+      <div class="stage-ring ring-two"></div>
+      <div class="stage-glow"></div>
+
+      <div class="orbit-card orbit-top">
+        <i class="fa-solid fa-sparkles"></i>
+        <div><b>Personalised</b><small>Not one-size-fits-all</small></div>
+      </div>
+
+      <div class="orbit-card orbit-left">
+        <span class="tiny-icon blue"><i class="fa-solid fa-brain"></i></span>
+        <div><b>Know yourself</b><small>Interests + strengths</small></div>
+      </div>
+
+      <div class="orbit-card orbit-right">
+        <span class="tiny-icon peach"><i class="fa-solid fa-route"></i></span>
+        <div><b>See the path</b><small>Courses + careers</small></div>
+      </div>
+
+      <div class="compass">
+        <div class="compass-top"><span>YOUR CAREER</span><i class="fa-solid fa-ellipsis"></i></div>
+        <div class="compass-center">
+          <div class="compass-halo"></div>
+          <div class="compass-icon"><i class="fa-solid fa-compass"></i></div>
+          <strong>Career<br><span>Compass</span></strong>
+          <small>your next move</small>
+        </div>
+        <div class="compass-paths">
+          <div><i class="fa-solid fa-heart"></i><span>What you love</span></div>
+          <div><i class="fa-solid fa-bolt"></i><span>What you're good at</span></div>
+          <div><i class="fa-solid fa-arrow-trend-up"></i><span>Where the world is going</span></div>
+        </div>
+      </div>
+
+      <div class="stage-badge"><i class="fa-solid fa-circle-check"></i> 3 signals aligned</div>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="container">
+      <div class="scroll-hint"><span></span> Scroll to explore</div>
+      <div class="hero-stats">
+        <div><strong data-count="50000" data-suffix="+">0</strong><span>students guided</span></div>
+        <div><strong data-count="200" data-suffix="+">0</strong><span>counsellors & experts</span></div>
+        <div><strong data-count="150" data-suffix="+">0</strong><span>career paths</span></div>
+        <div><strong data-count="95" data-suffix="%">0</strong><span>success / satisfaction</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>SCIENCE <b>✦</b></span><span>COMMERCE <b>✦</b></span><span>ARTS & HUMANITIES <b>✦</b></span><span>DESIGN <b>✦</b></span><span>TECHNOLOGY <b>✦</b></span><span>MEDICINE <b>✦</b></span><span>FINANCE <b>✦</b></span><span>LAW <b>✦</b></span>
+    <span>SCIENCE <b>✦</b></span><span>COMMERCE <b>✦</b></span><span>ARTS & HUMANITIES <b>✦</b></span><span>DESIGN <b>✦</b></span><span>TECHNOLOGY <b>✦</b></span><span>MEDICINE <b>✦</b></span><span>FINANCE <b>✦</b></span><span>LAW <b>✦</b></span>
+  </div>
+</div>
+
+<!-- ================= WHY ================= -->
+<section class="section why" id="why">
+  <div class="container">
+    <div class="split-heading reveal">
+      <div>
+        <span class="eyebrow">01 / Why Udaanix</span>
+        <h2>A career decision<br><em>should feel like yours.</em></h2>
+      </div>
+      <p>Most platforms give you information. Udaanix connects the dots between <b>who you are</b>, <b>what exists</b> and <b>who can guide you</b>.</p>
+    </div>
+
+    <div class="why-grid">
+      <article class="why-card big-card reveal">
+        <div class="number">01</div>
+        <div class="why-icon blue-bg"><i class="fa-solid fa-fingerprint"></i></div>
+        <h3>Start with <em>you.</em></h3>
+        <p>Interests, aptitude, personality and ambitions become signals — not labels.</p>
+        <div class="signal-row"><span>Interest</span><span>Aptitude</span><span>Personality</span></div>
+      </article>
+
+      <article class="why-card reveal">
+        <div class="number">02</div>
+        <div class="why-icon purple-bg"><i class="fa-solid fa-map"></i></div>
+        <h3>Make the invisible <em>visible.</em></h3>
+        <p>See career routes, skills, study duration, growth and opportunities side by side.</p>
+        <div class="tiny-route"><span></span><i class="fa-solid fa-arrow-right"></i><span></span><i class="fa-solid fa-arrow-right"></i><span></span></div>
+      </article>
+
+      <article class="why-card reveal">
+        <div class="number">03</div>
+        <div class="why-icon orange-bg"><i class="fa-solid fa-comments"></i></div>
+        <h3>When in doubt, <em>talk.</em></h3>
+        <p>Move from generic advice to a conversation with someone who understands your goals.</p>
+        <div class="chat-preview"><span class="chat-avatar">U</span><span>“Tell me what you're considering...”</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPASS ================= -->
+<section class="section compass-section">
+  <div class="container">
+    <div class="section-intro centered reveal">
+      <span class="eyebrow">02 / Your career compass</span>
+      <h2>What do you need <em>right now?</em></h2>
+      <p>There isn't one right starting point. Pick yours.</p>
+    </div>
+
+    <div class="compass-options">
+      <a href="#assessment" class="choice-card choice-blue reveal">
+        <span class="choice-num">A</span><i class="fa-solid fa-wand-magic-sparkles choice-icon"></i>
+        <div><small>“I'm confused.”</small><h3>Help me discover myself</h3><p>Find patterns in your interests, strengths and personality.</p></div>
+        <span class="choice-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+      <a href="#career-paths" class="choice-card choice-purple reveal">
+        <span class="choice-num">B</span><i class="fa-solid fa-route choice-icon"></i>
+        <div><small>“I know my stream.”</small><h3>Show me what I can become</h3><p>Explore real career paths, skills, study routes and growth.</p></div>
+        <span class="choice-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+      <a href="#counsellors" class="choice-card choice-orange reveal">
+        <span class="choice-num">C</span><i class="fa-solid fa-user-tie choice-icon"></i>
+        <div><small>“I need an answer.”</small><h3>Let me talk to an expert</h3><p>Connect with a counsellor who can understand your context.</p></div>
+        <span class="choice-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STREAMS ================= -->
+<section class="section streams-section" id="streams">
+  <div class="container">
+    <div class="section-intro reveal">
+      <span class="eyebrow">03 / Explore your world</span>
+      <h2>Three streams.<br><em>Hundreds of futures.</em></h2>
+      <p>Don't choose a stream because it sounds “safe”. Explore what it can actually lead to.</p>
+    </div>
+
+    <div class="stream-showcase">
+      <article class="stream-panel science reveal" data-search="science pcm pcb stem engineering medicine">
+        <div class="stream-number">01</div>
+        <div class="stream-art">
+          <div class="art-circle"></div><i class="fa-solid fa-atom"></i><span class="floating-word w1">AI</span><span class="floating-word w2">BIO</span><span class="floating-word w3">SPACE</span>
+        </div>
+        <div class="stream-info"><span class="stream-label">CURIOUS MINDS</span><h3>Science</h3><p>Build, discover, calculate, experiment. From AI and engineering to medicine, research and beyond.</p><div class="chips"><span>Physics</span><span>Maths</span><span>Biology</span><span>Technology</span></div><a href="#career-paths">Explore science paths <i class="fa-solid fa-arrow-right"></i></a></div>
+      </article>
+
+      <article class="stream-panel commerce reveal" data-search="commerce finance business economics ca management">
+        <div class="stream-number">02</div>
+        <div class="stream-art">
+          <div class="art-circle"></div><i class="fa-solid fa-chart-pie"></i><span class="floating-word w1">CA</span><span class="floating-word w2">MBA</span><span class="floating-word w3">STARTUP</span>
+        </div>
+        <div class="stream-info"><span class="stream-label">BUILDER MINDS</span><h3>Commerce</h3><p>Numbers, markets, people and ideas — from finance and CA to business, economics and entrepreneurship.</p><div class="chips"><span>Finance</span><span>Business</span><span>Economics</span><span>Management</span></div><a href="#career-paths">Explore commerce paths <i class="fa-solid fa-arrow-right"></i></a></div>
+      </article>
+
+      <article class="stream-panel arts reveal" data-search="arts humanities psychology design law media literature">
+        <div class="stream-number">03</div>
+        <div class="stream-art">
+          <div class="art-circle"></div><i class="fa-solid fa-palette"></i><span class="floating-word w1">LAW</span><span class="floating-word w2">UX</span><span class="floating-word w3">MEDIA</span>
+        </div>
+        <div class="stream-info"><span class="stream-label">IMAGINATIVE MINDS</span><h3>Arts & Humanities</h3><p>Create, communicate, understand people and society — through design, law, media, psychology and more.</p><div class="chips"><span>Design</span><span>Psychology</span><span>Law</span><span>Media</span></div><a href="#career-paths">Explore arts paths <i class="fa-solid fa-arrow-right"></i></a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CAREER PATHS ================= -->
+<section class="section career-section" id="career-paths">
+  <div class="container">
+    <div class="career-header reveal">
+      <div><span class="eyebrow">04 / Career intelligence</span><h2>See the <em>whole path.</em></h2></div>
+      <p>Information should help you decide — not overwhelm you. Filter, compare and explore.</p>
+    </div>
+
+    <div class="career-toolbar reveal">
+      <div class="career-tabs">
+        <button class="career-tab active" data-stream="science">Science</button>
+        <button class="career-tab" data-stream="commerce">Commerce</button>
+        <button class="career-tab" data-stream="arts">Arts</button>
+      </div>
+      <span id="careerCount">4 paths</span>
+    </div>
+
+    <div class="path-grid" id="pathGrid"></div>
+
+    <div class="career-explorer-bridge reveal">
+      <div>
+        <span class="eyebrow">FULL CAREER LIBRARY</span>
+        <h3>Explore 500+ career profiles</h3>
+        <p>Compare education routes, skills, opportunity types and practical next steps across Science, Commerce and Arts & Humanities.</p>
+      </div>
+      <a href="streams/career-explorer.html" class="primary-btn"><span>Open Career Intelligence</span><i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ASSESSMENT ================= -->
+<section class="section assessment-section" id="assessment">
+  <div class="container assessment-wrap">
+    <div class="assessment-copy reveal">
+      <span class="eyebrow">05 / Know yourself</span>
+      <h2>Your future isn't a quiz.<br><em>But a good quiz can start a conversation.</em></h2>
+      <p>Our assessments are designed to reveal useful signals about your interests, strengths, preferences and direction.</p>
+      <div class="assessment-perks">
+        <span><i class="fa-solid fa-check"></i> Student-friendly</span>
+        <span><i class="fa-solid fa-check"></i> Easy to understand</span>
+        <span><i class="fa-solid fa-check"></i> Actionable insights</span>
+      </div>
+      <a href="assessment/assessment.html" class="primary-btn inline-btn"><span>Start free assessment</span><i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="test-stack">
+      <article class="test-card reveal"><span class="test-icon blue-bg"><i class="fa-solid fa-heart-pulse"></i></span><div><small>15 MIN · 50 QUESTIONS</small><h3>Career Interest</h3><p>What kinds of work naturally energise you?</p></div><i class="fa-solid fa-arrow-right"></i></article>
+      <article class="test-card reveal"><span class="test-icon purple-bg"><i class="fa-solid fa-compass"></i></span><div><small>20 MIN · 40 QUESTIONS</small><h3>Stream Selection</h3><p>Which academic direction fits your goals?</p></div><i class="fa-solid fa-arrow-right"></i></article>
+      <article class="test-card reveal"><span class="test-icon orange-bg"><i class="fa-solid fa-brain"></i></span><div><small>30 MIN · 60 QUESTIONS</small><h3>Aptitude & Skills</h3><p>Where do your strongest skill signals show up?</p></div><i class="fa-solid fa-arrow-right"></i></article>
+      <article class="test-card reveal"><span class="test-icon green-bg"><i class="fa-solid fa-face-smile"></i></span><div><small>25 MIN · 45 QUESTIONS</small><h3>Personality</h3><p>How might your natural style shape your choices?</p></div><i class="fa-solid fa-arrow-right"></i></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COUNSELLORS ================= -->
+<section class="section counsellor-section" id="counsellors">
+  <div class="container">
+    <div class="section-intro reveal">
+      <span class="eyebrow">06 / Human guidance</span>
+      <h2>Meet the people<br><em>behind the answers.</em></h2>
+      <p>When a student needs more than a search result, there's a human on the other side.</p>
+    </div>
+
+    <div class="counsellor-grid">
+      <article class="counsellor-card reveal" data-profile-image="">
+        <div class="c-photo"><img src="images/counsellor-silhouette.svg" alt="Default counsellor profile"><span class="availability"><i></i> Available</span><span class="photo-note">Profile photo pending</span></div>
+        <div class="c-info"><div class="c-top"><div><span class="c-role">CAREER COUNSELLOR</span><h3>Dr. Priya Sharma</h3></div><span class="c-rating">★ 4.9</span></div><p>PhD in Career Counseling · 12 years experience</p><div class="c-tags"><span>Career Planning</span><span>Stream Selection</span><span>Study Abroad</span></div><div class="c-bottom"><span><i class="fa-solid fa-users"></i> 5,000+ sessions</span><button onclick="showToast('Chat will open after sign in.')">Chat</button><a href="auth/login.html">Book session</a></div></div>
+      </article>
+
+      <article class="counsellor-card reveal">
+        <div class="c-photo"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=85" alt="Education mentor"><span class="availability"><i></i> Available</span></div>
+        <div class="c-info"><div class="c-top"><div><span class="c-role">EDUCATION MENTOR</span><h3>Rajesh Kumar</h3></div><span class="c-rating">★ 4.8</span></div><p>M.Ed · 15 years experience</p><div class="c-tags"><span>Engineering</span><span>Medical</span><span>Entrance Exams</span></div><div class="c-bottom"><span><i class="fa-solid fa-users"></i> 4,200+ sessions</span><button onclick="showToast('Chat will open after sign in.')">Chat</button><a href="auth/login.html">Book session</a></div></div>
+      </article>
+
+      <article class="counsellor-card reveal">
+        <div class="c-photo"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85" alt="Career strategy expert"><span class="availability"><i></i> Available</span></div>
+        <div class="c-info"><div class="c-top"><div><span class="c-role">CAREER STRATEGIST</span><h3>Anjali Verma</h3></div><span class="c-rating">★ 4.9</span></div><p>MA Psychology · 10 years experience</p><div class="c-tags"><span>Arts & Design</span><span>Creative Fields</span><span>Media</span></div><div class="c-bottom"><span><i class="fa-solid fa-users"></i> 3,800+ sessions</span><button onclick="showToast('Chat will open after sign in.')">Chat</button><a href="auth/login.html">Book session</a></div></div>
+      </article>
+    </div>
+
+    <div class="counsellor-cta reveal"><span><i class="fa-solid fa-sparkles"></i> New counsellors join Udaanix every week.</span><a href="auth/login.html">Join as a counsellor <i class="fa-solid fa-arrow-right"></i></a></div>
+  </div>
+</section>
+
+<!-- ================= COMMUNITY ================= -->
+<section class="section community-section" id="community">
+  <div class="container">
+    <div class="community-heading reveal">
+      <div><span class="eyebrow">07 / Udaanix Community</span><h2>Some questions are better<br>when <em>someone answers.</em></h2></div>
+      <p>A safe space to ask, compare, share and learn from students, counsellors and industry voices.</p>
+    </div>
+
+    <div class="community-layout">
+      <div class="community-left reveal">
+        <div class="community-card-main">
+          <div class="community-live"><span></span> LIVE DISCUSSIONS</div>
+          <h3>What are students<br>talking about?</h3>
+          <div class="topic-cloud"><span>AI & ML</span><span>JEE</span><span>Design careers</span><span>CA vs MBA</span><span>Study abroad</span><span>Psychology</span><span>Career switch</span></div>
+          <button class="primary-btn inline-btn" onclick="showToast('Community will open after sign in.')"><span>Join the conversation</span><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <div class="community-numbers"><div><b>12K+</b><small>Members</small></div><div><b>3.8K</b><small>Questions answered</small></div><div><b>850+</b><small>Career discussions</small></div></div>
+      </div>
+
+      <div class="post-feed">
+        <article class="post-card reveal"><div class="post-person"><span class="post-avatar blue-avatar">A</span><div><b>Aarav · Class 12</b><small>Science · 12 min ago</small></div><span class="post-badge">QUESTION</span></div><p>“PCM ke baad AI/ML aur engineering ke beech confused hoon. Skills kis direction mein build karun?”</p><div class="post-footer"><button class="like-btn"><i class="fa-regular fa-heart"></i> 24</button><span><i class="fa-regular fa-comment"></i> 8 replies</span><span><i class="fa-solid fa-bookmark"></i> Save</span></div></article>
+        <article class="post-card reveal"><div class="post-person"><span class="post-avatar purple-avatar">S</span><div><b>Shreya · College Student</b><small>Design · 34 min ago</small></div><span class="post-badge">ROADMAP</span></div><p>“Design isn't only drawing! Sharing the roadmap that helped me understand UX/UI as a career.”</p><div class="post-footer"><button class="like-btn"><i class="fa-regular fa-heart"></i> 41</button><span><i class="fa-regular fa-comment"></i> 13 replies</span><span><i class="fa-solid fa-bookmark"></i> Save</span></div></article>
+        <article class="post-card reveal"><div class="post-person"><span class="post-avatar orange-avatar">R</span><div><b>Rahul · Industry Expert</b><small>Technology · 1 hr ago</small></div><span class="post-badge expert">EXPERT</span></div><p>“If I were starting college again, these are the 5 skills I'd build before chasing a job title.”</p><div class="post-footer"><button class="like-btn"><i class="fa-regular fa-heart"></i> 67</button><span><i class="fa-regular fa-comment"></i> 21 replies</span><span><i class="fa-solid fa-bookmark"></i> Save</span></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESOURCES ================= -->
+<section class="section resources-section" id="resources">
+  <div class="container">
+    <div class="resource-head reveal"><div><span class="eyebrow">08 / Learn & grow</span><h2>Smart resources.<br><em>Zero fluff.</em></h2></div><a href="#resources" class="text-btn">Browse all <i class="fa-solid fa-arrow-right"></i></a></div>
+    <div class="resource-grid">
+      <article class="resource-card reveal"><div class="resource-img"><img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=900&q=85" alt="Student planning career"><span>CAREER GUIDE</span></div><div class="resource-body"><small>8 min read</small><h3>How to choose a career without panicking</h3><p>A practical framework for turning 20 options into your next 3 steps.</p><a href="#resources">Read guide <i class="fa-solid fa-arrow-right"></i></a></div></article>
+      <article class="resource-card reveal"><div class="resource-img"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=85" alt="Students collaborating"><span>SKILLS</span></div><div class="resource-body"><small>10 min read</small><h3>Skills that matter in modern careers</h3><p>Understand what employers actually mean when they say “career-ready”.</p><a href="#resources">Explore <i class="fa-solid fa-arrow-right"></i></a></div></article>
+      <article class="resource-card reveal"><div class="resource-img"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85" alt="Student learning online"><span>CHECKLIST</span></div><div class="resource-body"><small>6 min read</small><h3>Before you pick your stream</h3><p>The questions worth asking yourself before listening to everyone else.</p><a href="#resources">View checklist <i class="fa-solid fa-arrow-right"></i></a></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BIG CTA ================= -->
+<section class="final-cta">
+  <div class="cta-orbit one"></div><div class="cta-orbit two"></div>
+  <div class="container final-inner reveal">
+    <span class="eyebrow">09 / Your move</span>
+    <h2>Confusion is a starting point.<br><em>It doesn't have to be the destination.</em></h2>
+    <p>Take the first small step. We'll help you find the next one.</p>
+    <div class="final-actions">
+      <a href="auth/login.html" class="primary-btn inline-btn"><span>Start your Udaanix journey</span><i class="fa-solid fa-arrow-right"></i></a>
+      <a href="#community" class="outline-light">Explore the community</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand"><a href="#home" class="brand light footer-brand-logo"><img class="brand-logo-img" src="images/udaanix-logo.png" alt="Udaanix — Guiding the path to Excellence"></a><p>A human-first career guidance platform helping students make informed choices — one conversation at a time.</p><div class="socials"><a href="https://instagram.com/udaanixindia?obrf=d2M4eGh3dm01Z3Jw&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Udaanix on Instagram"><i class="fa-brands fa-instagram"></i></a><a href="https://www.linkedin.com/company/udaanix/" target="_blank" rel="noopener noreferrer" aria-label="Udaanix on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="https://youtube.com/@udaanixindia?si=qMmUT0wGrfy4mygQ" target="_blank" rel="noopener noreferrer" aria-label="Udaanix on YouTube"><i class="fa-brands fa-youtube"></i></a><a href="https://x.com/udaanix?s=11" target="_blank" rel="noopener noreferrer" aria-label="Udaanix on X"><i class="fa-brands fa-x-twitter"></i></a><a href="https://www.facebook.com/profile.php?id=61588577000405" target="_blank" rel="noopener noreferrer" aria-label="Udaanix on Facebook"><i class="fa-brands fa-facebook-f"></i></a></div></div>
+    <div><h4>Explore</h4><a href="#streams">Streams</a><a href="streams/career-explorer.html">Career Paths</a><a href="assessment/assessment.html">Assessment</a><a href="#resources">Resources</a></div>
+    <div><h4>People</h4><a href="#counsellors">Counsellors</a><a href="#community">Community</a><a href="auth/login.html">Student Login</a><a href="auth/student-register.html">Create Account</a></div>
+    <div><h4>Udaanix</h4><a href="#why">Why Udaanix</a><a href="about-us.html">About Us</a><a href="contact.html">Contact Us</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© 2026 Udaanix. All rights reserved.</span><span><a href="mailto:info@udaanix.com">info@udaanix.com</a> · <a href="tel:+918652480389">+91 8652480389</a> · Empowering futures, one career at a time.</span></div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<button class="back-top" id="backTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="js/script.js"></script>
+</body>
+</html>

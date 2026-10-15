@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Expert Login | Udaanix</title>
+
+    <link rel="stylesheet" href="../css/udaanix-theme.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="common-login.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="auth-page">
+    <div class="auth-overlay"></div>
+
+    <header class="auth-brand">
+        <a href="../index.html">
+            <img src="../images/udaanix-logo.png"
+                 alt="Udaanix - Guiding the path to Excellence">
+        </a>
+    </header>
+
+    <main class="auth-container">
+
+        <section class="auth-intro">
+
+            <span class="auth-badge">
+                <i class="fas fa-building"></i>
+                Industry Expert Portal
+            </span>
+
+            <h1>
+                Bring Industry
+                <span>Closer to Students.</span>
+            </h1>
+
+            <p>
+                Sign in to Udaanix and share real-world industry
+                knowledge, career insights, mentorship and
+                professional opportunities with students.
+            </p>
+
+            <div class="intro-points">
+
+                <div>
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Share real-world expertise</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-people-arrows"></i>
+                    <span>Mentor aspiring professionals</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-briefcase"></i>
+                    <span>Connect students with industry</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="login-card">
+
+            <div class="card-heading">
+
+                <div class="card-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+
+                <div>
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to your industry expert account</p>
+                </div>
+
+            </div>
+
+
+            <form id="expertLoginForm">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Professional Email Address
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <i class="fas fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="name@company.com"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <i class="fas fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="togglePassword"
+                        >
+                            <i class="fas fa-eye"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="login-options">
+
+                    <label class="remember-me">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        <span>Remember me</span>
+
+                    </label>
+
+                    <a href="#">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-btn primary-btn"
+                >
+
+                    <i class="fas fa-right-to-bracket"></i>
+
+                    Sign In
+
+                </button>
+
+            </form>
+
+
+            <div class="login-divider">
+                <span>OR</span>
+            </div>
+
+
+            <a
+                href="expert-register.html"
+                class="auth-btn secondary-btn"
+            >
+
+                <i class="fas fa-user-plus"></i>
+
+                Become an Industry Expert
+
+            </a>
+
+
+            <p class="back-login">
+
+                <a href="login.html">
+
+                    <i class="fas fa-arrow-left"></i>
+
+                    Back to account selection
+
+                </a>
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer class="auth-footer">
+        © 2026 Udaanix. Your career, your future.
+    </footer>
+
+</div>
+
+
+<script>
+
+const togglePassword =
+    document.getElementById("togglePassword");
+
+const password =
+    document.getElementById("password");
+
+
+togglePassword.addEventListener("click", function () {
+
+    const show =
+        password.type === "password";
+
+    password.type =
+        show ? "text" : "password";
+
+    this.innerHTML =
+        show
+        ? '<i class="fas fa-eye-slash"></i>'
+        : '<i class="fas fa-eye"></i>';
+
+});
+
+
+const email =
+    document.getElementById("email");
+
+const rememberMe =
+    document.getElementById("rememberMe");
+
+
+const savedEmail =
+    localStorage.getItem("udaanixExpertEmail");
+
+
+if (savedEmail) {
+
+    email.value = savedEmail;
+    rememberMe.checked = true;
+
+}
+
+
+document
+    .getElementById("expertLoginForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        if (rememberMe.checked) {
+
+            localStorage.setItem(
+                "udaanixExpertEmail",
+                email.value
+            );
+
+        } else {
+
+            localStorage.removeItem(
+                "udaanixExpertEmail"
+            );
+
+        }
+
+        window.location.href =
+            "expert-dashboard.html";
+
+    });
+
+</script>
+
+</body>
+</html>

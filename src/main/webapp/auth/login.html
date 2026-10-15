@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Udaanix</title>
+
+    <!-- Existing Udaanix styles -->
+    <link rel="stylesheet" href="../css/udaanix-theme.css">
+    <link rel="stylesheet" href="auth.css">
+
+    <!-- Common-login-only styling -->
+    <link rel="stylesheet" href="common-login.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="auth-page">
+
+    <div class="auth-overlay"></div>
+
+    <!-- =====================================================
+         DECORATIVE BACKGROUND ELEMENTS
+         These recreate the handwritten/reference accents.
+    ====================================================== -->
+
+    <div class="login-decorations" aria-hidden="true">
+
+        <div class="decor-quote">
+            <span class="decor-sparkles">✦</span>
+            “Better Careers. Brighter Tomorrows.”
+        </div>
+
+        <div class="decor-small-steps">
+            Small<br>
+            Steps<br>
+            <strong>Big</strong><br>
+            <strong>Future</strong>
+        </div>
+
+        <div class="decor-clarity">
+            Clarity<br>
+            Before Choice!
+            <span class="decor-underline"></span>
+        </div>
+
+        <div class="decor-dream">
+            Dream<br>
+            Learn<br>
+            Grow <span>♥</span>
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BRAND
+    ====================================================== -->
+
+    <header class="auth-brand">
+
+        <a href="../index.html">
+
+            <img
+                src="../images/udaanix-logo.png"
+                alt="Udaanix - Guiding the path to Excellence"
+            >
+
+        </a>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN LOGIN AREA
+    ====================================================== -->
+
+    <main class="auth-container">
+
+
+        <!-- =================================================
+             LEFT INTRO
+        ================================================== -->
+
+        <section class="auth-intro">
+
+
+            <span class="auth-badge">
+
+                <i class="fas fa-sparkles"></i>
+
+                Welcome to Udaanix
+
+            </span>
+
+
+            <h1>
+
+                Your Career Journey
+
+                <span>Starts Here.</span>
+
+            </h1>
+
+
+            <p>
+
+                One platform for students, counsellors and
+                industry experts to connect, learn and build
+                better career journeys together.
+
+            </p>
+
+
+            <!-- INTRO POINTS -->
+
+            <div class="intro-points">
+
+
+                <div>
+
+                    <i class="fas fa-graduation-cap"></i>
+
+                    <span>
+
+                        <strong>
+                            Explore Possibilities
+                        </strong>
+
+                        <small>
+                            Discover the right career path for your interests.
+                        </small>
+
+                    </span>
+
+                </div>
+
+
+
+                <div>
+
+                    <i class="fas fa-users"></i>
+
+                    <span>
+
+                        <strong>
+                            Get Expert Guidance
+                        </strong>
+
+                        <small>
+                            Connect with counsellors and industry experts.
+                        </small>
+
+                    </span>
+
+                </div>
+
+
+
+                <div>
+
+                    <i class="fas fa-chart-column"></i>
+
+                    <span>
+
+                        <strong>
+                            Build a Brighter Future
+                        </strong>
+
+                        <small>
+                            Learn, plan and grow with confidence.
+                        </small>
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="login-role-note">
+
+                <i class="fas fa-shield-heart"></i>
+
+                <span>
+                    Your selected profile opens the right Udaanix experience.
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             LOGIN CARD
+        ================================================== -->
+
+        <section class="login-card">
+
+
+            <!-- CARD HEADING -->
+
+            <div class="card-heading">
+
+
+                <div class="card-icon">
+
+                    <i class="fas fa-right-to-bracket"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>
+                        Welcome Back
+                    </h2>
+
+                    <p>
+                        Sign in to continue to Udaanix
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROLE SELECTOR
+            ================================================== -->
+
+            <div class="role-selector">
+
+
+                <p class="role-label">
+                    I am a
+                </p>
+
+
+                <div
+                    class="role-options"
+                    role="group"
+                    aria-label="Choose account type"
+                >
+
+
+                    <!-- STUDENT -->
+
+                    <button
+                        type="button"
+                        class="role-option active"
+                        data-role="student"
+                        aria-pressed="true"
+                    >
+
+                        <span class="role-icon">
+
+                            <i class="fas fa-graduation-cap"></i>
+
+                        </span>
+
+
+                        <span class="role-text">
+
+                            <strong>
+                                Student
+                            </strong>
+
+                            <small>
+                                Explore careers
+                            </small>
+
+                        </span>
+
+
+                    </button>
+
+
+
+                    <!-- COUNSELLOR -->
+
+                    <button
+                        type="button"
+                        class="role-option"
+                        data-role="counsellor"
+                        aria-pressed="false"
+                    >
+
+                        <span class="role-icon">
+
+                            <i class="fas fa-user-tie"></i>
+
+                        </span>
+
+
+                        <span class="role-text">
+
+                            <strong>
+                                Counsellor
+                            </strong>
+
+                            <small>
+                                Guide students
+                            </small>
+
+                        </span>
+
+
+                    </button>
+
+
+
+                    <!-- EXPERT -->
+
+                    <button
+                        type="button"
+                        class="role-option"
+                        data-role="expert"
+                        aria-pressed="false"
+                    >
+
+                        <span class="role-icon">
+
+                            <i class="fas fa-briefcase"></i>
+
+                        </span>
+
+
+                        <span class="role-text">
+
+                            <strong>
+                                Expert
+                            </strong>
+
+                            <small>
+                                Share expertise
+                            </small>
+
+                        </span>
+
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LOGIN FORM
+            ================================================== -->
+
+            <form
+                id="commonLoginForm"
+                novalidate
+            >
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+
+                    <div class="input-wrap">
+
+                        <i class="fas fa-envelope"></i>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+
+                    </div>
+
+
+                    <small
+                        class="field-error"
+                        id="emailError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+
+                    <div class="input-wrap">
+
+                        <i class="fas fa-lock"></i>
+
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="togglePassword"
+                            aria-label="Show password"
+                        >
+
+                            <i class="fas fa-eye"></i>
+
+                        </button>
+
+
+                    </div>
+
+
+                    <small
+                        class="field-error"
+                        id="passwordError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- OPTIONS -->
+
+                <div class="login-options">
+
+
+                    <label class="remember-me">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        <span>
+                            Remember me
+                        </span>
+
+                    </label>
+
+
+                    <a href="#">
+                        Forgot Password?
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- GENERAL MESSAGE -->
+
+                <div
+                    class="login-message"
+                    id="loginMessage"
+                    role="alert"
+                    aria-live="polite"
+                ></div>
+
+
+
+                <!-- SIGN IN -->
+
+                <button
+                    type="submit"
+                    class="auth-btn primary-btn"
+                    id="loginButton"
+                >
+
+                    <i class="fas fa-right-to-bracket"></i>
+
+                    <span id="loginButtonText">
+                        Sign In as Student
+                    </span>
+
+                    <i class="fas fa-arrow-right login-arrow"></i>
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- =================================================
+                 DIVIDER
+            ================================================== -->
+
+            <div class="login-divider">
+
+                <span>
+                    OR
+                </span>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CREATE ACCOUNT
+            ================================================== -->
+
+            <div class="create-account-box">
+
+
+                <div class="create-account-copy">
+
+                    <strong id="registerHeading">
+                        New to Udaanix?
+                    </strong>
+
+                    <span id="registerSubtext">
+                        Join us and start your journey.
+                    </span>
+
+                </div>
+
+
+                <a
+                    href="student-register.html"
+                    id="registerLink"
+                    class="create-account-btn"
+                >
+
+                    <i class="fas fa-user-plus"></i>
+
+                    <span id="registerLinkText">
+                        Create Student Account
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- BACK -->
+
+            <p class="back-login">
+
+                <a href="../index.html">
+
+                    <i class="fas fa-arrow-left"></i>
+
+                    Back to Udaanix
+
+                </a>
+
+            </p>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="auth-footer">
+
+        © 2026 Udaanix. Your career, your future.
+
+    </footer>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   ROLE CONFIG
+========================================================= */
+
+const roles = {
+
+    student: {
+
+        loginText: "Sign In as Student",
+
+        registerHeading: "New to Udaanix?",
+
+        registerSubtext:
+            "Join us and start your journey.",
+
+        registerText:
+            "Create Student Account",
+
+        registerLink:
+            "student-register.html",
+
+        emailPlaceholder:
+            "Enter your student email"
+
+    },
+
+
+    counsellor: {
+
+        loginText: "Sign In as Counsellor",
+
+        registerHeading:
+            "Want to guide students?",
+
+        registerSubtext:
+            "Join Udaanix and make a difference.",
+
+        registerText:
+            "Create Counsellor Account",
+
+        registerLink:
+            "counsellor-register.html",
+
+        emailPlaceholder:
+            "Enter your counsellor email"
+
+    },
+
+
+    expert: {
+
+        loginText: "Sign In as Expert",
+
+        registerHeading:
+            "Want to share your expertise?",
+
+        registerSubtext:
+            "Connect with students through your experience.",
+
+        registerText:
+            "Become an Industry Expert",
+
+        registerLink:
+            "expert-register.html",
+
+        emailPlaceholder:
+            "Enter your professional email"
+
+    }
+
+};
+
+
+
+/* =========================================================
+   DOM ELEMENTS
+========================================================= */
+
+const roleButtons =
+    document.querySelectorAll(".role-option");
+
+const emailInput =
+    document.getElementById("email");
+
+const passwordInput =
+    document.getElementById("password");
+
+const rememberMe =
+    document.getElementById("rememberMe");
+
+const loginButton =
+    document.getElementById("loginButton");
+
+const loginButtonText =
+    document.getElementById("loginButtonText");
+
+const registerHeading =
+    document.getElementById("registerHeading");
+
+const registerSubtext =
+    document.getElementById("registerSubtext");
+
+const registerLink =
+    document.getElementById("registerLink");
+
+const registerLinkText =
+    document.getElementById("registerLinkText");
+
+const loginMessage =
+    document.getElementById("loginMessage");
+
+const emailError =
+    document.getElementById("emailError");
+
+const passwordError =
+    document.getElementById("passwordError");
+
+
+
+/* =========================================================
+   CURRENT ROLE
+========================================================= */
+
+let selectedRole = "student";
+
+
+
+/* =========================================================
+   UPDATE ROLE UI
+========================================================= */
+
+function updateLoginUI() {
+
+    const config =
+        roles[selectedRole];
+
+
+    /* Button */
+
+    loginButtonText.textContent =
+        config.loginText.replace(
+            "Sign In as ",
+            ""
+        );
+
+
+    /* Registration */
+
+    registerHeading.textContent =
+        config.registerHeading;
+
+
+    registerSubtext.textContent =
+        config.registerSubtext;
+
+
+    registerLinkText.textContent =
+        config.registerText;
+
+
+    registerLink.href =
+        config.registerLink;
+
+
+    /* Email placeholder */
+
+    emailInput.placeholder =
+        config.emailPlaceholder;
+
+
+    /* Accessibility */
+
+    roleButtons.forEach(button => {
+
+        button.setAttribute(
+            "aria-pressed",
+            button.dataset.role === selectedRole
+        );
+
+    });
+
+
+    /* Remember role */
+
+    localStorage.setItem(
+        "udaanixSelectedRole",
+        selectedRole
+    );
+
+
+    /* Load remembered email */
+
+    loadRememberedEmail();
+
+
+    clearErrors();
+
+}
+
+
+
+/* =========================================================
+   ROLE CLICK
+========================================================= */
+
+roleButtons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function () {
+
+
+            /* If same role clicked, still show press animation */
+
+            this.classList.remove(
+                "role-clicked"
+            );
+
+
+            /* Force browser reflow */
+
+            void this.offsetWidth;
+
+
+            /* Play click animation */
+
+            this.classList.add(
+                "role-clicked"
+            );
+
+
+            /* Remove old active */
+
+            roleButtons.forEach(item => {
+
+                item.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+            /* Activate clicked card */
+
+            this.classList.add(
+                "active"
+            );
+
+
+            /* Set role */
+
+            selectedRole =
+                this.dataset.role;
+
+
+            /* Update everything */
+
+            updateLoginUI();
+
+
+            /* Clean temporary animation class */
+
+            setTimeout(() => {
+
+                this.classList.remove(
+                    "role-clicked"
+                );
+
+            }, 360);
+
+
+        }
+    );
+
+});
+
+
+
+/* =========================================================
+   RESTORE LAST SELECTED ROLE
+========================================================= */
+
+const urlRole =
+    new URLSearchParams(window.location.search).get("role");
+
+const storedRole =
+    localStorage.getItem(
+        "udaanixSelectedRole"
+    );
+
+const initialRole =
+    urlRole &&
+    Object.prototype.hasOwnProperty.call(roles, urlRole)
+        ? urlRole
+        : storedRole;
+
+
+if (
+    initialRole &&
+    Object.prototype.hasOwnProperty.call(
+        roles,
+        initialRole
+    )
+) {
+
+    selectedRole =
+        initialRole;
+
+
+    roleButtons.forEach(button => {
+
+        button.classList.toggle(
+            "active",
+            button.dataset.role === selectedRole
+        );
+
+    });
+
+}
+
+
+updateLoginUI();
+
+
+
+/* =========================================================
+   PASSWORD SHOW / HIDE
+========================================================= */
+
+document
+    .getElementById("togglePassword")
+    .addEventListener(
+        "click",
+        function () {
+
+
+            const show =
+                passwordInput.type === "password";
+
+
+            passwordInput.type =
+                show
+                ? "text"
+                : "password";
+
+
+            this.innerHTML =
+                show
+
+                ? '<i class="fas fa-eye-slash"></i>'
+
+                : '<i class="fas fa-eye"></i>';
+
+
+            this.setAttribute(
+                "aria-label",
+                show
+                ? "Hide password"
+                : "Show password"
+            );
+
+
+        }
+    );
+
+
+
+/* =========================================================
+   REMEMBER EMAIL
+========================================================= */
+
+function getRememberedEmail() {
+
+    return localStorage.getItem(
+        "udaanix_" +
+        selectedRole +
+        "_rememberedEmail"
+    );
+
+}
+
+
+
+function loadRememberedEmail() {
+
+    const savedEmail =
+        getRememberedEmail();
+
+
+    if (savedEmail) {
+
+        emailInput.value =
+            savedEmail;
+
+        rememberMe.checked =
+            true;
+
+    } else {
+
+        emailInput.value =
+            "";
+
+        rememberMe.checked =
+            false;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   VALIDATION
+========================================================= */
+
+function clearErrors() {
+
+    emailError.textContent =
+        "";
+
+    passwordError.textContent =
+        "";
+
+    loginMessage.textContent =
+        "";
+
+    loginMessage.className =
+        "login-message";
+
+}
+
+
+
+function validateForm() {
+
+    clearErrors();
+
+
+    const email =
+        emailInput.value.trim();
+
+
+    const password =
+        passwordInput.value;
+
+
+    let valid = true;
+
+
+    if (!email) {
+
+        emailError.textContent =
+            "Please enter your email address.";
+
+        valid = false;
+
+    }
+
+    else if (
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    ) {
+
+        emailError.textContent =
+            "Please enter a valid email address.";
+
+        valid = false;
+
+    }
+
+
+    if (!password) {
+
+        passwordError.textContent =
+            "Please enter your password.";
+
+        valid = false;
+
+    }
+
+
+    return valid;
+
+}
+
+
+
+/* =========================================================
+   LOGIN SUBMIT
+========================================================= */
+
+document
+    .getElementById("commonLoginForm")
+    .addEventListener(
+        "submit",
+        function (event) {
+
+
+            event.preventDefault();
+
+
+            if (!validateForm()) {
+
+                return;
+
+            }
+
+
+            const enteredEmail =
+                emailInput.value.trim();
+
+
+            /* Remember email */
+
+            if (rememberMe.checked) {
+
+                localStorage.setItem(
+
+                    "udaanix_" +
+                    selectedRole +
+                    "_rememberedEmail",
+
+                    enteredEmail
+
+                );
+
+            } else {
+
+                localStorage.removeItem(
+
+                    "udaanix_" +
+                    selectedRole +
+                    "_rememberedEmail"
+
+                );
+
+            }
+
+
+
+            /* Button loading state */
+
+            loginButton.disabled =
+                true;
+
+
+            loginButton.classList.add(
+                "is-loading"
+            );
+
+
+            loginButtonText.textContent =
+                "Signing in";
+
+
+            loginButton
+                .querySelector(".login-arrow")
+                .className =
+                "fas fa-spinner fa-spin login-arrow";
+
+
+
+            /* REAL BACKEND LOGIN */
+
+            fetch("../api/auth/login", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: new URLSearchParams({
+                    email: enteredEmail,
+                    password: passwordInput.value,
+                    role: selectedRole.toUpperCase()
+                }).toString()
+            })
+            .then(async response => {
+                let data = null;
+
+                try {
+                    data = await response.json();
+                } catch (e) {}
+
+                if (response.ok && data && data.success === true) {
+
+                    loginMessage.className = "login-message success";
+                    loginMessage.textContent =
+                        "Login successful! Redirecting...";
+
+                    setTimeout(() => {
+
+                        if (selectedRole === "student") {
+                            window.location.href =
+                                "student-dashboard.html";
+
+                        } else if (selectedRole === "counsellor") {
+                            window.location.href =
+                                "counsellor-dashboard.html";
+
+                        } else if (selectedRole === "expert") {
+                            window.location.href =
+                                "expert-dashboard.html";
+                        }
+
+                    }, 450);
+
+                } else {
+
+                    loginMessage.className = "login-message error";
+                    loginMessage.textContent =
+                        (data && data.message)
+                            ? data.message
+                            : "Invalid email or password.";
+
+                    resetLoginButton();
+                }
+            })
+            .catch(error => {
+
+                console.error("Udaanix Login Error:", error);
+
+                loginMessage.className = "login-message error";
+                loginMessage.textContent =
+                    "Unable to connect to server. Please make sure GlassFish is running.";
+
+                resetLoginButton();
+            });
+
+            function resetLoginButton() {
+                loginButton.disabled = false;
+                loginButton.classList.remove("is-loading");
+
+                loginButtonText.textContent =
+                    roles[selectedRole].loginText.replace(
+                        "Sign In as ",
+                        ""
+                    );
+
+                loginButton.querySelector(".login-arrow").className =
+                    "fas fa-arrow-right login-arrow";
+            }
+
+        }
+    );
+
+
+
+/* =========================================================
+   CLEAR ERROR WHILE TYPING
+========================================================= */
+
+emailInput.addEventListener(
+    "input",
+    function () {
+
+        emailError.textContent =
+            "";
+
+    }
+);
+
+
+passwordInput.addEventListener(
+    "input",
+    function () {
+
+        passwordError.textContent =
+            "";
+
+    }
+);
+
+</script>
+
+</body>
+</html>

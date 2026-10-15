@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Counsellor Registration | Udaanix</title>
+
+    <link rel="stylesheet" href="../css/udaanix-theme.css">
+    <link rel="stylesheet" href="auth.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+<div class="auth-page register-page">
+
+    <div class="auth-overlay"></div>
+
+
+    <!-- =====================================================
+         BRAND
+         ===================================================== -->
+
+    <header class="auth-brand">
+
+        <a href="../index.html" aria-label="Udaanix Home">
+
+            <img src="../images/udaanix-logo.png"
+                 alt="Udaanix - Guiding the path to Excellence">
+
+        </a>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="auth-container register-container">
+
+
+        <!-- =================================================
+             INTRO SECTION
+             ================================================= -->
+
+        <section class="auth-intro">
+
+            <span class="auth-badge">
+
+                <i class="fas fa-user-tie"></i>
+
+                Counsellor Registration
+
+            </span>
+
+
+            <h1>
+
+                Turn Guidance Into
+
+                <span>Impact.</span>
+
+            </h1>
+
+
+            <p>
+
+                Join Udaanix as a counsellor and help students discover
+                the right direction for their education and career.
+
+            </p>
+
+
+            <div class="intro-points">
+
+                <div>
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>Connect with students</span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>Showcase your expertise</span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>Manage sessions</span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>Build your profile</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             REGISTRATION CARD
+             ================================================= -->
+
+        <section class="login-card register-card">
+
+
+            <!-- CARD HEADING -->
+
+            <div class="card-heading">
+
+                <div class="card-icon">
+
+                    <i class="fas fa-user-tie"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>Create Counsellor Account</h2>
+
+                    <p>
+                        Tell us about your professional background
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 REGISTRATION FORM
+                 ================================================= -->
+
+            <form id="counsellorRegisterForm">
+
+
+                <div class="form-grid">
+
+
+                    <!-- =================================================
+                         FIRST NAME
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="firstName">
+                            First Name
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                placeholder="First name"
+                                autocomplete="given-name"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         LAST NAME
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="lastName">
+                            Last Name
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                placeholder="Last name"
+                                autocomplete="family-name"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         EMAIL
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="your@email.com"
+                                autocomplete="email"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         MOBILE
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="mobile">
+                            Mobile Number
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-mobile-screen"></i>
+
+                            <input
+                                type="tel"
+                                id="mobile"
+                                name="mobile"
+                                placeholder="+91 XXXXX XXXXX"
+                                pattern="[+]?[0-9 ]{10,15}"
+                                autocomplete="tel"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         QUALIFICATION
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="qualification">
+                            Highest Qualification
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-graduation-cap"></i>
+
+                            <select
+                                id="qualification"
+                                name="qualification"
+                                required>
+
+                                <option value="">
+                                    Select qualification
+                                </option>
+
+                                <option value="Master's Degree">
+                                    Master's Degree
+                                </option>
+
+                                <option value="Bachelor's Degree">
+                                    Bachelor's Degree
+                                </option>
+
+                                <option value="PG Diploma">
+                                    PG Diploma
+                                </option>
+
+                                <option value="Diploma">
+                                    Diploma
+                                </option>
+
+                                <option value="PhD">
+                                    PhD
+                                </option>
+
+                                <option value="Professional Certification">
+                                    Professional Certification
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         SPECIALIZATION
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="specialization">
+                            Specialization
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-compass"></i>
+
+                            <select
+                                id="specialization"
+                                name="specialization"
+                                required>
+
+                                <option value="">
+                                    Select specialization
+                                </option>
+
+                                <option value="Career Guidance">
+                                    Career Guidance
+                                </option>
+
+                                <option value="Education Counselling">
+                                    Education Counselling
+                                </option>
+
+                                <option value="Psychology & Career Counselling">
+                                    Psychology & Career Counselling
+                                </option>
+
+                                <option value="Study Abroad">
+                                    Study Abroad
+                                </option>
+
+                                <option value="College Admissions">
+                                    College Admissions
+                                </option>
+
+                                <option value="Skill & Aptitude Guidance">
+                                    Skill & Aptitude Guidance
+                                </option>
+
+                                <option value="Corporate / Industry Guidance">
+                                    Corporate / Industry Guidance
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         EXPERIENCE
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="experience">
+                            Experience
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-briefcase"></i>
+
+                            <select
+                                id="experience"
+                                name="experience"
+                                required>
+
+                                <option value="">
+                                    Select experience
+                                </option>
+
+                                <option value="0–2 Years">
+                                    0–2 Years
+                                </option>
+
+                                <option value="3–5 Years">
+                                    3–5 Years
+                                </option>
+
+                                <option value="6–10 Years">
+                                    6–10 Years
+                                </option>
+
+                                <option value="11–15 Years">
+                                    11–15 Years
+                                </option>
+
+                                <option value="15+ Years">
+                                    15+ Years
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         CITY
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="city">
+                            City
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-location-dot"></i>
+
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                placeholder="Your city"
+                                autocomplete="address-level2"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         PASSWORD
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create password"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required>
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="password"
+                                aria-label="Show password">
+
+                                <i class="fas fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         CONFIRM PASSWORD
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Confirm password"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required>
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="confirmPassword"
+                                aria-label="Show password">
+
+                                <i class="fas fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     TERMS
+                     ================================================= -->
+
+                <label class="terms-check">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required>
+
+                    <span>
+
+                        I agree to Udaanix
+
+                        <a href="#" onclick="return false;">
+                            Terms
+                        </a>
+
+                        &amp;
+
+                        <a href="#" onclick="return false;">
+                            Privacy Policy
+                        </a>.
+
+                    </span>
+
+                </label>
+
+
+                <!-- =================================================
+                     SUBMIT BUTTON
+                     ================================================= -->
+
+                <button
+                    type="submit"
+                    class="auth-btn primary-btn"
+                    id="registerBtn">
+
+                    <i class="fas fa-user-plus"></i>
+
+                    Create Counsellor Account
+
+                </button>
+
+
+                <!-- =================================================
+                     SERVER MESSAGE
+                     ================================================= -->
+
+                <div
+                    id="registerMessage"
+                    style="
+                        display: none;
+                        margin-top: 15px;
+                        text-align: center;
+                        font-weight: 600;
+                    ">
+                </div>
+
+
+            </form>
+
+
+            <!-- =================================================
+                 DIVIDER
+                 ================================================= -->
+
+            <div class="login-divider">
+
+                <span>OR</span>
+
+            </div>
+
+
+            <!-- =================================================
+                 LOGIN LINK
+                 ================================================= -->
+
+            <p class="account-link">
+
+                Already have an account?
+
+                <a href="counsellor-login.html">
+                    Sign In
+                </a>
+
+            </p>
+
+
+            <!-- =================================================
+                 BACK
+                 ================================================= -->
+
+            <p class="back-login">
+
+                <a href="login.html">
+
+                    <i class="fas fa-arrow-left"></i>
+
+                    Back to account selection
+
+                </a>
+
+            </p>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="auth-footer">
+
+        © 2026 Udaanix. Your career, your future.
+
+    </footer>
+
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   PASSWORD SHOW / HIDE
+   ========================================================= */
+
+document
+    .querySelectorAll(".password-toggle")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const input =
+                document.getElementById(
+                    button.dataset.target
+                );
+
+            if (!input) {
+                return;
+            }
+
+            const show =
+                input.type === "password";
+
+            input.type =
+                show
+                    ? "text"
+                    : "password";
+
+            button.innerHTML =
+                show
+                    ? '<i class="fas fa-eye-slash"></i>'
+                    : '<i class="fas fa-eye"></i>';
+
+            button.setAttribute(
+                "aria-label",
+                show
+                    ? "Hide password"
+                    : "Show password"
+            );
+
+        });
+
+    });
+
+
+
+/* =========================================================
+   COUNSELLOR REGISTRATION
+   ========================================================= */
+
+document
+    .getElementById("counsellorRegisterForm")
+    .addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            /* =================================================
+               GET FORM VALUES
+               ================================================= */
+
+            const firstName =
+                document
+                    .getElementById("firstName")
+                    .value
+                    .trim();
+
+
+            const lastName =
+                document
+                    .getElementById("lastName")
+                    .value
+                    .trim();
+
+
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
+
+            const mobile =
+                document
+                    .getElementById("mobile")
+                    .value
+                    .trim();
+
+
+            const qualification =
+                document
+                    .getElementById("qualification")
+                    .value;
+
+
+            const specialization =
+                document
+                    .getElementById("specialization")
+                    .value;
+
+
+            const experience =
+                document
+                    .getElementById("experience")
+                    .value;
+
+
+            const city =
+                document
+                    .getElementById("city")
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById("password")
+                    .value;
+
+
+            const confirmPassword =
+                document
+                    .getElementById("confirmPassword")
+                    .value;
+
+
+
+            /* =================================================
+               PASSWORD MATCH
+               ================================================= */
+
+            if (password !== confirmPassword) {
+
+                alert(
+                    "Passwords do not match."
+                );
+
+                return;
+            }
+
+
+
+            /* =================================================
+               PASSWORD LENGTH
+               ================================================= */
+
+            if (password.length < 8) {
+
+                alert(
+                    "Password must contain at least 8 characters."
+                );
+
+                return;
+            }
+
+
+
+            /* =================================================
+               CLEAN MOBILE
+               ================================================= */
+
+            const cleanMobile =
+                mobile.replace(/\s+/g, "");
+
+
+
+            /* =================================================
+               CREATE FORM DATA
+               ================================================= */
+
+            const formData =
+                new URLSearchParams();
+
+
+            formData.append(
+                "firstName",
+                firstName
+            );
+
+
+            formData.append(
+                "lastName",
+                lastName
+            );
+
+
+            formData.append(
+                "email",
+                email
+            );
+
+
+            formData.append(
+                "mobile",
+                cleanMobile
+            );
+
+
+            formData.append(
+                "qualification",
+                qualification
+            );
+
+
+            formData.append(
+                "specialization",
+                specialization
+            );
+
+
+            formData.append(
+                "experience",
+                experience
+            );
+
+
+            formData.append(
+                "city",
+                city
+            );
+
+
+            formData.append(
+                "password",
+                password
+            );
+
+
+
+            /* =================================================
+               UI ELEMENTS
+               ================================================= */
+
+            const registerBtn =
+                document.getElementById(
+                    "registerBtn"
+                );
+
+
+            const message =
+                document.getElementById(
+                    "registerMessage"
+                );
+
+
+
+            /* =================================================
+               DISABLE BUTTON
+               ================================================= */
+
+            registerBtn.disabled = true;
+
+            registerBtn.innerHTML =
+                '<i class="fas fa-spinner fa-spin"></i> '
+                + 'Creating Account...';
+
+
+            message.style.display = "none";
+
+
+
+            /* =================================================
+               SEND DATA TO BACKEND
+               ================================================= */
+
+            try {
+
+                const response =
+                    await fetch(
+                        "../api/auth/counsellor/register",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/x-www-form-urlencoded;charset=UTF-8"
+                            },
+
+                            body:
+                                formData.toString()
+                        }
+                    );
+
+
+
+                /* =================================================
+                   READ RESPONSE
+                   ================================================= */
+
+                const responseText =
+                    await response.text();
+
+
+                let data;
+
+
+                try {
+
+                    data =
+                        JSON.parse(
+                            responseText
+                        );
+
+                } catch (jsonError) {
+
+                    console.error(
+                        "Invalid server response:",
+                        responseText
+                    );
+
+                    throw new Error(
+                        "Server returned an invalid response."
+                    );
+                }
+
+
+
+                /* =================================================
+                   SUCCESS
+                   ================================================= */
+
+                if (
+                    response.ok
+                    && data.success
+                ) {
+
+                    message.style.display =
+                        "block";
+
+                    message.style.color =
+                        "#198754";
+
+                    message.innerHTML =
+                        '<i class="fas fa-circle-check"></i> '
+                        + data.message;
+
+
+                    registerBtn.innerHTML =
+                        '<i class="fas fa-check"></i> '
+                        + 'Account Created';
+
+
+                    /*
+                     * Redirect to counsellor login
+                     * after successful registration.
+                     */
+
+                    setTimeout(() => {
+
+                        window.location.href =
+                            "counsellor-login.html";
+
+                    }, 1500);
+
+
+                    return;
+                }
+
+
+
+                /* =================================================
+                   SERVER ERROR
+                   ================================================= */
+
+                message.style.display =
+                    "block";
+
+                message.style.color =
+                    "#dc3545";
+
+                message.innerHTML =
+                    '<i class="fas fa-circle-exclamation"></i> '
+                    + (
+                        data.message
+                        || "Registration failed."
+                    );
+
+
+                registerBtn.disabled =
+                    false;
+
+                registerBtn.innerHTML =
+                    '<i class="fas fa-user-plus"></i> '
+                    + 'Create Counsellor Account';
+
+
+            } catch (error) {
+
+                console.error(
+                    "Counsellor registration error:",
+                    error
+                );
+
+
+                message.style.display =
+                    "block";
+
+                message.style.color =
+                    "#dc3545";
+
+                message.innerHTML =
+                    '<i class="fas fa-circle-exclamation"></i> '
+                    + (
+                        error.message
+                        || "Unable to connect to the server."
+                    );
+
+
+                registerBtn.disabled =
+                    false;
+
+                registerBtn.innerHTML =
+                    '<i class="fas fa-user-plus"></i> '
+                    + 'Create Counsellor Account';
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

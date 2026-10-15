@@ -1,0 +1,346 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Career Intelligence | Udaanix</title>
+
+    <meta name="description"
+          content="Explore career pathways, compare courses, discover opportunities and plan your future with Udaanix.">
+
+    <!-- Career Explorer stylesheet -->
+    <link rel="stylesheet" href="../css/career-explorer.css">
+</head>
+
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header class="top">
+    <a href="../index.html" class="brand" aria-label="Udaanix Home">
+        <img src="../images/udaanix-logo.png" alt="Udaanix">
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="../streams/career-explorer.html"
+           class="nav-link active"
+           aria-current="page">Streams</a>
+
+        <a href="../streams/career-explorer.html"
+           class="nav-link">Careers</a>
+
+        <a href="../assessment/assessment.html"
+           class="nav-link">Assessment</a>
+
+        <a href="../experts/experts.html"
+           class="nav-link">Experts</a>
+
+        <a href="../community/community.html"
+           class="nav-link">Community</a>
+
+        <a href="../auth/login.html"
+           class="nav-link signin-link">Sign in</a>
+    </nav>
+</header>
+
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<main>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+
+        <p class="eyebrow">04 / CAREER INTELLIGENCE</p>
+
+        <div class="hero-row">
+
+            <div class="hero-content">
+                <h1>
+                    See the <em>whole path.</em>
+                </h1>
+
+                <p>
+                    Choose a stream, compare education routes, discover
+                    national and international careers, and explore
+                    what you can become.
+                </p>
+            </div>
+
+            <div class="hero-note">
+                Information should help you decide — not overwhelm you.
+                <br>
+                <b>Filter, compare and explore.</b>
+            </div>
+
+        </div>
+
+        <!-- Stream selection -->
+        <div class="stream-tabs"
+             id="streamTabs"
+             role="group"
+             aria-label="Choose your academic stream">
+
+            <button type="button"
+                    data-stream="science"
+                    class="active"
+                    aria-pressed="true">
+                Science
+            </button>
+
+            <button type="button"
+                    data-stream="commerce"
+                    aria-pressed="false">
+                Commerce
+            </button>
+
+            <button type="button"
+                    data-stream="arts"
+                    aria-pressed="false">
+                Arts &amp; Humanities
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== SEARCH & FILTERS ==================== -->
+    <section class="toolbar"
+             aria-label="Search and filter career opportunities">
+
+        <input
+            type="search"
+            id="search"
+            placeholder="Search careers, courses, skills, exams..."
+            aria-label="Search careers, courses, skills and exams"
+            autocomplete="off">
+
+        <select id="sector" aria-label="Filter by opportunity type">
+            <option value="all">All opportunity types</option>
+            <option value="Government">Government</option>
+            <option value="Private">Private</option>
+            <option value="International">International</option>
+            <option value="National">National</option>
+            <option value="Entrepreneurship">Entrepreneurship</option>
+        </select>
+
+        <select id="stage" aria-label="Filter by study stage">
+            <option value="all">All study stages</option>
+            <option value="After 10th">After 10th</option>
+            <option value="After 12th">After 12th</option>
+            <option value="After Graduation">After Graduation</option>
+            <option value="After Postgraduation">After Postgraduation</option>
+        </select>
+
+        <select id="mode" aria-label="Filter by learning route">
+            <option value="all">All learning routes</option>
+            <option value="Degree">Degree</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Certification">Certification</option>
+            <option value="Professional Exam">Professional Exam</option>
+        </select>
+
+    </section>
+
+
+    <!-- ==================== CAREER PATHWAYS ==================== -->
+    <section class="career-section"
+             aria-labelledby="streamTitle">
+
+        <div class="section-head">
+
+            <div class="section-heading-content">
+                <p class="eyebrow" id="streamEyebrow">SCIENCE</p>
+
+                <h2 id="streamTitle">
+                    Science career pathways
+                </h2>
+
+                <p id="streamIntro">
+                    Explore medicine, engineering, technology, research,
+                    education, aviation, public service and emerging
+                    scientific careers.
+                </p>
+            </div>
+
+            <span id="count"
+                  class="count"
+                  aria-live="polite">
+                Loading career profiles...
+            </span>
+
+        </div>
+
+
+        <!-- Quick filters -->
+        <div class="quick"
+             role="group"
+             aria-label="Quick career filters">
+
+            <button type="button" data-quick="popular">
+                Popular paths
+            </button>
+
+            <button type="button" data-quick="government">
+                Government
+            </button>
+
+            <button type="button" data-quick="international">
+                International
+            </button>
+
+            <button type="button" data-quick="emerging">
+                Emerging careers
+            </button>
+
+            <button type="button" id="clearFilters">
+                Clear filters
+            </button>
+
+        </div>
+
+
+        <!-- Career cards are rendered by career-explore.js -->
+        <div id="careerGrid"
+             class="grid"
+             aria-live="polite"
+             aria-busy="false">
+
+            <p class="loading-message">
+                Loading career pathways...
+            </p>
+
+        </div>
+
+
+        <button type="button"
+                id="loadMore"
+                class="load-more"
+                hidden>
+            Explore more careers
+        </button>
+
+    </section>
+
+
+    <!-- ==================== ROADMAP ==================== -->
+    <section class="roadmap"
+             aria-labelledby="roadmapTitle">
+
+        <h2 id="roadmapTitle">
+            How to choose your next step
+        </h2>
+
+        <div id="roadmap">
+            <!-- Roadmap steps are rendered by JavaScript -->
+        </div>
+
+    </section>
+
+
+    <!-- ==================== CONTRIBUTOR SECTION ==================== -->
+    <section class="contribute">
+
+        <div class="contribute-content">
+
+            <p class="eyebrow">COMMUNITY CAREER LIBRARY</p>
+
+            <h2>
+                Are you a counsellor or industry expert?
+            </h2>
+
+            <p>
+                Add a career profile, course route, skill roadmap or
+                industry insight. Your submission can help students
+                explore beyond the usual choices.
+            </p>
+
+        </div>
+
+
+        <form id="contributorForm">
+
+            <label for="contributorName">Your name</label>
+            <input
+                type="text"
+                id="contributorName"
+                name="name"
+                placeholder="Your name"
+                required>
+
+            <label for="contributorRole">Your role</label>
+            <input
+                type="text"
+                id="contributorRole"
+                name="role"
+                placeholder="Counsellor / Industry expert"
+                required>
+
+            <label for="contributorCareer">Career or course</label>
+            <input
+                type="text"
+                id="contributorCareer"
+                name="career"
+                placeholder="Career or course title"
+                required>
+
+            <label for="contributorStream">Academic stream</label>
+            <select
+                id="contributorStream"
+                name="stream"
+                required>
+
+                <option value="science">Science</option>
+                <option value="commerce">Commerce</option>
+                <option value="arts">Arts &amp; Humanities</option>
+
+            </select>
+
+            <label for="contributorDetails">
+                Career insight and advice
+            </label>
+
+            <textarea
+                id="contributorDetails"
+                name="details"
+                placeholder="Education route, skills, opportunities and advice"
+                required></textarea>
+
+            <button type="submit">
+                Submit career insight
+            </button>
+
+            <p id="submitStatus"
+               aria-live="polite"></p>
+
+        </form>
+
+    </section>
+
+</main>
+
+
+<!-- ==================== CAREER DETAIL DIALOG ==================== -->
+<dialog id="detail"
+        aria-labelledby="detailDialogTitle">
+
+    <button type="button"
+            class="close"
+            id="close"
+            aria-label="Close career details">
+        &times;
+    </button>
+
+    <div id="detailBody">
+        <!-- Selected career details are rendered by JavaScript -->
+    </div>
+
+</dialog>
+
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script src="../js/career-explorer.js"></script>
+</body>
+</html>
+```

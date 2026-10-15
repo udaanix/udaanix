@@ -1,0 +1,16 @@
+
+# Maven generated files
+target/
+
+# NetBeans local files
+nbproject/private/
+nb-configuration.xml
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets and local environment
+.env

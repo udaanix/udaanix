@@ -1,0 +1,1322 @@
+/* =========================================================
+   UDAANIX COMMON LOGIN
+   PREMIUM ROLE SELECTOR + SUPPORTING UI
+   Existing auth.css remains untouched.
+========================================================= */
+
+
+/* =========================================================
+   ROLE SELECTOR
+========================================================= */
+
+.role-selector {
+    margin: 0 0 24px;
+}
+
+.role-label {
+    margin: 0 0 11px 2px;
+
+    font-size: 13px;
+    line-height: 1.2;
+
+    font-weight: 750;
+
+    color: #172554;
+}
+
+
+/* =========================================================
+   ROLE CARDS CONTAINER
+========================================================= */
+
+.role-options {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 11px;
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
+   ROLE CARD
+========================================================= */
+
+.role-option {
+
+    position: relative;
+
+    min-width: 0;
+
+    min-height: 100px;
+
+    padding: 13px 8px 12px;
+
+    border: 1.5px solid #dbe4f0;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f9fbff 100%
+        );
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    text-align: center;
+
+    font-family: inherit;
+
+    color: #172554;
+
+    box-shadow:
+        0 5px 16px
+        rgba(30, 41, 59, 0.045);
+
+    outline: none;
+
+    transition:
+        transform 0.22s cubic-bezier(.2,.8,.2,1),
+        border-color 0.22s ease,
+        background 0.22s ease,
+        box-shadow 0.22s ease;
+
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.role-option:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        #a5b4fc;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f4f6ff
+        );
+
+    box-shadow:
+        0 12px 25px
+        rgba(79, 70, 229, 0.10);
+
+}
+
+
+/* =========================================================
+   PRESS
+========================================================= */
+
+.role-option:active {
+
+    transform:
+        scale(0.95);
+
+}
+
+
+/* =========================================================
+   CLICK ANIMATION
+========================================================= */
+
+.role-option.role-clicked {
+
+    animation:
+        rolePress 0.34s
+        cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+@keyframes rolePress {
+
+    0% {
+
+        transform:
+            scale(1);
+
+    }
+
+    35% {
+
+        transform:
+            scale(0.93);
+
+    }
+
+    68% {
+
+        transform:
+            scale(1.025);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================================
+   ROLE ICON
+========================================================= */
+
+.role-icon {
+
+    width: 43px;
+    height: 43px;
+
+    min-width: 43px;
+
+    border-radius: 13px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+
+    color: #64748b;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f1f5f9,
+            #e8edff
+        );
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,0.9);
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* =========================================================
+   ROLE TEXT
+========================================================= */
+
+.role-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 3px;
+
+    min-width: 0;
+
+}
+
+
+.role-text strong {
+
+    font-size: 13px;
+
+    line-height: 1.15;
+
+    font-weight: 750;
+
+    color: #172554;
+
+    transition:
+        color 0.22s ease;
+
+}
+
+
+.role-text small {
+
+    font-size: 10px;
+
+    line-height: 1.2;
+
+    color: #64748b;
+
+    transition:
+        color 0.22s ease;
+
+}
+
+
+/* =========================================================
+   SELECTED CARD
+========================================================= */
+
+.role-option.active {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #6366f1;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eef2ff 0%,
+            #e3e7ff 100%
+        );
+
+    box-shadow:
+        0 12px 28px
+        rgba(79, 70, 229, 0.16),
+
+        inset 0 1px 0
+        rgba(255,255,255,0.9);
+
+}
+
+
+/* =========================================================
+   SELECTED ICON
+========================================================= */
+
+.role-option.active .role-icon {
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #6366f1 0%,
+            #4338ca 100%
+        );
+
+    transform:
+        scale(1.06);
+
+    box-shadow:
+        0 7px 16px
+        rgba(79, 70, 229, 0.25);
+
+}
+
+
+/* =========================================================
+   SELECTED TEXT
+========================================================= */
+
+.role-option.active .role-text strong {
+
+    color:
+        #312e81;
+
+}
+
+
+.role-option.active .role-text small {
+
+    color:
+        #4f46e5;
+
+}
+
+
+/* =========================================================
+   SELECTED CHECK
+========================================================= */
+
+.role-option.active::after {
+
+    content: "✓";
+
+    position: absolute;
+
+    top: -8px;
+
+    right: -8px;
+
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #6366f1,
+            #4338ca
+        );
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 850;
+
+    border:
+        3px solid #ffffff;
+
+    box-shadow:
+        0 5px 13px
+        rgba(79, 70, 229, 0.27);
+
+    animation:
+        selectedPop
+        0.28s
+        cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+@keyframes selectedPop {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.45)
+            rotate(-12deg);
+
+    }
+
+    65% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.12)
+            rotate(3deg);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   KEYBOARD FOCUS
+========================================================= */
+
+.role-option:focus-visible {
+
+    outline:
+        3px solid
+        rgba(99, 102, 241, 0.24);
+
+    outline-offset:
+        3px;
+
+}
+
+
+/* =========================================================
+   LOGIN ROLE NOTE
+========================================================= */
+
+.login-role-note {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    max-width: 410px;
+
+    margin-top: 22px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    color: #64748b;
+
+}
+
+
+.login-role-note i {
+
+    margin-top: 2px;
+
+    color:
+        #4f46e5;
+
+}
+
+
+
+/* =========================================================
+   CREATE ACCOUNT BOX
+   Makes the OR section more premium while staying
+   consistent with existing Udaanix styling.
+========================================================= */
+
+.create-account-box {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 14px;
+
+    padding: 13px 14px;
+
+    border:
+        1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fafaff,
+            #f5f6ff
+        );
+
+}
+
+
+.create-account-copy {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    min-width: 0;
+
+}
+
+
+.create-account-copy strong {
+
+    font-size: 13px;
+
+    line-height: 1.2;
+
+    color: #172554;
+
+}
+
+
+.create-account-copy span {
+
+    font-size: 10px;
+
+    line-height: 1.35;
+
+    color: #64748b;
+
+}
+
+
+.create-account-btn {
+
+    flex-shrink: 0;
+
+    min-height: 40px;
+
+    padding: 9px 14px;
+
+    border:
+        1.5px solid #818cf8;
+
+    border-radius: 12px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    background: #ffffff;
+
+    color: #4338ca;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 750;
+
+    white-space: nowrap;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.create-account-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        #eef2ff;
+
+    box-shadow:
+        0 7px 16px
+        rgba(79, 70, 229, 0.12);
+
+}
+
+
+.create-account-btn:active {
+
+    transform:
+        scale(0.96);
+
+}
+
+
+
+/* =========================================================
+   LOGIN BUTTON
+   Only affects the arrow/loading additions.
+========================================================= */
+
+#loginButton {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+}
+
+
+.login-arrow {
+
+    margin-left: auto;
+
+    transition:
+        transform 0.2s ease;
+
+}
+
+
+#loginButton:hover .login-arrow {
+
+    transform:
+        translateX(3px);
+
+}
+
+
+#loginButton.is-loading {
+
+    cursor: wait;
+
+    opacity: 0.92;
+
+}
+
+
+#loginButton:disabled {
+
+    cursor: wait;
+
+}
+
+
+
+/* =========================================================
+   FIELD ERRORS
+========================================================= */
+
+.field-error {
+
+    display: block;
+
+    min-height: 0;
+
+    margin-top: 5px;
+
+    font-size: 10px;
+
+    line-height: 1.25;
+
+    color: #dc2626;
+
+}
+
+
+.login-message {
+
+    display: none;
+
+    margin:
+        -2px 0
+        12px;
+
+    padding:
+        9px 11px;
+
+    border-radius:
+        10px;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+}
+
+
+.login-message:not(:empty) {
+
+    display: block;
+
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .role-options {
+
+        gap: 9px;
+
+    }
+
+
+    .role-option {
+
+        min-height: 94px;
+
+        padding:
+            11px 7px;
+
+    }
+
+
+    .role-icon {
+
+        width: 40px;
+        height: 40px;
+
+        min-width: 40px;
+
+        font-size: 16px;
+
+    }
+
+
+    .role-text strong {
+
+        font-size: 12px;
+
+    }
+
+
+    .role-text small {
+
+        font-size: 9px;
+
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .role-options {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .role-option {
+
+        min-height: 68px;
+
+        padding:
+            10px 13px;
+
+        flex-direction: row;
+
+        justify-content: flex-start;
+
+        text-align: left;
+
+    }
+
+
+    .role-text {
+
+        align-items: flex-start;
+
+    }
+
+
+    .role-icon {
+
+        width: 39px;
+        height: 39px;
+
+        min-width: 39px;
+
+    }
+
+
+    .create-account-box {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .create-account-btn {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* =========================================================
+   REFERENCE-STYLE BACKGROUND
+   The supplied project already contains:
+   images/student-auth-bg.png
+   This keeps that exact Udaanix background artwork.
+========================================================= */
+
+.auth-page {
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(239,246,255,.36) 0%,
+            rgba(247,250,255,.22) 43%,
+            rgba(255,255,255,.48) 100%
+        ),
+        url("../images/student-auth-bg.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+}
+
+
+/* Keep the artwork visible instead of washing it out. */
+
+.auth-overlay {
+
+    background:
+        radial-gradient(
+            circle at 74% 43%,
+            rgba(255,255,255,.88) 0%,
+            rgba(255,255,255,.48) 26%,
+            rgba(255,255,255,0) 58%
+        );
+
+}
+
+
+/* =========================================================
+   HANDWRITTEN REFERENCE ACCENTS
+========================================================= */
+
+.login-decorations {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    color: #7890b8;
+
+}
+
+
+/* =========================================================
+   TOP RIGHT QUOTE
+========================================================= */
+
+.decor-quote {
+
+    position: absolute;
+
+    top: 27px;
+
+    right: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        "Comic Sans MS",
+        cursive;
+
+    font-size: 17px;
+
+    font-style: italic;
+
+    letter-spacing: .2px;
+
+    color: rgba(93,120,161,.78);
+
+    transform:
+        rotate(-1deg);
+
+}
+
+
+.decor-sparkles {
+
+    color: #f4b35f;
+
+    font-size: 21px;
+
+    text-shadow:
+        0 0 9px
+        rgba(244,179,95,.3);
+
+}
+
+
+/* =========================================================
+   LEFT SMALL STEPS
+========================================================= */
+
+.decor-small-steps {
+
+    position: absolute;
+
+    left: 74px;
+
+    top: 330px;
+
+    width: 82px;
+
+    text-align: center;
+
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        "Comic Sans MS",
+        cursive;
+
+    font-size: 16px;
+
+    line-height: 1.04;
+
+    font-style: italic;
+
+    color: rgba(102,132,177,.70);
+
+    transform:
+        rotate(-7deg);
+
+}
+
+
+.decor-small-steps strong {
+
+    font-weight: 500;
+
+}
+
+
+/* =========================================================
+   CLARITY BEFORE CHOICE
+========================================================= */
+
+.decor-clarity {
+
+    position: absolute;
+
+    left: 34.5%;
+
+    bottom: 57px;
+
+    width: 190px;
+
+    text-align: center;
+
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        "Comic Sans MS",
+        cursive;
+
+    font-size: 22px;
+
+    line-height: 1.02;
+
+    font-style: italic;
+
+    color: rgba(83,108,151,.83);
+
+    transform:
+        rotate(-4deg);
+
+}
+
+
+.decor-underline {
+
+    display: block;
+
+    width: 95px;
+
+    height: 4px;
+
+    margin:
+        8px auto 0;
+
+    border-bottom:
+        3px solid
+        rgba(91,121,177,.55);
+
+    border-radius: 50%;
+
+    transform:
+        rotate(-5deg);
+
+}
+
+
+/* =========================================================
+   RIGHT DREAM LEARN GROW
+========================================================= */
+
+.decor-dream {
+
+    position: absolute;
+
+    right: 27px;
+
+    bottom: 66px;
+
+    width: 100px;
+
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        "Comic Sans MS",
+        cursive;
+
+    font-size: 17px;
+
+    line-height: 1.17;
+
+    font-style: italic;
+
+    color: rgba(103,132,177,.70);
+
+    transform:
+        rotate(3deg);
+
+}
+
+
+.decor-dream span {
+
+    color: #9bb2de;
+
+    font-size: 21px;
+
+}
+
+
+/* =========================================================
+   MAKE LEFT CONTENT SIT ABOVE ARTWORK
+========================================================= */
+
+.auth-intro {
+
+    position: relative;
+
+    z-index: 3;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE DECORATIONS
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .decor-quote {
+
+        right: 24px;
+
+        font-size: 14px;
+
+    }
+
+
+    .decor-small-steps {
+
+        left: 28px;
+
+    }
+
+
+    .decor-clarity {
+
+        left: 31%;
+
+    }
+
+}
+
+
+@media (max-width: 1000px) {
+
+    .decor-small-steps,
+    .decor-clarity,
+    .decor-dream {
+
+        display: none;
+
+    }
+
+
+    .decor-quote {
+
+        top: 18px;
+
+        right: 22px;
+
+        font-size: 13px;
+
+    }
+
+}
+
+
+@media (max-width: 620px) {
+
+    .decor-quote {
+
+        display: none;
+
+    }
+
+}
+
+
+/* =========================================================
+   PREMIUM ROLE CARDS - REFERENCE FEEL
+========================================================= */
+
+.role-option {
+
+    background:
+        rgba(255,255,255,.86);
+
+    border:
+        1.5px solid
+        rgba(122,160,211,.32);
+
+    box-shadow:
+        0 5px 15px
+        rgba(54,88,140,.055);
+
+    backdrop-filter:
+        blur(7px);
+
+}
+
+
+.role-option:hover {
+
+    border-color:
+        rgba(91,117,243,.62);
+
+    background:
+        rgba(247,249,255,.94);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 11px 24px
+        rgba(70,91,170,.13);
+
+}
+
+
+.role-option.active {
+
+    border-color:
+        #5b5df0;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(238,242,255,.98),
+            rgba(225,228,255,.94)
+        );
+
+    box-shadow:
+        0 12px 28px
+        rgba(79,70,229,.18);
+
+}
+
+
+.role-option.active .role-icon {
+
+    background:
+        linear-gradient(
+            145deg,
+            #3677e8,
+            #5444dc
+        );
+
+}
+
+
+.role-option.active::after {
+
+    background:
+        linear-gradient(
+            145deg,
+            #5268ef,
+            #4435c8
+        );
+
+}
+
+
+/* =========================================================
+   INPUTS - SOFT REFERENCE LOOK
+========================================================= */
+
+.input-wrap input {
+
+    background:
+        rgba(250,252,255,.86);
+
+    border-color:
+        rgba(134,157,194,.32);
+
+}
+
+
+.input-wrap input:hover {
+
+    border-color:
+        rgba(96,130,190,.45);
+
+}
+
+
+/* =========================================================
+   LOGIN BUTTON - REFERENCE BLUE
+========================================================= */
+
+.primary-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            #4c73ed,
+            #315cf5
+        );
+
+    border-color:
+        #315cf5;
+
+    box-shadow:
+        0 10px 22px
+        rgba(49,92,245,.23);
+
+}
+
+
+.primary-btn:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #4168e4,
+            #244bdd
+        );
+
+}
+
+/* UDAANIX GLOBAL VISIBILITY POLISH */
+body{
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}

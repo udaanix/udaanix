@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udaanix | Career Interest Assessment</title>
+<link rel="stylesheet" href="../css/assessment.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+<header class="topbar">
+ <div class="nav">
+  <a class="logo" href="../index.html"><img src="../images/udaanix-logo.png" alt="Udaanix"></a>
+  <nav class="navlinks">
+   <a href="../index.html#streams">Streams</a><a href="../index.html#career-paths">Careers</a>
+   <a class="active" href="assessment.html">Assessment</a><a href="../index.html#counsellors">Experts</a><a href="../index.html#community">Community</a>
+  </nav>
+  <div class="navright"><a class="signin" href="../auth/login.html">Sign in</a><a class="book" href="../auth/login.html">Book a counsellor ↗</a></div>
+ </div>
+</header>
+
+<main class="test-page">
+ <div class="test-shell">
+  <section id="intro" class="assessment-intro">
+   <div class="intro-copy reveal visible">
+    <div class="eyebrow">UDAANIX ASSESSMENT · A BETTER START</div>
+    <h1>Career Interest<span class="accent">starts with knowing you.</span></h1>
+    <p class="intro-lead">Discover what naturally interests you. This short Udaanix assessment turns your responses into useful signals you can discuss, explore and act on — not a label that decides your future.</p>
+    <div class="intro-meta">
+      <span class="pill"><i class="fa-regular fa-clock"></i>&nbsp; 8 guided questions</span>
+      <span class="pill"><i class="fa-solid fa-bolt"></i>&nbsp; Quick &amp; student-friendly</span>
+      <span class="pill"><i class="fa-solid fa-lock"></i>&nbsp; Private responses</span>
+    </div>
+    <div class="intro-actions">
+      <button id="beginBtn" class="primary">Begin assessment <i class="fa-solid fa-arrow-right"></i></button>
+      <a class="secondary" href="assessment.html"><i class="fa-solid fa-layer-group"></i> All assessments</a>
+    </div>
+    <div class="intro-note"><i class="fa-solid fa-circle-check"></i><span>No “perfect” answers. Choose what feels most like you — the value comes from the pattern across your responses.</span></div>
+   </div>
+
+   <div class="assessment-visual reveal visible">
+    <div class="visual-glow"></div>
+    <div class="assessment-orbit"></div>
+    <div class="floating-chip chip-one"><i class="fa-solid fa-compass" style="color:var(--purple)"></i> Find your direction</div>
+    <div class="floating-chip chip-two"><i class="fa-solid fa-lightbulb" style="color:var(--orange)"></i> Discover signals</div>
+    <div class="floating-chip chip-three"><i class="fa-solid fa-arrow-trend-up" style="color:var(--green)"></i> Build your next step</div>
+
+    <div class="visual-core">
+      <div class="core-top">
+       <div class="core-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+       <span class="core-status"><i class="fa-solid fa-circle-check"></i> Ready</span>
+      </div>
+      <h3>Your Udaanix snapshot</h3>
+      <p>Every response adds one more signal to the picture. There is no single answer that defines your career.</p>
+      <div class="signal-list">
+       <div class="signal"><span><i class="fa-solid fa-heart"></i></span> Interests &amp; motivation</div>
+       <div class="signal"><span><i class="fa-solid fa-brain"></i></span> Strengths &amp; patterns</div>
+       <div class="signal"><span><i class="fa-solid fa-route"></i></span> Possible next steps</div>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <section class="intro-bottom reveal visible">
+   <div class="intro-bottom-item">
+    <div class="tiny-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+    <strong>Designed for decisions, not labels.</strong>
+    <span>Use the result as a conversation starter with your counsellor.</span>
+   </div>
+   <div class="intro-bottom-item">
+    <div class="tiny-icon"><i class="fa-solid fa-user-graduate"></i></div>
+    <strong>Student-first</strong><span>Simple language and focused questions.</span>
+   </div>
+   <div class="intro-bottom-item">
+    <div class="tiny-icon"><i class="fa-solid fa-chart-simple"></i></div>
+    <strong>Actionable</strong><span>Results point you toward what to explore next.</span>
+   </div>
+   <div class="intro-bottom-item">
+    <div class="tiny-icon"><i class="fa-solid fa-comments"></i></div>
+    <strong>Talk it through</strong><span>Connect the result with expert guidance.</span>
+   </div>
+  </section>
+<section id="quiz" class="hidden">
+   <div class="progress-wrap">
+    <div class="progress-meta"><span id="progressText">Question 1 of 8</span><span id="progressPercent">0%</span></div>
+    <div class="progress"><span id="progressBar"></span></div>
+   </div>
+   <div class="question-card">
+    <div class="question-number" id="questionNumber"></div>
+    <h2 id="questionText"></h2>
+    <div class="question-options" id="options"></div>
+   </div>
+   <div class="test-actions">
+    <button id="prevBtn" class="btn prev" disabled><i class="fa-solid fa-arrow-left"></i> Previous</button>
+    <button id="nextBtn" class="btn next">Next <i class="fa-solid fa-arrow-right"></i></button>
+   </div>
+  </section>
+
+  <section id="result" class="hidden">
+   <div class="result-card">
+    <div class="result-badge"><i class="fa-solid fa-heart-pulse"></i></div>
+    <div class="eyebrow">YOUR UDAANIX RESULT</div>
+    <h2 id="resultTitle"></h2>
+    <p id="resultDescription"></p>
+    <div class="result-grid" id="resultStats"></div>
+    <div class="result-note"><strong>Important:</strong> This is a guidance signal, not a final career decision. A counsellor can help you interpret your result with your academic background, goals and real-world options.</div>
+    <div class="hero-actions" style="justify-content:center">
+      <a class="primary" href="../auth/login.html">Discuss with a counsellor</a>
+      <a class="secondary" href="assessment.html">Take another assessment</a>
+    </div>
+   </div>
+  </section>
+ </div>
+</main>
+<footer class="footer">
+ <div class="footer-inner"><div><img src="../images/udaanix-logo.png" alt="Udaanix"><p>Guiding the path to Excellence.</p></div>
+ <div class="footer-links"><a href="../index.html">Home</a><a href="assessment.html">Assessments</a><a href="../auth/login.html">Sign in</a></div></div>
+ <div class="copyright">© 2026 Udaanix. All Rights Reserved.</div>
+</footer>
+<script src="../js/assessment.js"></script>
+<script>
+const QUESTIONS = [{"q": "I enjoy spending time...", "options": ["solving a difficult problem", "helping someone understand something", "creating a visual/story", "organising information and plans"], "weights": [4, 3, 2, 1]}, {"q": "Which task sounds most satisfying?", "options": ["building or testing a solution", "coaching or supporting a person", "designing something original", "analysing numbers or patterns"], "weights": [4, 3, 2, 4]}, {"q": "When I learn something new, I prefer to...", "options": ["experiment and find out how it works", "discuss it with others", "turn it into a creative project", "read deeply and compare information"], "weights": [4, 3, 2, 4]}, {"q": "In a team, I naturally become the person who...", "options": ["figures out how to make it work", "keeps everyone included", "brings ideas and presentation", "keeps details organised"], "weights": [4, 3, 2, 4]}, {"q": "A career feels exciting when it gives me...", "options": ["complex challenges", "human connection", "creative freedom", "clear measurable outcomes"], "weights": [4, 3, 2, 4]}, {"q": "I would rather spend a free afternoon...", "options": ["trying a new technology or puzzle", "volunteering or mentoring", "photography, writing or design", "planning, budgeting or researching"], "weights": [4, 3, 2, 4]}, {"q": "Which compliment would mean the most?", "options": ["You are a great problem solver", "You really understand people", "You have a creative eye", "You notice details others miss"], "weights": [4, 3, 2, 4]}, {"q": "I feel most confident when...", "options": ["I can reason through a challenge", "I can communicate and guide", "I can express an original idea", "I can work with facts and structure"], "weights": [4, 3, 2, 4]}];
+const RESULT_LABELS = [{"title": "Builder & Problem Solver", "description": "Your responses show a strong pull toward structured challenges, experimentation and making things work.", "stats": [["Interest signal", "STEM / Technology"], ["Work style", "Problem solving"], ["Next step", "Explore technical careers"]]}, {"title": "People & Guidance", "description": "Your responses show a strong interest in understanding, helping and communicating with people.", "stats": [["Interest signal", "People / Support"], ["Work style", "Collaborative"], ["Next step", "Explore people-focused careers"]]}, {"title": "Creative Explorer", "description": "Your responses point toward imagination, expression and creating ideas that others can experience.", "stats": [["Interest signal", "Creative fields"], ["Work style", "Idea generation"], ["Next step", "Explore design / media"]]}, {"title": "Analytical Strategist", "description": "Your responses show a strong preference for facts, patterns, structure and measurable outcomes.", "stats": [["Interest signal", "Analysis / Business"], ["Work style", "Structured thinking"], ["Next step", "Explore analytical careers"]]}];
+const TYPE = "career-interest";
+let current = 0;
+let answers = new Array(QUESTIONS.length).fill(null);
+
+const intro=document.getElementById("intro"), quiz=document.getElementById("quiz"), result=document.getElementById("result");
+const qText=document.getElementById("questionText"), qNo=document.getElementById("questionNumber");
+const options=document.getElementById("options"), prev=document.getElementById("prevBtn"), next=document.getElementById("nextBtn");
+const bar=document.getElementById("progressBar"), progressText=document.getElementById("progressText"), progressPercent=document.getElementById("progressPercent");
+
+document.getElementById("beginBtn").onclick=()=>{ intro.classList.add("hidden"); quiz.classList.remove("hidden"); renderQuestion(); };
+function renderQuestion(){
+ const q=QUESTIONS[current];
+ qNo.textContent=`QUESTION ${String(current+1).padStart(2,"0")}`;
+ qText.textContent=q.q; options.innerHTML="";
+ q.options.forEach((text,i)=>{
+   const b=document.createElement("button"); b.className="option"+(answers[current]===i?" selected":"");
+   b.innerHTML=`<span class="radio"></span><strong>${text}</strong>`;
+   b.onclick=()=>{answers[current]=i; renderQuestion();};
+   options.appendChild(b);
+ });
+ const pct=Math.round(((current)/(QUESTIONS.length))*100);
+ bar.style.width=pct+"%"; progressPercent.textContent=pct+"%";
+ progressText.textContent=`Question ${current+1} of ${QUESTIONS.length}`;
+ prev.disabled=current===0;
+ next.innerHTML=current===QUESTIONS.length-1?'Finish <i class="fa-solid fa-check"></i>':'Next <i class="fa-solid fa-arrow-right"></i>';
+}
+prev.onclick=()=>{if(current>0){current--;renderQuestion();}};
+next.onclick=()=>{
+ if(answers[current]===null){showToast("Please select an answer before continuing.");return;}
+ if(current<QUESTIONS.length-1){current++;renderQuestion();}
+ else finish();
+};
+function finish(){
+ let scores=[0,0,0,0];
+ QUESTIONS.forEach((q,qi)=>{const a=answers[qi]; if(a!==null)scores[a]+=q.weights[a]||1;});
+ const max=Math.max(...scores), winner=scores.indexOf(max);
+ const resultData=RESULT_LABELS[winner];
+ saveAssessmentResult(TYPE,answers,resultData.title);
+ quiz.classList.add("hidden"); result.classList.remove("hidden");
+ document.getElementById("resultTitle").textContent=resultData.title;
+ document.getElementById("resultDescription").textContent=resultData.description;
+ document.getElementById("resultStats").innerHTML=resultData.stats.map(x=>`<div class="result-stat"><small>${x[0]}</small><strong>${x[1]}</strong></div>`).join("");
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+</body>
+</html>

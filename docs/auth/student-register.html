@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration | Udaanix</title>
+
+    <!-- Udaanix Theme CSS -->
+    <link rel="stylesheet"
+          href="../css/udaanix-theme.css">
+
+    <!-- Authentication CSS -->
+    <link rel="stylesheet"
+          href="auth.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+<div class="auth-page register-page">
+
+    <!-- Overlay -->
+    <div class="auth-overlay"></div>
+
+
+    <!-- =====================================================
+         HEADER / LOGO
+    ====================================================== -->
+
+    <header class="auth-brand">
+
+        <a href="../index.html"
+           aria-label="Udaanix Home">
+
+            <img src="../images/udaanix-logo.png"
+                 alt="Udaanix - Guiding the path to Excellence">
+
+        </a>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTAINER
+    ====================================================== -->
+
+    <main class="auth-container register-container">
+
+
+        <!-- =================================================
+             LEFT INTRO SECTION
+        ================================================== -->
+
+        <section class="auth-intro">
+
+            <span class="auth-badge">
+
+                <i class="fas fa-user-plus"></i>
+
+                Student Registration
+
+            </span>
+
+
+            <h1>
+
+                Let's Build a
+
+                <span>Brighter Future.</span>
+
+            </h1>
+
+
+            <p>
+
+                Create your Udaanix account and take the first
+                step towards discovering the right career for you.
+
+            </p>
+
+
+            <!-- Intro Points -->
+
+            <div class="intro-points">
+
+                <div>
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>Personalized guidance</span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>Expert counsellors</span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>Career resources</span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>Track your progress</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REGISTRATION CARD
+        ================================================== -->
+
+        <section class="login-card register-card">
+
+
+            <!-- Card Heading -->
+
+            <div class="card-heading">
+
+                <div class="card-icon">
+
+                    <i class="fas fa-graduation-cap"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>Create Account</h2>
+
+                    <p>Tell us about yourself</p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 REGISTRATION FORM
+            ================================================== -->
+
+            <form id="studentRegisterForm">
+
+
+                <div class="form-grid">
+
+
+                    <!-- =================================================
+                         FIRST NAME
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label for="firstName">
+                            First Name
+                        </label>
+
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                placeholder="First name"
+                                autocomplete="given-name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         LAST NAME
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label for="lastName">
+                            Last Name
+                        </label>
+
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                placeholder="Last name"
+                                autocomplete="family-name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         EMAIL
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="your@email.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         MOBILE
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label for="mobile">
+                            Mobile Number
+                        </label>
+
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-mobile-screen"></i>
+
+                            <input
+                                type="tel"
+                                id="mobile"
+                                name="mobile"
+                                placeholder="+91 XXXXX XXXXX"
+                                pattern="[+]?[0-9 ]{10,15}"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         EDUCATION LEVEL
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label for="educationLevel">
+                            Education Level
+                        </label>
+
+
+                        <div class="input-wrap select-wrap">
+
+                            <i class="fas fa-graduation-cap"></i>
+
+
+                            <select
+                                id="educationLevel"
+                                name="educationLevel"
+                                required
+                            >
+
+                                <option value="">
+                                    Select your level
+                                </option>
+
+                                <option value="School">
+                                    School
+                                </option>
+
+                                <option value="Junior College">
+                                    Junior College
+                                </option>
+
+                                <option value="Undergraduate">
+                                    Undergraduate
+                                </option>
+
+                                <option value="Postgraduate">
+                                    Postgraduate
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         QUALIFICATION
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label for="qualification">
+                            Current Class / Qualification
+                        </label>
+
+
+                        <div class="input-wrap select-wrap">
+
+                            <i class="fas fa-book-open"></i>
+
+
+                            <select
+                                id="qualification"
+                                name="qualification"
+                                required
+                            >
+
+                                <option value="">
+                                    Select
+                                </option>
+
+                                <option value="Class 8">
+                                    Class 8
+                                </option>
+
+                                <option value="Class 9">
+                                    Class 9
+                                </option>
+
+                                <option value="Class 10">
+                                    Class 10
+                                </option>
+
+                                <option value="Class 11">
+                                    Class 11
+                                </option>
+
+                                <option value="Class 12">
+                                    Class 12
+                                </option>
+
+                                <option value="Diploma">
+                                    Diploma
+                                </option>
+
+                                <option value="Undergraduate">
+                                    Undergraduate
+                                </option>
+
+                                <option value="Postgraduate">
+                                    Postgraduate
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         CITY
+                         This information goes to students table
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label for="city">
+                            City
+                        </label>
+
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-city"></i>
+
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                placeholder="Enter your city"
+                                autocomplete="address-level2"
+                                maxlength="100"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         ABOUT / BIO
+                         This information goes to students table
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label for="bio">
+                            About You
+                        </label>
+
+
+                        <div class="input-wrap textarea-wrap">
+
+                            <i class="fas fa-user-edit"></i>
+
+                            <textarea
+                                id="bio"
+                                name="bio"
+                                rows="3"
+                                maxlength="500"
+                                placeholder="Tell us about yourself..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         PASSWORD
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-lock"></i>
+
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create password"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required
+                            >
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="password"
+                                aria-label="Show password"
+                            >
+
+                                <i class="fas fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         CONFIRM PASSWORD
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-lock"></i>
+
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Confirm password"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required
+                            >
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="confirmPassword"
+                                aria-label="Show password"
+                            >
+
+                                <i class="fas fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     TERMS & PRIVACY
+                ================================================== -->
+
+                <label class="terms-check">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        required
+                    >
+
+
+                    <span>
+
+                        I agree to Udaanix
+
+                        <a href="#" onclick="return false;">
+                            Terms
+                        </a>
+
+                        &amp;
+
+                        <a href="#" onclick="return false;">
+                            Privacy Policy
+                        </a>.
+
+                    </span>
+
+                </label>
+
+
+
+                <!-- =================================================
+                     SUBMIT BUTTON
+                ================================================== -->
+
+                <button
+                    type="submit"
+                    class="auth-btn primary-btn"
+                >
+
+                    <i class="fas fa-user-plus"></i>
+
+                    Create Student Account
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- =================================================
+                 DIVIDER
+            ================================================== -->
+
+            <div class="login-divider">
+
+                <span>OR</span>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LOGIN LINK
+            ================================================== -->
+
+            <p class="account-link">
+
+                Already have an account?
+
+                <a href="student-login.html">
+                    Sign In
+                </a>
+
+            </p>
+
+
+
+            <!-- =================================================
+                 BACK LINK
+            ================================================== -->
+
+            <p class="back-login">
+
+                <a href="login.html">
+
+                    <i class="fas fa-arrow-left"></i>
+
+                    Back to account selection
+
+                </a>
+
+            </p>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="auth-footer">
+
+        © 2026 Udaanix. Your career, your future.
+
+    </footer>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     COMMON AUTH JAVASCRIPT
+     
+     IMPORTANT:
+     Password toggle is handled by auth.js.
+     We do NOT duplicate it here.
+====================================================== -->
+
+<script src="../js/auth.js"></script>
+
+
+
+<!-- =====================================================
+     STUDENT REGISTRATION JAVASCRIPT
+====================================================== -->
+
+<script>
+
+document
+    .getElementById("studentRegisterForm")
+    .addEventListener("submit", async function (e) {
+
+        e.preventDefault();
+
+
+        /* =================================================
+           GET FORM VALUES
+        ================================================= */
+
+        const firstName =
+            document
+                .getElementById("firstName")
+                .value
+                .trim();
+
+
+        const lastName =
+            document
+                .getElementById("lastName")
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+        const mobile =
+            document
+                .getElementById("mobile")
+                .value
+                .trim();
+
+
+        const educationLevel =
+            document
+                .getElementById("educationLevel")
+                .value;
+
+
+        const qualification =
+            document
+                .getElementById("qualification")
+                .value;
+
+
+        const city =
+            document
+                .getElementById("city")
+                .value
+                .trim();
+
+
+        const bio =
+            document
+                .getElementById("bio")
+                .value
+                .trim();
+
+
+        const password =
+            document
+                .getElementById("password")
+                .value;
+
+
+        const confirmPassword =
+            document
+                .getElementById("confirmPassword")
+                .value;
+
+
+
+        /* =================================================
+           PASSWORD VALIDATION
+        ================================================= */
+
+        if (password !== confirmPassword) {
+
+            alert("Passwords do not match.");
+
+            return;
+
+        }
+
+
+        if (password.length < 8) {
+
+            alert(
+                "Password must contain at least 8 characters."
+            );
+
+            return;
+
+        }
+
+
+
+        /* =================================================
+           MOBILE VALIDATION
+        ================================================= */
+
+        const cleanMobile =
+            mobile.replace(/\s+/g, "");
+
+
+        if (
+            !/^\+?[0-9]{10,15}$/.test(cleanMobile)
+        ) {
+
+            alert(
+                "Please enter a valid mobile number."
+            );
+
+            return;
+
+        }
+
+
+
+        /* =================================================
+           REQUIRED STUDENT INFORMATION
+        ================================================= */
+
+        if (!educationLevel) {
+
+            alert(
+                "Please select your education level."
+            );
+
+            return;
+
+        }
+
+
+        if (!qualification) {
+
+            alert(
+                "Please select your current class / qualification."
+            );
+
+            return;
+
+        }
+
+
+        if (!city) {
+
+            alert(
+                "Please enter your city."
+            );
+
+            return;
+
+        }
+
+
+
+        /* =================================================
+           CREATE FORM DATA
+           
+           USERS TABLE:
+           - firstName
+           - lastName
+           - email
+           - mobile
+           - password
+
+           STUDENTS TABLE:
+           - educationLevel
+           - qualification
+           - city
+           - bio
+        ================================================= */
+
+        const formData =
+            new URLSearchParams();
+
+
+        /* ---------- USERS DATA ---------- */
+
+        formData.append(
+            "firstName",
+            firstName
+        );
+
+
+        formData.append(
+            "lastName",
+            lastName
+        );
+
+
+        formData.append(
+            "email",
+            email
+        );
+
+
+        formData.append(
+            "mobile",
+            cleanMobile
+        );
+
+
+        formData.append(
+            "password",
+            password
+        );
+
+
+
+        /* ---------- STUDENTS DATA ---------- */
+
+        formData.append(
+            "educationLevel",
+            educationLevel
+        );
+
+
+        formData.append(
+            "qualification",
+            qualification
+        );
+
+
+        formData.append(
+            "city",
+            city
+        );
+
+
+        formData.append(
+            "bio",
+            bio
+        );
+
+
+
+        /* =================================================
+           SUBMIT BUTTON
+        ================================================= */
+
+        const submitButton =
+            document.querySelector(
+                "#studentRegisterForm button[type='submit']"
+            );
+
+
+        const originalButtonHTML =
+            submitButton.innerHTML;
+
+
+        submitButton.disabled = true;
+
+
+        submitButton.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Creating Account...';
+
+
+
+        /* =================================================
+           SEND REQUEST TO BACKEND
+           
+           Current page:
+           /UdaanixBackend/auth/
+
+           ../api/auth/register
+
+           becomes:
+
+           /UdaanixBackend/api/auth/register
+        ================================================= */
+
+        try {
+
+            const response =
+                await fetch(
+                    "../api/auth/register",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/x-www-form-urlencoded"
+                        },
+
+                        body:
+                            formData.toString()
+                    }
+                );
+
+
+
+            /* =================================================
+               CHECK RESPONSE
+            ================================================= */
+
+            const result =
+                await response.json();
+
+
+
+            /* =================================================
+               SUCCESS
+            ================================================= */
+
+            if (result.success) {
+
+                alert(
+                    result.message ||
+                    "Student account created successfully!"
+                );
+
+
+                window.location.href =
+                    "student-login.html";
+
+            }
+
+
+
+            /* =================================================
+               BACKEND ERROR
+            ================================================= */
+
+            else {
+
+                alert(
+                    result.message ||
+                    "Registration failed. Please try again."
+                );
+
+            }
+
+        }
+
+
+
+        /* =================================================
+           CONNECTION / SERVER ERROR
+        ================================================= */
+
+        catch (error) {
+
+            console.error(
+                "Registration Error:",
+                error
+            );
+
+
+            alert(
+                "Unable to connect to the server.\n\n" +
+                "Please make sure GlassFish and the Udaanix backend are running."
+            );
+
+        }
+
+
+
+        /* =================================================
+           RESTORE BUTTON
+        ================================================= */
+
+        finally {
+
+            submitButton.disabled = false;
+
+            submitButton.innerHTML =
+                originalButtonHTML;
+
+        }
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

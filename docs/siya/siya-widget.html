@@ -1,0 +1,40 @@
+<!-- SIYA AI Widget — include siya.css and siya.js on the page before using this markup -->
+<button class="siya-launcher" id="siyaLauncher" aria-label="Open SIYA AI">
+  <span class="siya-launcher-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+  <span class="siya-launcher-text">SIYA AI<small>Career Companion</small></span>
+</button>
+<div class="siya-window" id="siyaWindow" role="dialog" aria-label="SIYA AI Career Companion" aria-modal="false">
+  <div class="siya-header">
+    <div class="siya-avatar"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+    <div class="siya-head-copy"><strong>SIYA AI</strong><span><i class="siya-online"></i> Udaanix Career Companion</span></div>
+    <button class="siya-head-btn" id="siyaHistory" aria-label="Conversation history" title="Conversation history"><i class="fa-solid fa-clock-rotate-left"></i></button>
+    <button class="siya-head-btn" id="siyaClose" aria-label="Close SIYA"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <button class="siya-handoff-btn" id="siyaCounsellorBtn" type="button"><i class="fa-solid fa-user-group"></i><span>Talk to a Udaanix Counsellor</span></button>
+  <div class="siya-history" id="siyaHistoryPanel" hidden><div class="siya-history-head"><strong>My SIYA Conversations</strong><button id="siyaHistoryClose" aria-label="Close history">×</button></div><div id="siyaHistoryList" class="siya-history-list"></div></div>
+  <div class="siya-body">
+    <div class="siya-welcome"><h3>Hi! I’m SIYA 👋</h3><p>Let’s explore your career, education and next steps together.</p></div>
+    <div class="siya-quick-grid">
+      <button class="siya-quick" data-prompt="I want help finding a career."><i class="fa-solid fa-bullseye"></i>Find a Career</button>
+      <button class="siya-quick" data-prompt="I want a personalized career roadmap."><i class="fa-solid fa-route"></i>Build my Roadmap</button>
+      <button class="siya-quick" data-prompt="Help me choose my stream or subjects."><i class="fa-solid fa-book-open"></i>Choose a Stream</button>
+      <button class="siya-quick" data-prompt="I want to understand my assessment results."><i class="fa-solid fa-chart-simple"></i>Analyse Assessment</button>
+    </div>
+    <div class="siya-messages" id="siyaMessages"></div>
+  </div>
+  <div class="siya-handoff-modal" id="siyaHandoffModal" hidden>
+    <div class="siya-handoff-card" role="dialog" aria-modal="true" aria-labelledby="siyaHandoffTitle">
+      <div class="siya-handoff-head"><div><strong id="siyaHandoffTitle">Connect with a Udaanix Counsellor</strong><small>SIYA will share your request and conversation context with the Udaanix counselling team.</small></div><button id="siyaHandoffClose" type="button" aria-label="Close">×</button></div>
+      <label>What would you like help with?</label>
+      <textarea id="siyaHandoffReason" rows="4" placeholder="Example: I am confused between B.Tech CSE and B.Sc. Data Science."></textarea>
+      <label>Preferred mode</label>
+      <select id="siyaHandoffMode"><option value="ANY">Any available</option><option value="VIDEO">Video call</option><option value="AUDIO">Audio call</option><option value="CHAT">Chat</option><option value="IN_PERSON">In person</option></select>
+      <button id="siyaHandoffSubmit" type="button"><i class="fa-solid fa-paper-plane"></i> Send Counsellor Request</button>
+      <p class="siya-handoff-note">Your request is only a request; a counsellor will confirm availability and next steps.</p>
+    </div>
+  </div>
+  <div class="siya-footer">
+    <div class="siya-compose"><input class="siya-input" id="siyaInput" type="text" placeholder="Ask SIYA anything..." autocomplete="off"><button class="siya-send" id="siyaSend" aria-label="Send"><i class="fa-solid fa-arrow-up"></i></button></div>
+    <div class="siya-disclaimer">SIYA provides guidance, not guaranteed admissions, jobs or outcomes. Verify important eligibility and admission details from official sources.</div>
+  </div>
+</div>

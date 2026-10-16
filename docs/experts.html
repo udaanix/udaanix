@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Industry Experts | Udaanix</title>
+<meta name="description" content="Meet verified industry experts on Udaanix and explore practical career guidance, expertise, rankings and one-to-one sessions.">
+<link rel="stylesheet" href="css/experts.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header class="experts-nav">
+  <div class="experts-nav-inner">
+    <a href="index.html" class="experts-brand" aria-label="Udaanix Home">
+      <img src="images/udaanix-logo.png" alt="Udaanix — Guiding the path to Excellence">
+    </a>
+    <nav>
+      <a href="index.html#streams">Streams</a>
+      <a href="streams/career-explorer.html">Careers</a>
+      <a href="assessment/assessment.html">Assessment</a>
+      <a class="active" href="experts.html">Experts</a>
+      <a href="community.html">Community</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="auth/login.html" class="sign-link">Sign in</a>
+      <a href="auth/login.html" class="nav-book">Book a counsellor <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="experts-hero">
+  <div class="hero-glow glow-left"></div>
+  <div class="hero-glow glow-right"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">07 / INDUSTRY EXPERTS</span>
+      <h1>Don't just hear about<br>careers. <em>Hear from people in them.</em></h1>
+      <p>Meet professionals who have actually walked the path. Compare their stream, career expertise, experience, ranking and session options before you book.</p>
+      <div class="hero-points">
+        <span><i class="fa-solid fa-circle-check"></i> Career-wise matching</span>
+        <span><i class="fa-solid fa-circle-check"></i> Ranked by student impact</span>
+        <span><i class="fa-solid fa-circle-check"></i> 1:1 human guidance</span>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-orbit orbit-a"></div>
+      <div class="panel-orbit orbit-b"></div>
+      <div class="hero-panel-card">
+        <span class="panel-kicker">THE UDAANIX MATCH</span>
+        <strong>Find someone<br>who's been there.</strong>
+        <div class="match-bars">
+          <div><span>Career fit</span><b>94%</b></div><div><span>Experience</span><b>12+ yrs</b></div><div><span>Student rating</span><b>4.9 ★</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="expert-directory">
+  <div class="directory-head">
+    <div>
+      <span class="eyebrow">EXPERT DIRECTORY</span>
+      <h2>Find the right voice for your next move.</h2>
+      <p>Filter by stream, career and expertise. Every profile shows the details that matter before a student spends time or money.</p>
+    </div>
+    <div class="directory-stat"><strong id="expertCount">0</strong><span>experts available</span></div>
+  </div>
+
+  <div class="filters">
+    <div class="filter-search"><i class="fa-solid fa-magnifying-glass"></i><input id="expertSearch" type="search" placeholder="Search expert, career, skill or company..."></div>
+    <select id="streamFilter"><option value="all">All streams</option><option value="Science">Science</option><option value="Commerce">Commerce</option><option value="Arts & Humanities">Arts & Humanities</option></select>
+    <select id="careerFilter"><option value="all">All careers</option></select>
+    <select id="sortFilter"><option value="rank">Top ranked</option><option value="experience">Most experience</option><option value="rating">Highest rated</option><option value="price-low">Lowest session fee</option></select>
+  </div>
+
+  <div class="expert-grid" id="expertGrid"></div>
+
+  <div class="empty-state" id="emptyState" hidden>
+    <div><i class="fa-solid fa-compass"></i></div>
+    <h3>No expert matched that search.</h3>
+    <p>Try another career, stream or expertise keyword.</p>
+  </div>
+</section>
+
+<section class="how-it-works">
+  <div class="section-title">
+    <span class="eyebrow">HOW IT WORKS</span>
+    <h2>From confusion to a conversation.</h2>
+  </div>
+  <div class="steps">
+    <article><b>01</b><span class="step-icon blue"><i class="fa-solid fa-sliders"></i></span><h3>Choose your path</h3><p>Filter experts by stream, career or skill instead of choosing randomly.</p></article>
+    <article><b>02</b><span class="step-icon purple"><i class="fa-solid fa-user-check"></i></span><h3>Know the person</h3><p>See experience, expertise, ranking, student impact, intro video and session details.</p></article>
+    <article><b>03</b><span class="step-icon orange"><i class="fa-solid fa-video"></i></span><h3>Pick your conversation</h3><p>Chat, book a video call or choose a focused career session that fits your need.</p></article>
+  </div>
+</section>
+
+<section class="trust-section">
+  <div class="trust-copy">
+    <span class="eyebrow">WHY THIS MATTERS</span>
+    <h2>Information tells you what a career is. <em>People tell you what it feels like.</em></h2>
+    <p>Udaanix brings career intelligence and lived industry experience together so students can make more informed decisions — before committing to a course, exam or career path.</p>
+  </div>
+  <div class="trust-grid">
+    <div><i class="fa-solid fa-ranking-star"></i><strong>Impact ranking</strong><span>Prioritise experts with strong student outcomes and reviews.</span></div>
+    <div><i class="fa-solid fa-shield-halved"></i><strong>Profile transparency</strong><span>See experience, expertise, pricing and session format upfront.</span></div>
+    <div><i class="fa-solid fa-play"></i><strong>Real-world insight</strong><span>Experts can upload a short career explainer video.</span></div>
+    <div><i class="fa-solid fa-handshake"></i><strong>Human guidance</strong><span>Move from browsing to an actual conversation.</span></div>
+  </div>
+</section>
+
+<section class="join-expert">
+  <div>
+    <span class="eyebrow">FOR PROFESSIONALS</span>
+    <h2>Your experience could change someone's direction.</h2>
+    <p>Join Udaanix as an industry expert, build your public profile and make your real-world career knowledge accessible to students.</p>
+  </div>
+  <a href="auth/expert-register.html" class="primary-cta">Become an industry expert <i class="fa-solid fa-arrow-right"></i></a>
+</section>
+</main>
+
+<footer class="experts-footer">
+  <div>
+    <a href="index.html"><img src="images/udaanix-logo.png" alt="Udaanix"></a>
+    <p>Guiding the path to Excellence.</p>
+  </div>
+  <div class="footer-links">
+    <a href="index.html#streams">Streams</a><a href="streams/career-explorer.html">Careers</a><a href="assessment/assessment.html">Assessment</a><a href="community.html">Community</a><a href="auth/login.html">Sign in</a>
+  </div>
+  <span>© 2026 Udaanix. All rights reserved.</span>
+</footer>
+
+<dialog id="expertModal">
+  <button class="modal-close" id="modalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+  <div id="modalBody"></div>
+</dialog>
+
+<div class="toast" id="expertToast"></div>
+<script src="js/experts.js"></script>
+</body>
+</html>

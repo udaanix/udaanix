@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Industry Expert Registration | Udaanix</title>
+
+    <link rel="stylesheet" href="../css/udaanix-theme.css">
+    <link rel="stylesheet" href="auth.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+<div class="auth-page register-page">
+
+    <div class="auth-overlay"></div>
+
+
+    <!-- =====================================================
+         BRAND
+         ===================================================== -->
+
+    <header class="auth-brand">
+
+        <a href="../index.html">
+
+            <img
+                src="../images/udaanix-logo.png"
+                alt="Udaanix"
+            >
+
+        </a>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="auth-container register-container">
+
+
+        <!-- =================================================
+             INTRO
+             ================================================= -->
+
+        <section class="auth-intro">
+
+            <span class="auth-badge">
+
+                <i class="fas fa-building"></i>
+
+                Industry Expert Registration
+
+            </span>
+
+
+            <h1>
+
+                Your Experience Can
+
+                <span>Shape Their Future.</span>
+
+            </h1>
+
+
+            <p>
+
+                Join Udaanix as an industry expert and give
+                students a practical view of careers,
+                industries, skills and the world of work.
+
+            </p>
+
+
+            <div class="intro-points">
+
+
+                <div>
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>
+                        Share industry insights
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>
+                        Mentor future professionals
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>
+                        Conduct expert sessions
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>
+                        Build your professional profile
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REGISTRATION CARD
+             ================================================= -->
+
+        <section class="login-card register-card">
+
+
+            <!-- CARD HEADING -->
+
+            <div class="card-heading">
+
+                <div class="card-icon">
+
+                    <i class="fas fa-building"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>
+                        Create Expert Account
+                    </h2>
+
+                    <p>
+                        Tell us about your professional expertise
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FORM
+                 ================================================= -->
+
+            <form id="expertRegisterForm">
+
+
+                <div class="form-grid">
+
+
+                    <!-- =================================================
+                         FIRST NAME
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="firstName">
+                            First Name
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                placeholder="First name"
+                                autocomplete="given-name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         LAST NAME
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="lastName">
+                            Last Name
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                placeholder="Last name"
+                                autocomplete="family-name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         EMAIL
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Professional Email
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="name@company.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         MOBILE
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="mobile">
+                            Mobile Number
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-mobile-screen"></i>
+
+                            <input
+                                type="tel"
+                                id="mobile"
+                                name="mobile"
+                                placeholder="+91 XXXXX XXXXX"
+                                pattern="[+]?[0-9 ]{10,15}"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         JOB TITLE
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="jobTitle">
+                            Current Job Title
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-id-badge"></i>
+
+                            <input
+                                type="text"
+                                id="jobTitle"
+                                name="jobTitle"
+                                placeholder="e.g. Senior Software Engineer"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         COMPANY
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="company">
+                            Current Company
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-building"></i>
+
+                            <input
+                                type="text"
+                                id="company"
+                                name="company"
+                                placeholder="Company / Organization"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         INDUSTRY
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="industry">
+                            Industry
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-industry"></i>
+
+                            <select
+                                id="industry"
+                                name="industry"
+                                required
+                            >
+
+                                <option value="">
+                                    Select industry
+                                </option>
+
+                                <option value="Information Technology">
+                                    Information Technology
+                                </option>
+
+                                <option value="Finance & Banking">
+                                    Finance & Banking
+                                </option>
+
+                                <option value="Healthcare">
+                                    Healthcare
+                                </option>
+
+                                <option value="Education">
+                                    Education
+                                </option>
+
+                                <option value="Marketing & Advertising">
+                                    Marketing & Advertising
+                                </option>
+
+                                <option value="Consulting">
+                                    Consulting
+                                </option>
+
+                                <option value="Engineering & Manufacturing">
+                                    Engineering & Manufacturing
+                                </option>
+
+                                <option value="Media & Entertainment">
+                                    Media & Entertainment
+                                </option>
+
+                                <option value="Law">
+                                    Law
+                                </option>
+
+                                <option value="Government & Public Sector">
+                                    Government & Public Sector
+                                </option>
+
+                                <option value="Entrepreneurship & Startups">
+                                    Entrepreneurship & Startups
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         EXPERTISE
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="expertise">
+                            Area of Expertise
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-star"></i>
+
+                            <input
+                                type="text"
+                                id="expertise"
+                                name="expertise"
+                                placeholder="e.g. AI, Finance, HR, Marketing"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         EXPERIENCE
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="experience">
+                            Professional Experience
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-briefcase"></i>
+
+                            <select
+                                id="experience"
+                                name="experience"
+                                required
+                            >
+
+                                <option value="">
+                                    Select experience
+                                </option>
+
+                                <option value="0–2 Years">
+                                    0–2 Years
+                                </option>
+
+                                <option value="3–5 Years">
+                                    3–5 Years
+                                </option>
+
+                                <option value="6–10 Years">
+                                    6–10 Years
+                                </option>
+
+                                <option value="11–15 Years">
+                                    11–15 Years
+                                </option>
+
+                                <option value="15+ Years">
+                                    15+ Years
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         CITY
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="city">
+                            City
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-location-dot"></i>
+
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                placeholder="Your city"
+                                autocomplete="address-level2"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         LINKEDIN
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="linkedin">
+                            LinkedIn Profile
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fab fa-linkedin-in"></i>
+
+                            <input
+                                type="url"
+                                id="linkedin"
+                                name="linkedin"
+                                placeholder="https://linkedin.com/in/yourname"
+                                autocomplete="url"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         PASSWORD
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create password"
+                                minlength="8"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="password"
+                                aria-label="Show password"
+                            >
+
+                                <i class="fas fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         CONFIRM PASSWORD
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <i class="fas fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Confirm password"
+                                minlength="8"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="confirmPassword"
+                                aria-label="Show password"
+                            >
+
+                                <i class="fas fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     TERMS
+                     ================================================= -->
+
+                <label class="terms-check">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <span>
+
+                        I agree to Udaanix
+
+                        <a
+                            href="#"
+                            onclick="return false;"
+                        >
+                            Terms
+                        </a>
+
+                        &amp;
+
+                        <a
+                            href="#"
+                            onclick="return false;"
+                        >
+                            Privacy Policy
+                        </a>.
+
+                    </span>
+
+                </label>
+
+
+
+                <!-- =================================================
+                     SUBMIT BUTTON
+                     ================================================= -->
+
+                <button
+                    type="submit"
+                    class="auth-btn primary-btn"
+                    id="registerBtn"
+                >
+
+                    <i class="fas fa-user-plus"></i>
+
+                    Create Expert Account
+
+                </button>
+
+
+
+                <!-- =================================================
+                     SERVER MESSAGE
+                     ================================================= -->
+
+                <div
+                    id="registerMessage"
+                    style="
+                        display: none;
+                        margin-top: 15px;
+                        text-align: center;
+                        font-weight: 600;
+                    "
+                ></div>
+
+
+            </form>
+
+
+
+            <!-- =================================================
+                 DIVIDER
+                 ================================================= -->
+
+            <div class="login-divider">
+
+                <span>OR</span>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LOGIN LINK
+                 ================================================= -->
+
+            <p class="account-link">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Sign In
+                </a>
+
+            </p>
+
+
+
+            <!-- =================================================
+                 BACK
+                 ================================================= -->
+
+            <p class="back-login">
+
+                <a href="login.html">
+
+                    <i class="fas fa-arrow-left"></i>
+
+                    Back to account selection
+
+                </a>
+
+            </p>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="auth-footer">
+
+        © 2026 Udaanix. Your career, your future.
+
+    </footer>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   PASSWORD SHOW / HIDE
+   ========================================================= */
+
+document
+    .querySelectorAll(".password-toggle")
+    .forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            const input =
+                document.getElementById(
+                    this.dataset.target
+                );
+
+            if (!input) {
+                return;
+            }
+
+            const show =
+                input.type === "password";
+
+            input.type =
+                show
+                    ? "text"
+                    : "password";
+
+            this.innerHTML =
+                show
+                    ? '<i class="fas fa-eye-slash"></i>'
+                    : '<i class="fas fa-eye"></i>';
+
+            this.setAttribute(
+                "aria-label",
+                show
+                    ? "Hide password"
+                    : "Show password"
+            );
+
+        });
+
+    });
+
+
+
+/* =========================================================
+   EXPERT REGISTRATION
+   ========================================================= */
+
+document
+    .getElementById("expertRegisterForm")
+    .addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            /* =================================================
+               GET VALUES
+               ================================================= */
+
+            const firstName =
+                document
+                    .getElementById("firstName")
+                    .value
+                    .trim();
+
+
+            const lastName =
+                document
+                    .getElementById("lastName")
+                    .value
+                    .trim();
+
+
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
+
+            const mobile =
+                document
+                    .getElementById("mobile")
+                    .value
+                    .trim();
+
+
+            const jobTitle =
+                document
+                    .getElementById("jobTitle")
+                    .value
+                    .trim();
+
+
+            const company =
+                document
+                    .getElementById("company")
+                    .value
+                    .trim();
+
+
+            const industry =
+                document
+                    .getElementById("industry")
+                    .value;
+
+
+            const expertise =
+                document
+                    .getElementById("expertise")
+                    .value
+                    .trim();
+
+
+            const experience =
+                document
+                    .getElementById("experience")
+                    .value;
+
+
+            const city =
+                document
+                    .getElementById("city")
+                    .value
+                    .trim();
+
+
+            const linkedin =
+                document
+                    .getElementById("linkedin")
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById("password")
+                    .value;
+
+
+            const confirmPassword =
+                document
+                    .getElementById("confirmPassword")
+                    .value;
+
+
+
+            /* =================================================
+               PASSWORD MATCH
+               ================================================= */
+
+            if (password !== confirmPassword) {
+
+                alert(
+                    "Passwords do not match."
+                );
+
+                return;
+            }
+
+
+
+            /* =================================================
+               PASSWORD LENGTH
+               ================================================= */
+
+            if (password.length < 8) {
+
+                alert(
+                    "Password must contain at least 8 characters."
+                );
+
+                return;
+            }
+
+
+
+            /* =================================================
+               CLEAN MOBILE
+               ================================================= */
+
+            const cleanMobile =
+                mobile.replace(/\s+/g, "");
+
+
+
+            /* =================================================
+               CREATE FORM DATA
+               ================================================= */
+
+            const formData =
+                new URLSearchParams();
+
+
+            formData.append(
+                "firstName",
+                firstName
+            );
+
+
+            formData.append(
+                "lastName",
+                lastName
+            );
+
+
+            formData.append(
+                "email",
+                email
+            );
+
+
+            formData.append(
+                "mobile",
+                cleanMobile
+            );
+
+
+            formData.append(
+                "jobTitle",
+                jobTitle
+            );
+
+
+            formData.append(
+                "company",
+                company
+            );
+
+
+            formData.append(
+                "industry",
+                industry
+            );
+
+
+            formData.append(
+                "expertise",
+                expertise
+            );
+
+
+            formData.append(
+                "experience",
+                experience
+            );
+
+
+            formData.append(
+                "city",
+                city
+            );
+
+
+            formData.append(
+                "linkedin",
+                linkedin
+            );
+
+
+            formData.append(
+                "password",
+                password
+            );
+
+
+
+            /* =================================================
+               UI ELEMENTS
+               ================================================= */
+
+            const registerBtn =
+                document.getElementById(
+                    "registerBtn"
+                );
+
+
+            const message =
+                document.getElementById(
+                    "registerMessage"
+                );
+
+
+
+            /* =================================================
+               DISABLE BUTTON
+               ================================================= */
+
+            registerBtn.disabled = true;
+
+            registerBtn.innerHTML =
+                '<i class="fas fa-spinner fa-spin"></i> '
+                + 'Creating Account...';
+
+
+            message.style.display =
+                "none";
+
+
+
+            /* =================================================
+               SEND TO BACKEND
+               ================================================= */
+
+            try {
+
+                const response =
+                    await fetch(
+                        "../api/auth/expert-register",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/x-www-form-urlencoded;charset=UTF-8"
+                            },
+
+                            body:
+                                formData.toString()
+                        }
+                    );
+
+
+
+                /* =================================================
+                   READ SERVER RESPONSE
+                   ================================================= */
+
+                const responseText =
+                    await response.text();
+
+
+                let data;
+
+
+                try {
+
+                    data =
+                        JSON.parse(
+                            responseText
+                        );
+
+                } catch (jsonError) {
+
+                    console.error(
+                        "Invalid server response:",
+                        responseText
+                    );
+
+                    throw new Error(
+                        "Server returned an invalid response."
+                    );
+                }
+
+
+
+                /* =================================================
+                   SUCCESS
+                   ================================================= */
+
+                if (
+                    response.ok
+                    && data.success
+                ) {
+
+                    message.style.display =
+                        "block";
+
+                    message.style.color =
+                        "#198754";
+
+                    message.innerHTML =
+                        '<i class="fas fa-circle-check"></i> '
+                        + data.message;
+
+
+                    registerBtn.innerHTML =
+                        '<i class="fas fa-check"></i> '
+                        + 'Account Created';
+
+
+                    /*
+                     * Redirect to Expert Login
+                     * after successful registration.
+                     */
+
+                    setTimeout(
+                        () => {
+
+                            localStorage.setItem(
+                                "udaanixSelectedRole",
+                                "expert"
+                            );
+
+                            localStorage.setItem(
+                                "udaanix_expert_rememberedEmail",
+                                email
+                            );
+
+                            window.location.href =
+                                "login.html";
+
+                        },
+                        1500
+                    );
+
+
+                    return;
+                }
+
+
+
+                /* =================================================
+                   BACKEND ERROR
+                   ================================================= */
+
+                message.style.display =
+                    "block";
+
+                message.style.color =
+                    "#dc3545";
+
+                message.innerHTML =
+                    '<i class="fas fa-circle-exclamation"></i> '
+                    + (
+                        data.message
+                        || "Expert registration failed."
+                    );
+
+
+                registerBtn.disabled =
+                    false;
+
+                registerBtn.innerHTML =
+                    '<i class="fas fa-user-plus"></i> '
+                    + 'Create Expert Account';
+
+
+            } catch (error) {
+
+                console.error(
+                    "Expert registration error:",
+                    error
+                );
+
+
+                message.style.display =
+                    "block";
+
+                message.style.color =
+                    "#dc3545";
+
+                message.innerHTML =
+                    '<i class="fas fa-circle-exclamation"></i> '
+                    + (
+                        error.message
+                        || "Unable to connect to the server."
+                    );
+
+
+                registerBtn.disabled =
+                    false;
+
+                registerBtn.innerHTML =
+                    '<i class="fas fa-user-plus"></i> '
+                    + 'Create Expert Account';
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

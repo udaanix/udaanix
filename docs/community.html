@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Udaanix Community | Learn. Ask. Share. Grow.</title>
+<meta name="description" content="Udaanix Community — a career-first space where students, counsellors and industry experts ask questions, share knowledge and learn together.">
+<link rel="stylesheet" href="css/community.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header class="community-nav">
+ <div class="nav-inner">
+  <a href="index.html" class="brand"><img src="images/udaanix-logo.png" alt="Udaanix"></a>
+  <nav>
+   <a href="index.html#streams">Streams</a>
+   <a href="streams/career-explorer.html">Careers</a>
+   <a href="assessment/assessment.html">Assessment</a>
+   <a href="experts.html">Experts</a>
+   <a class="active" href="community.html">Community</a>
+  </nav>
+  <div class="nav-actions">
+   <a href="auth/login.html" class="signin">Sign in</a>
+   <a href="auth/login.html" class="nav-cta">Join Udaanix <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+ </div>
+</header>
+
+<main>
+<section class="community-hero">
+ <div class="hero-glow one"></div><div class="hero-glow two"></div>
+ <div class="hero-inner">
+  <div>
+   <span class="eyebrow">07 / UDAANIX COMMUNITY</span>
+   <h1>Where career questions<br>meet <em>real people.</em></h1>
+   <p>A career-first community for students, counsellors and industry experts to ask, explain, share pathways, discuss trends and learn from one another.</p>
+   <div class="hero-actions">
+    <a href="#feed" class="primary">Explore discussions <i class="fa-solid fa-arrow-down"></i></a>
+    <button class="secondary" id="openComposer"><i class="fa-solid fa-pen"></i> Create a post</button>
+   </div>
+   <div class="hero-trust"><span><i class="fa-solid fa-circle-check"></i> Student voices</span><span><i class="fa-solid fa-circle-check"></i> Expert insights</span><span><i class="fa-solid fa-circle-check"></i> Career knowledge</span></div>
+  </div>
+  <div class="hero-social">
+   <div class="orbit o1"></div><div class="orbit o2"></div>
+   <div class="floating-post fp1"><span class="mini-avatar blue">A</span><div><b>Career question</b><small>“Is AI replacing...”</small></div><i class="fa-regular fa-comment"></i></div>
+   <div class="floating-post fp2"><span class="mini-avatar purple">N</span><div><b>Expert insight</b><small>“Build projects, not...</small></div><i class="fa-solid fa-star"></i></div>
+   <div class="social-core"><i class="fa-solid fa-comments"></i><strong>Think.<br>Ask.<br>Share.</strong><span>Grow together.</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="community-shell" id="feed">
+ <aside class="left-rail">
+  <div class="profile-mini">
+   <div class="profile-cover"></div><div class="rail-avatar">U</div>
+   <h3>Welcome to Udaanix</h3><p>Your career community</p>
+   <div class="mini-stats"><span><b id="memberCount">12.4K</b> members</span><span><b>3.8K</b> answers</span></div>
+  </div>
+  <div class="rail-card">
+   <b>Explore topics</b>
+   <button class="topic active" data-topic="all"><i class="fa-solid fa-border-all"></i> All discussions</button>
+   <button class="topic" data-topic="Technology"><i class="fa-solid fa-microchip"></i> Technology & AI</button>
+   <button class="topic" data-topic="Careers"><i class="fa-solid fa-briefcase"></i> Careers & jobs</button>
+   <button class="topic" data-topic="Education"><i class="fa-solid fa-graduation-cap"></i> Education & exams</button>
+   <button class="topic" data-topic="Pathways"><i class="fa-solid fa-route"></i> Career pathways</button>
+   <button class="topic" data-topic="Study Abroad"><i class="fa-solid fa-earth-asia"></i> Study abroad</button>
+  </div>
+  <div class="rail-card trending">
+   <b>Trending this week</b>
+   <span>#AIandML <small>1.8K posts</small></span>
+   <span>#CareerSwitch <small>924 posts</small></span>
+   <span>#JEE2026 <small>801 posts</small></span>
+   <span>#UXCareers <small>642 posts</small></span>
+   <span>#StudyAbroad <small>519 posts</small></span>
+  </div>
+ </aside>
+
+ <section class="feed">
+  <div class="feed-top">
+   <div><span class="eyebrow">COMMUNITY FEED</span><h2>What's happening?</h2></div>
+   <select id="sortPosts"><option value="recent">Most recent</option><option value="popular">Most popular</option><option value="expert">Expert voices</option></select>
+  </div>
+
+  <button class="composer-trigger" id="composerTrigger">
+   <span class="composer-avatar">U</span><span>Share a question, idea, insight or career win...</span><i class="fa-solid fa-plus"></i>
+  </button>
+
+  <div class="filter-pills">
+   <button class="pill active" data-filter="all">For you</button><button class="pill" data-filter="question">Questions</button><button class="pill" data-filter="insight">Expert insights</button><button class="pill" data-filter="pathway">Pathways</button><button class="pill" data-filter="study">Studies & trends</button>
+  </div>
+
+  <div id="postFeed"></div>
+  <button class="load-more" id="loadMore">Load more discussions <i class="fa-solid fa-arrow-down"></i></button>
+ </section>
+
+ <aside class="right-rail">
+  <div class="rail-card join-card">
+   <span class="tiny-label">YOUR VOICE MATTERS</span><h3>Got something useful to share?</h3><p>Ask a question, post a roadmap, explain a technology or share what you wish you knew earlier.</p><button id="rightCompose">Create a post <i class="fa-solid fa-arrow-right"></i></button>
+  </div>
+  <div class="rail-card experts-card">
+   <div class="rail-card-head"><b>Expert voices</b><a href="experts.html">See all</a></div>
+   <div class="expert-mini"><span class="mini-avatar orange">R</span><div><b>Rahul · AI</b><small>Industry Expert · 4.9 ★</small></div></div>
+   <div class="expert-mini"><span class="mini-avatar blue">N</span><div><b>Neha · Medicine</b><small>Doctor · 4.9 ★</small></div></div>
+   <div class="expert-mini"><span class="mini-avatar purple">R</span><div><b>Riya · UX</b><small>Product Leader · 4.9 ★</small></div></div>
+  </div>
+  <div class="rail-card guidelines">
+   <b>Community promise</b>
+   <p><i class="fa-solid fa-shield-heart"></i> Be curious, useful and respectful.</p>
+   <p><i class="fa-solid fa-link"></i> Share sources for studies and claims.</p>
+   <p><i class="fa-solid fa-flag"></i> Report misleading or harmful content.</p>
+  </div>
+ </aside>
+</section>
+</main>
+
+<dialog id="composer">
+ <button class="modal-close" id="closeComposer"><i class="fa-solid fa-xmark"></i></button>
+ <span class="eyebrow">CREATE A COMMUNITY POST</span>
+ <h2>What do you want to share?</h2>
+ <p class="modal-sub">Your post can be a question, knowledge drop, career pathway, study/trend or a professional insight.</p>
+ <div class="role-switch"><button class="role active" data-role="Student">Student</button><button class="role" data-role="Counsellor">Counsellor</button><button class="role" data-role="Industry Expert">Industry Expert</button></div>
+ <label>Post type<select id="postType"><option value="question">Question</option><option value="insight">Knowledge / Insight</option><option value="pathway">Career Pathway</option><option value="study">Study / Technology Trend</option><option value="win">Career Win</option></select></label>
+ <label>Topic<input id="postTopic" placeholder="e.g. AI, CA, JEE, UX, Study Abroad"></label>
+ <label>Your post<textarea id="postText" rows="5" placeholder="Share something the Udaanix community can learn from..."></textarea></label>
+ <div class="composer-actions"><button class="cancel" id="cancelComposer">Cancel</button><button class="publish" id="publishPost">Publish post <i class="fa-solid fa-paper-plane"></i></button></div>
+</dialog>
+<div class="toast" id="toast"></div>
+<script src="js/community.js"></script>
+</body>
+</html>

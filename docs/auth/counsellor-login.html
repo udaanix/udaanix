@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Counsellor Login | Udaanix</title>
+
+    <link rel="stylesheet" href="../css/udaanix-theme.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="common-login.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #18264a;
+            background:
+                radial-gradient(circle at 12% 25%, rgba(255,255,255,.95) 0 8%, transparent 28%),
+                radial-gradient(circle at 92% 18%, rgba(224,238,255,.9) 0 10%, transparent 30%),
+                linear-gradient(135deg, #eef7ff 0%, #f8fbff 48%, #eaf4ff 100%);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 620px;
+            height: 620px;
+            left: -170px;
+            bottom: -280px;
+            border-radius: 50%;
+            background: rgba(107, 153, 235, .12);
+            pointer-events: none;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            right: -180px;
+            top: 120px;
+            border-radius: 50%;
+            background: rgba(168, 211, 255, .16);
+            pointer-events: none;
+        }
+
+        .page {
+            min-height: 100vh;
+            position: relative;
+            padding: 28px 55px;
+        }
+
+        /* subtle decorative lines */
+        .decor {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            opacity: .65;
+        }
+
+        .decor-line {
+            position: absolute;
+            border: 2px solid rgba(113, 163, 235, .13);
+            border-radius: 50%;
+        }
+
+        .decor-line.one {
+            width: 560px;
+            height: 560px;
+            left: -200px;
+            top: -80px;
+        }
+
+        .decor-line.two {
+            width: 760px;
+            height: 760px;
+            left: -300px;
+            top: -180px;
+        }
+
+        .decor-dot {
+            position: absolute;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #c9ddff;
+        }
+
+        .dot1 { left: 14%; top: 20%; }
+        .dot2 { left: 23%; top: 31%; }
+        .dot3 { left: 87%; top: 28%; }
+        .dot4 { left: 76%; top: 78%; }
+
+        /* BRAND */
+        .brand {
+            position: relative;
+            z-index: 5;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 190px;
+            max-width: 42vw;
+            height: auto;
+            display: block;
+        }
+
+        .main {
+            position: relative;
+            z-index: 2;
+            min-height: calc(100vh - 110px);
+            display: grid;
+            grid-template-columns: minmax(480px, 1fr) minmax(450px, 540px);
+            gap: 55px;
+            align-items: center;
+            max-width: 1450px;
+            margin: 0 auto;
+        }
+
+        /* LEFT */
+        .hero {
+            padding: 20px 0 35px 8%;
+        }
+
+        .welcome-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 22px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.78);
+            color: #3564d8;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 8px 25px rgba(55, 100, 180, .08);
+            margin-bottom: 34px;
+        }
+
+        .welcome-pill i {
+            font-size: 14px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            max-width: 700px;
+            font-size: clamp(48px, 5vw, 76px);
+            line-height: .98;
+            letter-spacing: -3px;
+            font-weight: 800;
+            color: #15254b;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: #3567e7;
+            margin-top: 10px;
+        }
+
+        .hero-description {
+            max-width: 700px;
+            margin: 28px 0 30px;
+            font-size: 19px;
+            line-height: 1.65;
+            color: #60708e;
+        }
+
+        .hero-points {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 660px;
+        }
+
+        .hero-point {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: fit-content;
+            max-width: 100%;
+            padding: 11px 17px;
+            border-radius: 12px;
+            background: rgba(255,255,255,.78);
+            border: 1px solid rgba(126, 160, 211, .15);
+            box-shadow: 0 7px 20px rgba(50, 91, 155, .06);
+            color: #425573;
+        }
+
+        .hero-point .icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            color: #3567e7;
+            background: #edf3ff;
+            flex: 0 0 25px;
+        }
+
+        .hero-point strong {
+            color: #40516e;
+            margin-right: 5px;
+        }
+
+        .hero-note {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin: 25px 0 0 5px;
+            color: #74829c;
+            font-size: 13px;
+        }
+
+        .hero-note i {
+            color: #5c55db;
+        }
+
+        .quote {
+            position: absolute;
+            right: 4%;
+            top: 15px;
+            color: #8aa3c9;
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-size: 18px;
+            transform: rotate(-4deg);
+        }
+
+        /* RIGHT CARD */
+        .login-card {
+            width: 100%;
+            background: rgba(255,255,255,.94);
+            border: 1px solid rgba(255,255,255,.95);
+            border-radius: 24px;
+            padding: 36px 34px 30px;
+            box-shadow: 0 24px 65px rgba(43, 73, 135, .13);
+            backdrop-filter: blur(10px);
+        }
+
+        .card-heading {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card-icon {
+            width: 53px;
+            height: 53px;
+            border-radius: 17px;
+            display: grid;
+            place-items: center;
+            color: #3768e7;
+            background: #eef3ff;
+            font-size: 21px;
+        }
+
+        .card-heading h2 {
+            margin: 0 0 5px;
+            font-size: 28px;
+            color: #1c2b4e;
+        }
+
+        .card-heading p {
+            margin: 0;
+            color: #78859c;
+            font-size: 14px;
+        }
+
+        .role-title {
+            margin: 0 0 10px;
+            color: #233355;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 11px;
+            margin-bottom: 24px;
+        }
+
+        .role-card {
+            position: relative;
+            min-height: 104px;
+            padding: 13px 8px;
+            border: 1px solid #dce5f5;
+            border-radius: 17px;
+            background: #fff;
+            text-align: center;
+            cursor: pointer;
+            transition: .22s ease;
+            color: #52627d;
+        }
+
+        .role-card:hover {
+            transform: translateY(-2px);
+            border-color: #9db9ff;
+            box-shadow: 0 10px 24px rgba(60, 101, 191, .08);
+        }
+
+        .role-card.active {
+            border: 1.5px solid #5d63ee;
+            background: linear-gradient(145deg, #f7f6ff, #eef1ff);
+            box-shadow: 0 12px 28px rgba(85, 90, 225, .14);
+            color: #263b7c;
+        }
+
+        .role-card .role-icon {
+            width: 45px;
+            height: 45px;
+            margin: 0 auto 7px;
+            display: grid;
+            place-items: center;
+            border-radius: 13px;
+            background: #eef3fa;
+            color: #71819b;
+            font-size: 19px;
+        }
+
+        .role-card.active .role-icon {
+            background: linear-gradient(145deg, #5276eb, #4d55d9);
+            color: white;
+            box-shadow: 0 7px 17px rgba(70, 89, 220, .25);
+        }
+
+        .role-card strong {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+
+        .role-card small {
+            display: block;
+            font-size: 10px;
+            color: #75839d;
+        }
+
+        .role-card .check {
+            display: none;
+            position: absolute;
+            right: -7px;
+            top: -8px;
+            width: 29px;
+            height: 29px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #6872ee, #4854d5);
+            color: white;
+            border: 3px solid white;
+            place-items: center;
+            font-size: 12px;
+            box-shadow: 0 5px 12px rgba(63, 74, 197, .2);
+        }
+
+        .role-card.active .check {
+            display: grid;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            color: #293a5d;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .input-wrap {
+            position: relative;
+        }
+
+        .input-wrap > i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8c9ab1;
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        .form-control {
+            width: 100%;
+            height: 54px;
+            border: 1px solid #d8e1f1;
+            border-radius: 14px;
+            padding: 0 47px;
+            outline: none;
+            background: #fff;
+            color: #263653;
+            font-size: 14px;
+            transition: .2s ease;
+        }
+
+        .form-control:focus {
+            border-color: #7898f1;
+            box-shadow: 0 0 0 4px rgba(83, 112, 229, .10);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 0;
+            background: transparent;
+            color: #8190a8;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 4px;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3px 0 22px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #78849a;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .remember-me input {
+            accent-color: #4f6fe7;
+            width: 14px;
+            height: 14px;
+        }
+
+        .forgot {
+            color: #345ce4;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .forgot:hover {
+            text-decoration: underline;
+        }
+
+        #loginMessage {
+            display: none;
+            margin: 0 0 14px;
+            padding: 11px 13px;
+            border-radius: 11px;
+            font-size: 13px;
+            line-height: 1.45;
+            text-align: center;
+        }
+
+        .login-btn {
+            width: 100%;
+            height: 57px;
+            border: 0;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #5477ee, #4868e7);
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 12px 24px rgba(69, 101, 220, .22);
+            transition: .2s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 30px rgba(69, 101, 220, .27);
+        }
+
+        .login-btn:disabled {
+            opacity: .72;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 21px 0;
+            color: #9aa5b7;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: #e4e9f2;
+        }
+
+        .create-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 13px 14px;
+            border-radius: 15px;
+            border: 1px solid #e1e6f0;
+            background: #fafbfe;
+        }
+
+        .create-copy strong {
+            display: block;
+            color: #263657;
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+
+        .create-copy span {
+            color: #8994a7;
+            font-size: 11px;
+        }
+
+        .create-btn {
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid #7b88ff;
+            color: #4e49d7;
+            background: white;
+            font-size: 11px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .create-btn:hover {
+            background: #f2f3ff;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #7d899e;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .back-link:hover {
+            color: #4c65b9;
+        }
+
+        @media (max-width: 1050px) {
+            .page {
+                padding: 25px 30px;
+            }
+
+            .main {
+                grid-template-columns: 1fr 500px;
+                gap: 30px;
+            }
+
+            .hero {
+                padding-left: 0;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+        }
+
+        @media (max-width: 850px) {
+            .page {
+                padding: 22px 18px;
+            }
+
+            .main {
+                min-height: auto;
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 25px 0;
+            }
+
+            .hero {
+                display: none;
+            }
+
+            .login-card {
+                max-width: 540px;
+                margin: 0 auto;
+            }
+
+            .brand {
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 26px 18px 23px;
+                border-radius: 20px;
+            }
+
+            .role-grid {
+                gap: 7px;
+            }
+
+            .role-card {
+                min-height: 98px;
+                padding-left: 4px;
+                padding-right: 4px;
+            }
+
+            .create-box {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .create-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .card-heading h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="decor">
+    <span class="decor-line one"></span>
+    <span class="decor-line two"></span>
+    <span class="decor-dot dot1"></span>
+    <span class="decor-dot dot2"></span>
+    <span class="decor-dot dot3"></span>
+    <span class="decor-dot dot4"></span>
+</div>
+
+<div class="page">
+
+    <!-- SAME UDAANIX LOGO AREA -->
+    <a href="../index.html" class="brand" aria-label="Udaanix Home">
+        <img src="../images/udaanix-logo.png"
+             alt="Udaanix - Guiding the path to Excellence">
+    </a>
+
+    <div class="main">
+
+        <!-- LEFT HERO -->
+        <section class="hero">
+
+            <div class="quote">“Better Careers, Brighter Tomorrows.”</div>
+
+            <div class="welcome-pill">
+                <i class="fas fa-sparkles"></i>
+                Welcome to Udaanix
+            </div>
+
+            <h1>
+                Your Career Journey
+                <span>Starts Here.</span>
+            </h1>
+
+            <p class="hero-description">
+                One platform for students, counsellors and industry experts
+                to connect, learn and build better career journeys together.
+            </p>
+
+            <div class="hero-points">
+
+                <div class="hero-point">
+                    <div class="icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <strong>Explore Possibilities</strong>
+                        Discover the right career path for your interests.
+                    </div>
+                </div>
+
+                <div class="hero-point">
+                    <div class="icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <strong>Get Expert Guidance</strong>
+                        Connect with counsellors and industry experts.
+                    </div>
+                </div>
+
+                <div class="hero-point">
+                    <div class="icon">
+                        <i class="fas fa-chart-column"></i>
+                    </div>
+                    <div>
+                        <strong>Build a Brighter Future</strong>
+                        Learn, plan and grow with confidence.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="hero-note">
+                <i class="fas fa-location-dot"></i>
+                Your selected profile opens the right Udaanix experience.
+            </div>
+
+        </section>
+
+
+        <!-- LOGIN CARD -->
+        <section class="login-card">
+
+            <div class="card-heading">
+
+                <div class="card-icon">
+                    <i class="fas fa-right-to-bracket"></i>
+                </div>
+
+                <div>
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to continue to Udaanix</p>
+                </div>
+
+            </div>
+
+
+            <p class="role-title">I am a</p>
+
+            <div class="role-grid">
+
+                <!-- STUDENT -->
+                <button type="button"
+                        class="role-card"
+                        id="studentRole">
+
+                    <span class="role-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </span>
+
+                    <strong>Student</strong>
+                    <small>Explore careers</small>
+                    <span class="check">
+                        <i class="fas fa-check"></i>
+                    </span>
+
+                </button>
+
+
+                <!-- COUNSELLOR -->
+                <button type="button"
+                        class="role-card active"
+                        id="counsellorRole"
+                        aria-current="page">
+
+                    <span class="role-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </span>
+
+                    <strong>Counsellor</strong>
+                    <small>Guide students</small>
+                    <span class="check">
+                        <i class="fas fa-check"></i>
+                    </span>
+
+                </button>
+
+
+                <!-- EXPERT -->
+                <button type="button"
+                        class="role-card"
+                        id="expertRole">
+
+                    <span class="role-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </span>
+
+                    <strong>Expert</strong>
+                    <small>Share expertise</small>
+                    <span class="check">
+                        <i class="fas fa-check"></i>
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <form id="counsellorLoginForm">
+
+                <div class="form-group">
+
+                    <label for="counsellorEmail">
+                        Email Address
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <i class="fas fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="counsellorEmail"
+                            name="email"
+                            class="form-control"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="counsellorPassword">
+                        Password
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <i class="fas fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="counsellorPassword"
+                            name="password"
+                            class="form-control"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="togglePassword"
+                            aria-label="Show password">
+
+                            <i class="fas fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div id="loginMessage"></div>
+
+
+                <div class="login-options">
+
+                    <label class="remember-me">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe">
+
+                        <span>Remember me</span>
+
+                    </label>
+
+                    <a href="#"
+                       class="forgot"
+                       id="forgotPassword">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="login-btn"
+                    id="loginBtn">
+
+                    <i class="fas fa-right-to-bracket"></i>
+                    <span id="loginBtnText">Sign In</span>
+
+                </button>
+
+            </form>
+
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+
+            <div class="create-box">
+
+                <div class="create-copy">
+                    <strong>Want to guide students?</strong>
+                    <span>Join Udaanix and make a difference.</span>
+                </div>
+
+                <a href="counsellor-register.html"
+                   class="create-btn">
+
+                    <i class="fas fa-user-plus"></i>
+                    Create Counsellor Account
+
+                </a>
+
+            </div>
+
+
+            <a href="login.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to account selection
+            </a>
+
+        </section>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* ==========================================
+       ROLE NAVIGATION
+       ========================================== */
+
+    document.getElementById("studentRole")
+        .addEventListener("click", function () {
+            window.location.href = "student-login.html";
+        });
+
+    document.getElementById("expertRole")
+        .addEventListener("click", function () {
+            window.location.href = "expert-login.html";
+        });
+
+
+    /* ==========================================
+       PASSWORD SHOW / HIDE
+       ========================================== */
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+    const passwordInput =
+        document.getElementById("counsellorPassword");
+
+    togglePassword.addEventListener("click", function () {
+
+        const isPassword =
+            passwordInput.type === "password";
+
+        passwordInput.type =
+            isPassword ? "text" : "password";
+
+        this.innerHTML = isPassword
+            ? '<i class="fas fa-eye-slash"></i>'
+            : '<i class="fas fa-eye"></i>';
+
+        this.setAttribute(
+            "aria-label",
+            isPassword ? "Hide password" : "Show password"
+        );
+
+    });
+
+
+    /* ==========================================
+       REMEMBER EMAIL
+       ========================================== */
+
+    const rememberMe =
+        document.getElementById("rememberMe");
+
+    const emailInput =
+        document.getElementById("counsellorEmail");
+
+    const savedEmail =
+        localStorage.getItem("udaanixCounsellorEmail");
+
+    if (savedEmail) {
+        emailInput.value = savedEmail;
+        rememberMe.checked = true;
+    }
+
+
+    /* ==========================================
+       MESSAGE
+       ========================================== */
+
+    const loginMessage =
+        document.getElementById("loginMessage");
+
+    function showMessage(message, success) {
+
+        loginMessage.style.display = "block";
+        loginMessage.textContent = message;
+
+        if (success) {
+            loginMessage.style.background = "#e8f8ef";
+            loginMessage.style.color = "#18794e";
+        } else {
+            loginMessage.style.background = "#fff0f0";
+            loginMessage.style.color = "#c62828";
+        }
+
+    }
+
+    function clearMessage() {
+        loginMessage.style.display = "none";
+        loginMessage.textContent = "";
+    }
+
+
+    /* ==========================================
+       REAL COUNSELLOR LOGIN
+       ========================================== */
+
+    const loginForm =
+        document.getElementById("counsellorLoginForm");
+
+    const loginBtn =
+        document.getElementById("loginBtn");
+
+    const loginBtnText =
+        document.getElementById("loginBtnText");
+
+    loginForm.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+        clearMessage();
+
+        const email =
+            emailInput.value.trim().toLowerCase();
+
+        const password =
+            passwordInput.value;
+
+        if (!email || !password) {
+
+            showMessage(
+                "Please enter your email and password.",
+                false
+            );
+
+            return;
+        }
+
+
+        if (rememberMe.checked) {
+
+            localStorage.setItem(
+                "udaanixCounsellorEmail",
+                email
+            );
+
+        } else {
+
+            localStorage.removeItem(
+                "udaanixCounsellorEmail"
+            );
+
+        }
+
+
+        loginBtn.disabled = true;
+        loginBtnText.textContent = "Signing in";
+
+
+        try {
+
+            const response = await fetch(
+                "../api/auth/login",
+                {
+                    method: "POST",
+                    credentials: "include",
+
+                    headers: {
+                        "Content-Type":
+                            "application/x-www-form-urlencoded"
+                    },
+
+                    body: new URLSearchParams({
+                        email: email,
+                        password: password,
+                        role: "COUNSELLOR"
+                    }).toString()
+                }
+            );
+
+
+            let data = null;
+
+            try {
+                data = await response.json();
+            } catch (error) {
+                data = null;
+            }
+
+
+            if (response.ok && data && data.success === true) {
+
+                showMessage(
+                    "Login successful! Redirecting...",
+                    true
+                );
+
+                setTimeout(function () {
+
+                    window.location.href =
+                        "counsellor-dashboard.html";
+
+                }, 450);
+
+                return;
+            }
+
+
+            showMessage(
+                data && data.message
+                    ? data.message
+                    : "Invalid counsellor email or password.",
+                false
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Counsellor Login Error:",
+                error
+            );
+
+            showMessage(
+                "Unable to connect to server. Please make sure GlassFish is running.",
+                false
+            );
+
+        } finally {
+
+            loginBtn.disabled = false;
+            loginBtnText.textContent = "Sign In";
+
+        }
+
+    });
+
+
+    /* ==========================================
+       FORGOT PASSWORD
+       ========================================== */
+
+    document.getElementById("forgotPassword")
+        .addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            alert(
+                "Password reset functionality will be available soon."
+            );
+
+        });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Expert Dashboard | Udaanix</title>
+
+    <link rel="stylesheet"
+          href="../css/style.css">
+
+    <link rel="stylesheet"
+          href="dashboard.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+<style id="expert-utility-styles">
+/* =========================================================
+   EXPERT DASHBOARD - PROFILE / MANAGEMENT UTILITIES
+   Preserves the existing dashboard design.
+   ========================================================= */
+
+.utility-modal{
+    width:min(900px,100%);
+    max-height:90vh;
+    overflow-y:auto;
+    background:#fff;
+    border-radius:24px;
+    padding:28px;
+    box-shadow:0 30px 80px rgba(0,0,0,.20);
+}
+
+.utility-modal.small{
+    width:min(560px,100%);
+}
+
+.utility-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.utility-grid .full{
+    grid-column:1 / -1;
+}
+
+.utility-label{
+    display:block;
+    margin-bottom:7px;
+    font-size:13px;
+    font-weight:700;
+    color:#26352d;
+}
+
+.utility-input,
+.utility-select,
+.utility-textarea{
+    width:100%;
+    box-sizing:border-box;
+    border:1px solid #dfe6e1;
+    border-radius:12px;
+    padding:12px 13px;
+    outline:none;
+    font:inherit;
+    background:#fbfcfb;
+}
+
+.utility-input:focus,
+.utility-select:focus,
+.utility-textarea:focus{
+    border-color:#5f8f78;
+    box-shadow:0 0 0 3px rgba(95,143,120,.10);
+}
+
+.utility-textarea{
+    min-height:105px;
+    resize:vertical;
+}
+
+.utility-readonly{
+    background:#f3f5f3;
+    color:#78837d;
+}
+
+.utility-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.utility-message{
+    display:none;
+    margin-top:14px;
+    padding:12px 14px;
+    border-radius:11px;
+    font-size:13px;
+}
+
+.utility-message.show{display:block}
+.utility-message.success{background:#eaf6ee;color:#3d7656}
+.utility-message.error{background:#fff0f0;color:#c74747}
+
+.utility-list{
+    display:grid;
+    gap:12px;
+}
+
+.utility-row{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    padding:15px;
+    border:1px solid #e8ece9;
+    border-radius:16px;
+    background:#f8faf9;
+}
+
+.utility-row-icon{
+    width:44px;
+    height:44px;
+    flex:0 0 44px;
+    border-radius:13px;
+    background:#eaf4ee;
+    color:#426b57;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.utility-row-main{
+    flex:1;
+    min-width:0;
+}
+
+.utility-row-main strong{
+    display:block;
+    margin-bottom:4px;
+    color:#26352d;
+}
+
+.utility-row-main small{
+    color:#78837d;
+    line-height:1.5;
+}
+
+.utility-row-actions{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+}
+
+.utility-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    padding:5px 9px;
+    border-radius:999px;
+    background:#edf4ff;
+    color:#557fb4;
+    font-size:11px;
+    font-weight:800;
+}
+
+.utility-pill.success{
+    background:#eaf6ee;
+    color:#3d7656;
+}
+
+.utility-pill.warning{
+    background:#fff4df;
+    color:#b8741e;
+}
+
+.utility-empty{
+    padding:35px 20px;
+    text-align:center;
+    color:#78837d;
+}
+
+.utility-empty i{
+    display:block;
+    margin-bottom:10px;
+    font-size:30px;
+    color:#a5b3ab;
+}
+
+.impact-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.impact-card{
+    padding:20px;
+    border:1px solid #e8ece9;
+    border-radius:18px;
+    background:#f8faf9;
+}
+
+.impact-card i{
+    font-size:22px;
+    color:#5f8f78;
+    margin-bottom:12px;
+}
+
+.impact-card strong{
+    display:block;
+    font-size:26px;
+    color:#26352d;
+    margin-bottom:4px;
+}
+
+.impact-card span{
+    color:#78837d;
+    font-size:12px;
+}
+
+.rating-stars{
+    color:#d49a2a;
+    letter-spacing:2px;
+}
+
+.review-text{
+    margin:8px 0 0;
+    color:#26352d;
+    line-height:1.55;
+}
+
+.message-compose{
+    margin-top:18px;
+    padding:18px;
+    border-radius:17px;
+    background:#faf7f0;
+}
+
+.session-status{
+    text-transform:capitalize;
+}
+
+@media(max-width:800px){
+    .utility-grid,
+    .impact-grid{
+        grid-template-columns:1fr;
+    }
+    .utility-grid .full{
+        grid-column:auto;
+    }
+}
+</style>
+
+
+<style id="udaanix-expert-scroll-layout">
+/* =========================================================
+   EXPERT DASHBOARD — STUDENT-STYLE SCROLLABLE SECTIONS
+   ========================================================= */
+html { scroll-behavior:smooth; }
+
+body {
+    overflow-x:hidden !important;
+    background:#f7f9f7 !important;
+}
+
+.dashboard-page {
+    width:100% !important;
+    min-height:100vh !important;
+}
+
+.dashboard-main {
+    width:calc(100vw - 262px) !important;
+    max-width:none !important;
+    margin-left:262px !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+}
+
+.dashboard-content {
+    width:100% !important;
+    max-width:none !important;
+    box-sizing:border-box !important;
+    padding-bottom:70px !important;
+}
+
+.expert-scroll-section {
+    scroll-margin-top:24px;
+    margin-top:32px;
+}
+
+.expert-scroll-section .section-heading {
+    margin-bottom:16px;
+}
+
+.expert-scroll-section .section-heading h2 {
+    margin:0 0 5px;
+}
+
+.expert-scroll-section .section-heading p {
+    margin:0;
+    color:#78837d;
+}
+
+.expert-section-card {
+    background:#fff;
+    border:1px solid #e8ece9;
+    border-radius:22px;
+    padding:24px;
+    box-shadow:0 12px 35px rgba(43,66,54,.06);
+}
+
+.expert-section-card + .expert-section-card {
+    margin-top:16px;
+}
+
+.expert-section-actions {
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+}
+
+.expert-section-actions .premium-btn {
+    text-decoration:none;
+}
+
+.expert-section-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.expert-profile-summary {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.expert-profile-field {
+    padding:16px;
+    border-radius:15px;
+    background:#f8faf9;
+    border:1px solid #eef1ef;
+}
+
+.expert-profile-field.full {
+    grid-column:1/-1;
+}
+
+.expert-profile-field label {
+    display:block;
+    font-size:11px;
+    font-weight:800;
+    color:#78837d;
+    text-transform:uppercase;
+    letter-spacing:.45px;
+    margin-bottom:7px;
+}
+
+.expert-profile-field span {
+    display:block;
+    color:#26352d;
+    font-weight:650;
+    word-break:break-word;
+}
+
+.expert-section-list {
+    display:grid;
+    gap:12px;
+}
+
+.expert-section-list .utility-empty {
+    min-height:140px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    box-sizing:border-box;
+}
+
+.expert-review-layout {
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:20px;
+}
+
+.expert-impact-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.expert-settings-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.expert-setting-card {
+    border:1px solid #e8ece9;
+    background:#f8faf9;
+    border-radius:18px;
+    padding:20px;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.expert-setting-card:hover {
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(43,66,54,.08);
+}
+
+.expert-setting-card i {
+    color:#5f8f78;
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.expert-setting-card strong {
+    display:block;
+    margin-bottom:5px;
+    color:#26352d;
+}
+
+.expert-setting-card small {
+    color:#78837d;
+    line-height:1.5;
+}
+
+.expert-back-top {
+    text-align:right;
+    margin-top:16px;
+}
+
+.expert-back-top a {
+    color:#426b57;
+    font-weight:700;
+    text-decoration:none;
+}
+
+@media(max-width:1100px){
+    .expert-profile-summary,
+    .expert-settings-grid,
+    .expert-impact-grid {
+        grid-template-columns:repeat(2,1fr);
+    }
+    .expert-review-layout {
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:800px){
+    .dashboard-main {
+        width:100vw !important;
+        margin-left:0 !important;
+    }
+    .expert-section-grid,
+    .expert-profile-summary,
+    .expert-settings-grid,
+    .expert-impact-grid {
+        grid-template-columns:1fr;
+    }
+    .expert-profile-field.full {
+        grid-column:auto;
+    }
+}
+</style>
+
+
+<style id="udaanix-expert-final-alignment">
+/* =========================================================
+   FINAL DESKTOP ALIGNMENT
+   Sidebar = fixed 262px
+   Main area = exactly the remaining viewport width
+   Content padding = same clean spacing as Student Dashboard
+   ========================================================= */
+
+html,
+body {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+.dashboard-page {
+    width: 100vw !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+    display: block !important;
+}
+
+/* Keep the left navigation completely independent from page content */
+.sidebar {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 262px !important;
+    min-width: 262px !important;
+    max-width: 262px !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    z-index: 1000 !important;
+}
+
+/* Main content starts immediately after the sidebar */
+.dashboard-main {
+    position: relative !important;
+    display: block !important;
+    width: calc(100vw - 262px) !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 0 0 262px !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Top bar must use the complete main-column width */
+.dashboard-main > .topbar {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Same inner spacing throughout the complete scrollable page */
+.dashboard-content {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 30px 32px 70px !important;
+    box-sizing: border-box !important;
+}
+
+/* Every long-page section follows the same content width */
+.expert-scroll-section {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+}
+
+/* Cards never escape the main content column */
+.expert-section-card,
+.expert-scroll-section > .section-heading,
+.dashboard-grid,
+.quick-section,
+.bottom-grid,
+.expert-back-top {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Smooth section landing below the top bar */
+.expert-scroll-section {
+    scroll-margin-top: 90px !important;
+}
+
+/* Desktop profile/settings grids stay aligned */
+.expert-section-grid,
+.expert-profile-summary,
+.expert-settings-grid,
+.expert-impact-grid {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Prevent form controls from creating horizontal overflow */
+.expert-section-card input,
+.expert-section-card select,
+.expert-section-card textarea {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Mobile: sidebar overlays the page instead of creating a second column */
+@media (max-width: 800px) {
+    .sidebar {
+        width: 262px !important;
+        min-width: 262px !important;
+        max-width: 262px !important;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .dashboard-main {
+        width: 100vw !important;
+        margin-left: 0 !important;
+    }
+
+    .dashboard-content {
+        width: 100% !important;
+        padding: 22px 16px 60px !important;
+    }
+}
+</style>
+
+
+<style id="udaanix-expert-modal-final">
+/* FINAL MODAL BEHAVIOUR — modals are hidden until an action opens them */
+.modal-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    box-sizing: border-box !important;
+    display: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(20, 31, 26, .48) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    z-index: 999999 !important;
+    overflow-y: auto !important;
+}
+.modal-overlay.show {
+    display: flex !important;
+}
+.modal-overlay:not(.show) {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+.modal-overlay .utility-modal {
+    position: relative !important;
+    width: min(920px, calc(100vw - 48px)) !important;
+    max-width: 920px !important;
+    max-height: calc(100vh - 48px) !important;
+    margin: auto !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+}
+.modal-overlay .utility-modal.small {
+    width: min(560px, calc(100vw - 48px)) !important;
+    max-width: 560px !important;
+}
+@media(max-width:800px){
+    .modal-overlay { padding:12px !important; }
+    .modal-overlay .utility-modal,
+    .modal-overlay .utility-modal.small {
+        width: calc(100vw - 24px) !important;
+        max-width: calc(100vw - 24px) !important;
+        max-height: calc(100vh - 24px) !important;
+    }
+}
+</style>
+
+
+<style id="udaanix-expert-functional-sections">
+.expert-section-actions {
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-end !important;
+    gap:10px !important;
+    flex-wrap:wrap !important;
+    margin-bottom:18px !important;
+}
+.utility-row {
+    display:flex !important;
+    align-items:center !important;
+    gap:14px !important;
+    padding:15px !important;
+    border:1px solid #e7ece8 !important;
+    border-radius:16px !important;
+    background:#fbfcfb !important;
+    margin-bottom:10px !important;
+}
+.utility-row-icon {
+    width:42px !important;
+    height:42px !important;
+    flex:0 0 42px !important;
+    border-radius:13px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    background:#eaf4ee !important;
+    color:#5f8f78 !important;
+}
+.utility-row-main {
+    min-width:0 !important;
+    flex:1 !important;
+}
+.utility-row-main strong {
+    display:block !important;
+    color:#26352d !important;
+    margin-bottom:4px !important;
+}
+.utility-row-main small {
+    display:block !important;
+    color:#78837d !important;
+    line-height:1.5 !important;
+}
+.utility-row-actions {
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+    flex-wrap:wrap !important;
+}
+.utility-badge {
+    display:inline-flex !important;
+    align-items:center !important;
+    padding:6px 10px !important;
+    border-radius:999px !important;
+    background:#eef3ef !important;
+    color:#426b57 !important;
+    font-size:11px !important;
+    font-weight:800 !important;
+}
+.expert-review-summary-card {
+    display:flex !important;
+    align-items:center !important;
+    gap:16px !important;
+    padding:20px !important;
+    border-radius:18px !important;
+    background:#faf7f0 !important;
+    margin-bottom:16px !important;
+}
+.review-big {
+    font-size:42px !important;
+    font-weight:800 !important;
+    color:#5f8f78 !important;
+}
+.expert-review-summary-card small {
+    display:block !important;
+    color:#78837d !important;
+    margin-top:4px !important;
+}
+.expert-impact-grid {
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+}
+.impact-stat {
+    padding:22px !important;
+    border:1px solid #e7ece8 !important;
+    border-radius:18px !important;
+    background:#fbfcfb !important;
+}
+.impact-stat i {
+    display:block !important;
+    color:#5f8f78 !important;
+    font-size:22px !important;
+    margin-bottom:14px !important;
+}
+.impact-stat strong {
+    display:block !important;
+    font-size:28px !important;
+    color:#26352d !important;
+}
+.impact-stat span {
+    display:block !important;
+    color:#78837d !important;
+    margin-top:5px !important;
+}
+@media(max-width:900px){
+    .expert-impact-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+}
+@media(max-width:600px){
+    .utility-row { align-items:flex-start !important; flex-wrap:wrap !important; }
+    .utility-row-actions { width:100% !important; padding-left:56px !important; }
+    .expert-impact-grid { grid-template-columns:1fr !important; }
+}
+</style>
+
+<style id="expert-modal-absolute-final-fix">
+body > .modal-overlay { position:fixed !important; inset:0 !important; width:100vw !important; height:100vh !important; min-width:100vw !important; min-height:100vh !important; margin:0 !important; padding:24px !important; display:none !important; align-items:center !important; justify-content:center !important; overflow-y:auto !important; background:rgba(20,31,26,.48) !important; z-index:2147483647 !important; box-sizing:border-box !important; }
+body > .modal-overlay.show { display:flex !important; }
+body > .modal-overlay:not(.show) { visibility:hidden !important; opacity:0 !important; pointer-events:none !important; }
+body > .modal-overlay > .utility-modal { position:relative !important; display:block !important; width:min(920px,calc(100vw - 48px)) !important; max-width:920px !important; max-height:calc(100vh - 48px) !important; margin:auto !important; overflow-y:auto !important; box-sizing:border-box !important; }
+@media(max-width:800px){ body > .modal-overlay{padding:12px !important;} body > .modal-overlay > .utility-modal{width:calc(100vw - 24px) !important; max-width:calc(100vw - 24px) !important; max-height:calc(100vh - 24px) !important;} }
+</style>
+
+<style id="expert-student-password-style">
+.password-security-note{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border-radius:13px;background:#eef6f1;color:#466f5a;font-size:13px;line-height:1.5;margin:0 0 18px}
+.password-security-note i{font-size:17px;margin-top:2px}
+.password-input-wrap{position:relative;display:flex;align-items:center}
+.password-input-wrap .utility-input{padding-right:48px!important}
+.password-toggle{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#8a9690;cursor:pointer;width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+.password-toggle:hover{background:#eef3ef;color:#426b57}
+.password-rules{list-style:none;padding:0;margin:9px 0 0;display:grid;gap:5px;font-size:12px;color:#8a9690}
+.password-rules li:before{content:'○';display:inline-block;width:18px;font-weight:700}
+.password-rules li.valid{color:#3d7656}
+.password-rules li.valid:before{content:'✓'}
+.password-rules li.invalid{color:#a06a62}
+.password-rules li.invalid:before{content:'○'}
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard-page" id="top">
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+
+        <div class="brand">
+
+            <a href="../index.html">
+
+                <img
+                    src="../images/udaanix-logo.png"
+                    alt="Udaanix"
+                >
+
+            </a>
+
+        </div>
+
+
+
+        <nav class="sidebar-nav">
+
+
+            <a
+                href="#top"
+                class="active"
+            >
+
+                <i class="fas fa-house"></i>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a href="#expertMenteesSection">
+
+                <i class="fas fa-user-graduate"></i>
+
+                <span>
+                    My Mentees
+                </span>
+
+            </a>
+
+
+            <a href="#expertSessionsSection">
+
+                <i class="fas fa-calendar-check"></i>
+
+                <span>
+                    My Sessions
+                </span>
+
+            </a>
+
+
+            <a href="#expertProfileSection">
+
+                <i class="fas fa-building"></i>
+
+                <span>
+                    My Profile
+                </span>
+
+            </a>
+
+
+            <a href="#expertMessagesSection">
+
+                <i class="fas fa-comments"></i>
+
+                <span>
+                    Messages
+                </span>
+
+                <b class="nav-badge" style="display:none;">
+                    0
+                </b>
+
+            </a>
+
+
+            <a href="#expertReviewsSection">
+
+                <i class="fas fa-star"></i>
+
+                <span>
+                    Reviews
+                </span>
+
+            </a>
+
+
+            <a href="#expertImpactSection">
+
+                <i class="fas fa-chart-line"></i>
+
+                <span>
+                    Performance
+                </span>
+
+            </a>
+
+
+            <a href="#expertNotificationSection" id="expertNotificationsNav">
+
+                <i class="fas fa-bell"></i>
+
+                <span>
+                    Notifications
+                </span>
+
+            </a>
+
+
+            <a href="#expertSettingsSection">
+
+                <i class="fas fa-gear"></i>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+
+        <button
+            class="logout-btn"
+            id="logoutBtn"
+        >
+
+            <i class="fas fa-right-from-bracket"></i>
+
+            Sign Out
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <button
+                class="mobile-menu"
+                id="menuBtn"
+            >
+
+                <i class="fas fa-bars"></i>
+
+            </button>
+
+
+
+            <div class="search-box">
+
+                <i class="fas fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    placeholder="Search mentees, sessions, or messages..."
+                >
+
+            </div>
+
+
+
+            <div class="top-actions">
+
+
+                <button
+                    class="icon-btn notification"
+                    type="button"
+                    onclick="document.getElementById('expertNotificationSection')?.scrollIntoView({behavior:'smooth',block:'start'}); openNotificationModal();"
+                    title="Notifications"
+                >
+
+                    <i class="fas fa-bell"></i>
+
+                    <span style="display:none;">
+                        0
+                    </span>
+
+                </button>
+
+
+
+                <!-- EXPERT PROFILE -->
+
+                <div class="student-profile">
+
+
+                    <label
+                        class="avatar"
+                        id="avatar"
+                        for="profileUpload"
+                        title="Change profile picture"
+                    >
+
+                        <i class="fas fa-user-tie"></i>
+
+                    </label>
+
+
+                    <input
+                        type="file"
+                        id="profileUpload"
+                        accept="image/*"
+                        style="display:none;"
+                    >
+
+
+                    <div class="profile-text">
+
+                        <strong id="expertName">
+                            Hi, Expert
+                        </strong>
+
+                        <small>
+                            Industry Expert
+                        </small>
+
+                    </div>
+
+
+                    <i class="fas fa-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================
+             CONTENT
+        ========================== -->
+
+        <div class="dashboard-content">
+
+
+
+            <!-- WELCOME -->
+
+            <section class="welcome-banner">
+
+
+                <div class="welcome-copy">
+
+
+                    <span class="welcome-label">
+                        INDUSTRY EXPERT DASHBOARD
+                    </span>
+
+
+                    <h1>
+
+                        Welcome back,
+
+                        <span id="welcomeName">
+                            Expert
+                        </span>
+
+                        ! 👋
+
+                    </h1>
+
+
+                    <p>
+
+                        Your industry experience can help
+                        students understand careers beyond
+                        the classroom and prepare for the real world.
+
+                    </p>
+
+
+                    <a
+                        href="#expertSessionsSection"
+                        class="banner-btn"
+                    >
+
+                        View Today's Sessions
+
+                        <i class="fas fa-arrow-right"></i>
+
+                    </a>
+
+
+                </div>
+
+
+
+                <div class="banner-art">
+
+                    <div class="sun"></div>
+
+                    <div class="mountain mountain-one"></div>
+
+                    <div class="mountain mountain-two"></div>
+
+
+                    <div class="student-illustration">
+
+                        <i class="fas fa-building"></i>
+
+                    </div>
+
+
+                    <div class="career-sign">
+
+                        Learn<br>
+                        Connect<br>
+                        Grow
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =========================
+                 STATS
+            ========================== -->
+
+            <section class="dashboard-grid">
+
+
+                <!-- PROFILE PROGRESS -->
+
+                <div class="progress-card">
+
+
+                    <div class="section-title">
+
+                        <div>
+
+                            <h2>
+                                Profile Progress
+                            </h2>
+
+                            <p>
+                                Complete your profile to
+                                help students know your expertise.
+                            </p>
+
+                        </div>
+
+
+                        <i class="fas fa-chart-line"></i>
+
+                    </div>
+
+
+
+                    <div class="progress-body">
+
+
+                        <div class="progress-ring">
+
+                            <div>
+
+                                <strong>
+                                    85%
+                                </strong>
+
+                                <span>
+                                    Complete
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="progress-list">
+
+
+                            <div class="done">
+
+                                <i class="fas fa-check"></i>
+
+                                Basic Information
+
+                            </div>
+
+
+                            <div class="done">
+
+                                <i class="fas fa-check"></i>
+
+                                Professional Details
+
+                            </div>
+
+
+                            <div class="done">
+
+                                <i class="fas fa-check"></i>
+
+                                Profile Picture
+
+                            </div>
+
+
+                            <div>
+
+                                <i class="far fa-circle"></i>
+
+                                Add Availability
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MENTEES -->
+
+                <div class="stats-card">
+
+
+                    <div class="stat-icon">
+
+                        <i class="fas fa-user-graduate"></i>
+
+                    </div>
+
+
+                    <span>
+                        Active Mentees
+                    </span>
+
+
+                    <strong>
+                        18
+                    </strong>
+
+
+                    <small>
+                        Students learning from you
+                    </small>
+
+
+                </div>
+
+
+
+                <!-- SESSIONS -->
+
+                <div class="stats-card">
+
+
+                    <div class="stat-icon">
+
+                        <i class="fas fa-calendar-check"></i>
+
+                    </div>
+
+
+                    <span>
+                        Expert Sessions
+                    </span>
+
+
+                    <strong>
+                        16
+                    </strong>
+
+
+                    <small>
+                        Industry sessions completed
+                    </small>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =========================
+                 QUICK ACTIONS
+            ========================== -->
+
+            <section class="quick-section">
+
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            What would you like to do?
+                        </h2>
+
+                        <p>
+                            Share your expertise with the next generation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="quick-grid">
+
+
+                    <a
+                        href="#expertProfileSection"
+                        class="quick-card blue"
+                    >
+
+                        <div class="quick-icon">
+
+                            <i class="fas fa-building"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Manage Profile
+                        </h3>
+
+
+                        <p>
+
+                            Update your professional experience,
+                            company and areas of expertise.
+
+                        </p>
+
+
+                        <span>
+
+                            Edit Profile
+
+                            <i class="fas fa-arrow-right"></i>
+
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        href="#expertMenteesSection"
+                        class="quick-card green"
+                    >
+
+                        <div class="quick-icon">
+
+                            <i class="fas fa-user-graduate"></i>
+
+                        </div>
+
+
+                        <h3>
+                            My Mentees
+                        </h3>
+
+
+                        <p>
+
+                            View students interested in your
+                            industry and professional guidance.
+
+                        </p>
+
+
+                        <span>
+
+                            View Mentees
+
+                            <i class="fas fa-arrow-right"></i>
+
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        href="#expertSessionsSection"
+                        class="quick-card purple"
+                    >
+
+                        <div class="quick-icon">
+
+                            <i class="fas fa-calendar-check"></i>
+
+                        </div>
+
+
+                        <h3>
+                            My Sessions
+                        </h3>
+
+
+                        <p>
+
+                            Manage upcoming expert talks,
+                            mentoring and career sessions.
+
+                        </p>
+
+
+                        <span>
+
+                            View Sessions
+
+                            <i class="fas fa-arrow-right"></i>
+
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        href="#expertMessagesSection"
+                        class="quick-card orange"
+                    >
+
+                        <div class="quick-icon">
+
+                            <i class="fas fa-comments"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Messages
+                        </h3>
+
+
+                        <p>
+
+                            Connect with students and answer
+                            questions about your industry.
+
+                        </p>
+
+
+                        <span>
+
+                            Open Messages
+
+                            <i class="fas fa-arrow-right"></i>
+
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 BOTTOM
+            ========================== -->
+
+            <section class="bottom-grid">
+
+
+                <div class="activity-card">
+
+
+                    <div class="section-title">
+
+                        <div>
+
+                            <h2>
+                                Upcoming Sessions
+                            </h2>
+
+                            <p>
+                                Your next industry interactions.
+                            </p>
+
+                        </div>
+
+
+                        <a href="#expertSessionsSection">
+                            View All
+                        </a>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon blue-icon">
+
+                            <i class="fas fa-laptop-code"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Industry Career Talk
+                            </strong>
+
+                            <small>
+                                Today • 4:00 PM
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon green-icon">
+
+                            <i class="fas fa-user-graduate"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                1:1 Mentoring Session
+                            </strong>
+
+                            <small>
+                                Tomorrow • 11:30 AM
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon purple-icon">
+
+                            <i class="fas fa-lightbulb"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Skills & Industry Q&A
+                            </strong>
+
+                            <small>
+                                Tomorrow • 5:30 PM
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- EXPERT TIP -->
+
+                <div class="tip-card">
+
+
+                    <div class="tip-icon">
+
+                        <i class="fas fa-lightbulb"></i>
+
+                    </div>
+
+
+                    <span>
+                        EXPERT TIP
+                    </span>
+
+
+                    <h2>
+
+                        Real experience can
+                        change a student's perspective.
+
+                    </h2>
+
+
+                    <p>
+
+                        Share honest insights about the skills,
+                        challenges and opportunities students
+                        can expect in your industry.
+
+                    </p>
+
+
+                    <a href="#">
+
+                        Explore Expert Resources
+
+                        <i class="fas fa-arrow-right"></i>
+
+                    </a>
+
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =========================================================
+                 EXPERT SCROLLABLE MANAGEMENT SECTIONS
+                 Same long-scroll interaction pattern as Student Dashboard
+                 ========================================================= -->
+
+            <section class="expert-scroll-section" id="expertMenteesSection">
+                <div class="section-heading">
+                    <div>
+                        <h2>My Mentees</h2>
+                        <p>Students connected with you and their mentoring activity.</p>
+                    </div>
+                </div>
+                <div class="expert-section-card">
+                    <div class="expert-section-actions">
+                        <button type="button" class="premium-btn soft" onclick="openMenteesModal();">
+                            <i class="fas fa-rotate"></i> Refresh
+                        </button>
+                        <a href="#expertMessagesSection" class="premium-btn primary">
+                            <i class="fas fa-comments"></i> Message Students
+                        </a>
+                    </div>
+                    <div class="expert-section-list" id="sectionMenteesList">
+                        <div class="utility-empty">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            Loading mentees...
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="expert-scroll-section" id="expertSessionsSection">
+                <div class="section-heading">
+                    <div>
+                        <h2>My Sessions</h2>
+                        <p>Manage upcoming, confirmed, completed and cancelled sessions.</p>
+                    </div>
+                </div>
+                <div class="expert-section-card">
+                    <div class="expert-section-actions">
+                        <button type="button" class="premium-btn soft" onclick="openSessionsModal();">
+                            <i class="fas fa-rotate"></i> Refresh
+                        </button>
+                        <a href="#expertImpactSection" class="premium-btn primary">
+                            <i class="fas fa-chart-line"></i> View Impact
+                        </a>
+                    </div>
+                    <div class="expert-section-list" id="sectionSessionsList">
+                        <div class="utility-empty">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            Loading sessions...
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="expert-scroll-section" id="expertProfileSection">
+                <div class="section-heading">
+                    <div>
+                        <h2>My Profile</h2>
+                        <p>Keep your professional information and expertise up to date.</p>
+                    </div>
+                </div>
+                <div class="expert-section-card">
+                    <div class="expert-section-actions">
+                        <button type="button" class="premium-btn primary" onclick="openProfileModal();">
+                            <i class="fas fa-pen"></i> Edit Profile
+                        </button>
+                    </div>
+
+                    <div class="expert-profile-summary">
+                        <div class="expert-profile-field">
+                            <label>Name</label>
+                            <span id="sectionProfileName">Expert</span>
+                        </div>
+                        <div class="expert-profile-field">
+                            <label>Email</label>
+                            <span id="sectionProfileEmail">—</span>
+                        </div>
+                        <div class="expert-profile-field">
+                            <label>Mobile</label>
+                            <span id="sectionProfileMobile">—</span>
+                        </div>
+                        <div class="expert-profile-field">
+                            <label>Job Title</label>
+                            <span id="sectionProfileJobTitle">—</span>
+                        </div>
+                        <div class="expert-profile-field">
+                            <label>Company</label>
+                            <span id="sectionProfileCompany">—</span>
+                        </div>
+                        <div class="expert-profile-field">
+                            <label>Industry</label>
+                            <span id="sectionProfileIndustry">—</span>
+                        </div>
+                        <div class="expert-profile-field">
+                            <label>Expertise</label>
+                            <span id="sectionProfileExpertise">—</span>
+                        </div>
+                        <div class="expert-profile-field">
+                            <label>Stream</label>
+                            <span id="sectionProfileStream">—</span>
+                        </div>
+                        <div class="expert-profile-field">
+                            <label>Primary Career</label>
+                            <span id="sectionProfileCareer">—</span>
+                        </div>
+                        <div class="expert-profile-field">
+                            <label>Experience</label>
+                            <span id="sectionProfileExperience">—</span>
+                        </div>
+                        <div class="expert-profile-field">
+                            <label>City</label>
+                            <span id="sectionProfileCity">—</span>
+                        </div>
+                        <div class="expert-profile-field">
+                            <label>Availability</label>
+                            <span id="sectionProfileAvailability">—</span>
+                        </div>
+                        <div class="expert-profile-field full">
+                            <label>About</label>
+                            <span id="sectionProfileBio">—</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="expert-scroll-section" id="expertMessagesSection">
+                <div class="section-heading">
+                    <div>
+                        <h2>Messages</h2>
+                        <p>Stay connected with students and answer their questions.</p>
+                    </div>
+                </div>
+                <div class="expert-section-card">
+                    <div class="expert-section-actions">
+                        <button type="button" class="premium-btn soft" onclick="openMessagesModal();">
+                            <i class="fas fa-envelope"></i> Open Messenger
+                        </button>
+                    </div>
+                    <div class="expert-section-list" id="sectionMessagesList">
+                        <div class="utility-empty">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            Loading messages...
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="expert-scroll-section" id="expertReviewsSection">
+                <div class="section-heading">
+                    <div>
+                        <h2>Reviews</h2>
+                        <p>See what students say about your mentoring sessions.</p>
+                    </div>
+                </div>
+                <div class="expert-section-card">
+                    <div class="expert-review-layout">
+                        <div id="sectionReviewSummary">
+                            <div class="utility-empty">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                Loading reviews...
+                            </div>
+                        </div>
+                        <div class="expert-section-list" id="sectionReviewsList">
+                            <div class="utility-empty">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                Loading reviews...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="expert-scroll-section" id="expertImpactSection">
+                <div class="section-heading">
+                    <div>
+                        <h2>Impact</h2>
+                        <p>Your contribution to students and the Udaanix community.</p>
+                    </div>
+                </div>
+                <div class="expert-section-card">
+                    <div class="expert-impact-grid" id="sectionImpactGrid">
+                        <div class="utility-empty">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            Loading impact...
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="expert-scroll-section" id="expertNotificationSection">
+                <div class="section-heading">
+                    <div>
+                        <h2>Notifications</h2>
+                        <p>Your Udaanix alerts, reminders and account updates.</p>
+                    </div>
+                    <button class="premium-btn soft" type="button" onclick="openNotificationModal()">
+                        <i class="fas fa-bell"></i> View Notifications
+                    </button>
+                </div>
+                <div class="expert-section-card">
+                    <div class="expert-section-list">
+                        <div class="utility-row">
+                            <div class="utility-row-icon"><i class="fas fa-calendar-check"></i></div>
+                            <div class="utility-row-main">
+                                <strong>Session reminders</strong>
+                                <small>Your upcoming expert sessions are available in My Sessions.</small>
+                            </div>
+                        </div>
+                        <div class="utility-row">
+                            <div class="utility-row-icon"><i class="fas fa-star"></i></div>
+                            <div class="utility-row-main">
+                                <strong>Student reviews</strong>
+                                <small>Check Reviews for ratings and feedback from students.</small>
+                            </div>
+                        </div>
+                        <div class="utility-row">
+                            <div class="utility-row-icon"><i class="fas fa-message"></i></div>
+                            <div class="utility-row-main">
+                                <strong>Student messages</strong>
+                                <small>Open Messages to reply to student conversations.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="expert-scroll-section" id="expertSettingsSection">
+                <div class="section-heading">
+                    <div>
+                        <h2>Settings</h2>
+                        <p>Manage your Udaanix expert account preferences.</p>
+                    </div>
+                </div>
+                <div class="expert-section-card">
+                    <div class="expert-settings-grid">
+                        <div class="expert-setting-card" onclick="openProfileModal();">
+                            <i class="fas fa-user-gear"></i>
+                            <strong>Account</strong>
+                            <small>View and update your professional account details.</small>
+                        </div>
+                        <div class="expert-setting-card" onclick="openNotificationModal();">
+                            <i class="fas fa-bell"></i>
+                            <strong>Notifications</strong>
+                            <small>View your Udaanix notifications and reminders.</small>
+                        </div>
+                        <div class="expert-setting-card" onclick="showExpertPrivacy();">
+                            <i class="fas fa-shield-halved"></i>
+                            <strong>Privacy</strong>
+                            <small>Review basic privacy and account safety information.</small>
+                        </div>
+                        <div class="expert-setting-card" onclick="openPasswordModal();">
+                            <i class="fas fa-lock"></i>
+                            <strong>Password</strong>
+                            <small>Change your account password securely.</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="expert-back-top">
+                <a href="#top">Back to top <i class="fas fa-arrow-up"></i></a>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+
+
+<!-- =========================================================
+     EXPERT MANAGEMENT MODALS
+     ========================================================= -->
+
+<!-- PROFILE -->
+<div class="modal-overlay" id="expertProfileModal">
+    <div class="utility-modal">
+        <div class="modal-header">
+            <div>
+                <h2>Edit Expert Profile</h2>
+                <p style="margin:5px 0 0;color:#78837d;">
+                    View and manage your professional Udaanix profile.
+                </p>
+            </div>
+            <button class="close-modal" type="button" onclick="closeUtilityModal('expertProfileModal')">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="modal-photo-area">
+            <div class="modal-photo" id="expertModalPhoto">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div>
+                <strong>Profile Picture</strong>
+                <p style="margin:4px 0 12px;color:#78837d;font-size:13px;">
+                    JPG, PNG or WEBP · Max 5 MB
+                </p>
+                <div class="photo-actions">
+                    <input type="file" id="expertProfilePictureInput"
+                           accept="image/jpeg,image/png,image/webp" hidden>
+                    <button class="premium-btn primary" type="button"
+                            onclick="document.getElementById('expertProfilePictureInput').click()">
+                        <i class="fas fa-camera"></i> Change Photo
+                    </button>
+                    <button class="premium-btn danger" type="button"
+                            onclick="removeExpertPhoto()">
+                        <i class="fas fa-trash"></i> Remove
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <form id="expertProfileForm">
+            <div class="utility-grid">
+                <div>
+                    <label class="utility-label">First Name</label>
+                    <input class="utility-input" id="epFirstName" required>
+                </div>
+                <div>
+                    <label class="utility-label">Last Name</label>
+                    <input class="utility-input" id="epLastName" required>
+                </div>
+                <div>
+                    <label class="utility-label">Professional Email</label>
+                    <input class="utility-input utility-readonly" id="epEmail" type="email" readonly>
+                </div>
+                <div>
+                    <label class="utility-label">Mobile</label>
+                    <input class="utility-input" id="epMobile" type="tel">
+                </div>
+                <div>
+                    <label class="utility-label">Age</label>
+                    <input class="utility-input" id="epAge" type="number" min="0" max="100">
+                </div>
+                <div>
+                    <label class="utility-label">Current Job Title</label>
+                    <input class="utility-input" id="epJobTitle">
+                </div>
+                <div>
+                    <label class="utility-label">Company</label>
+                    <input class="utility-input" id="epCompany">
+                </div>
+                <div>
+                    <label class="utility-label">Industry</label>
+                    <input class="utility-input" id="epIndustry">
+                </div>
+                <div>
+                    <label class="utility-label">Area of Expertise</label>
+                    <input class="utility-input" id="epExpertise">
+                </div>
+                <div>
+                    <label class="utility-label">Stream</label>
+                    <input class="utility-input" id="epStream">
+                </div>
+                <div>
+                    <label class="utility-label">Primary Career</label>
+                    <input class="utility-input" id="epPrimaryCareer">
+                </div>
+                <div>
+                    <label class="utility-label">Experience (Years)</label>
+                    <input class="utility-input" id="epExperience" type="number" min="0">
+                </div>
+                <div>
+                    <label class="utility-label">City</label>
+                    <input class="utility-input" id="epCity">
+                </div>
+                <div>
+                    <label class="utility-label">Session Fee</label>
+                    <input class="utility-input" id="epFee" type="number" min="0" step="0.01">
+                </div>
+                <div>
+                    <label class="utility-label">Session Duration (Minutes)</label>
+                    <input class="utility-input" id="epDuration" type="number" min="1">
+                </div>
+                <div>
+                    <label class="utility-label">Availability</label>
+                    <select class="utility-select" id="epAvailability">
+                        <option value="Available">Available</option>
+                        <option value="Busy">Busy</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                </div>
+                <div class="full">
+                    <label class="utility-label">LinkedIn Profile</label>
+                    <input class="utility-input" id="epLinkedin" type="url">
+                </div>
+                <div class="full">
+                    <label class="utility-label">Intro Video URL</label>
+                    <input class="utility-input" id="epIntroVideo" type="url">
+                </div>
+                <div class="full">
+                    <label class="utility-label">Professional Bio</label>
+                    <textarea class="utility-textarea" id="epBio"></textarea>
+                </div>
+            </div>
+
+            <div class="utility-message" id="expertProfileMessage"></div>
+
+            <div class="utility-actions">
+                <button type="button" class="premium-btn soft"
+                        onclick="closeUtilityModal('expertProfileModal')">Cancel</button>
+                <button type="submit" class="premium-btn primary" id="expertProfileSaveBtn">
+                    <i class="fas fa-check"></i> Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- MENTEES -->
+<div class="modal-overlay" id="expertMenteesModal">
+    <div class="utility-modal">
+        <div class="modal-header">
+            <div>
+                <h2>My Mentees</h2>
+                <p style="margin:5px 0 0;color:#78837d;">
+                    Students connected with you through Udaanix.
+                </p>
+            </div>
+            <button class="close-modal" type="button" onclick="closeUtilityModal('expertMenteesModal')">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+        <div class="utility-list" id="menteesList">
+            <div class="utility-empty"><i class="fas fa-spinner fa-spin"></i>Loading mentees...</div>
+        </div>
+    </div>
+</div>
+
+<!-- SESSIONS -->
+<div class="modal-overlay" id="expertSessionsModal">
+    <div class="utility-modal">
+        <div class="modal-header">
+            <div>
+                <h2>My Sessions</h2>
+                <p style="margin:5px 0 0;color:#78837d;">
+                    Manage upcoming, confirmed and completed expert sessions.
+                </p>
+            </div>
+            <button class="close-modal" type="button" onclick="closeUtilityModal('expertSessionsModal')">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+        <div class="utility-actions" style="justify-content:flex-start;margin-top:0;margin-bottom:16px;">
+            <button class="premium-btn soft" onclick="loadExpertSessions('upcoming')">Upcoming</button>
+            <button class="premium-btn soft" onclick="loadExpertSessions('completed')">Completed</button>
+            <button class="premium-btn soft" onclick="loadExpertSessions('all')">All</button>
+        </div>
+        <div class="utility-list" id="sessionsList">
+            <div class="utility-empty"><i class="fas fa-spinner fa-spin"></i>Loading sessions...</div>
+        </div>
+    </div>
+</div>
+
+<!-- MESSAGES -->
+<div class="modal-overlay" id="expertMessagesModal">
+    <div class="utility-modal">
+        <div class="modal-header">
+            <div>
+                <h2>Messages</h2>
+                <p style="margin:5px 0 0;color:#78837d;">
+                    Connect with your students and answer their questions.
+                </p>
+            </div>
+            <button class="close-modal" type="button" onclick="closeUtilityModal('expertMessagesModal')">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="utility-list" id="messagesList">
+            <div class="utility-empty"><i class="fas fa-spinner fa-spin"></i>Loading messages...</div>
+        </div>
+
+        <div class="message-compose">
+            <div class="utility-grid">
+                <div>
+                    <label class="utility-label">Student</label>
+                    <select class="utility-select" id="messageStudentSelect">
+                        <option value="">Select student</option>
+                    </select>
+                </div>
+                <div class="full">
+                    <label class="utility-label">Message</label>
+                    <textarea class="utility-textarea" id="messageText"
+                              placeholder="Write your message..."></textarea>
+                </div>
+            </div>
+            <div class="utility-message" id="messageComposeMessage"></div>
+            <div class="utility-actions">
+                <button class="premium-btn primary" type="button" onclick="sendExpertMessage()">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="modal-overlay" id="expertReviewsModal">
+    <div class="utility-modal">
+        <div class="modal-header">
+            <div>
+                <h2>Reviews</h2>
+                <p style="margin:5px 0 0;color:#78837d;">
+                    See what students say about your guidance.
+                </p>
+            </div>
+            <button class="close-modal" type="button" onclick="closeUtilityModal('expertReviewsModal')">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+        <div id="reviewSummary" style="margin-bottom:18px;"></div>
+        <div class="utility-list" id="reviewsList">
+            <div class="utility-empty"><i class="fas fa-spinner fa-spin"></i>Loading reviews...</div>
+        </div>
+    </div>
+</div>
+
+<!-- IMPACT -->
+<div class="modal-overlay" id="expertImpactModal">
+    <div class="utility-modal">
+        <div class="modal-header">
+            <div>
+                <h2>Your Impact</h2>
+                <p style="margin:5px 0 0;color:#78837d;">
+                    A quick view of the students and sessions you have supported.
+                </p>
+            </div>
+            <button class="close-modal" type="button" onclick="closeUtilityModal('expertImpactModal')">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+        <div class="impact-grid" id="impactGrid"></div>
+        <div style="margin-top:20px;padding:18px;border-radius:17px;background:#faf7f0;">
+            <strong><i class="fas fa-lightbulb"></i> Keep making an impact</strong>
+            <p style="margin:7px 0 0;color:#78837d;line-height:1.55;">
+                Every practical insight, mentoring conversation and career session can help a student make a more informed decision.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- SETTINGS -->
+<div class="modal-overlay" id="expertSettingsModal">
+    <div class="utility-modal small">
+        <div class="modal-header">
+            <div>
+                <h2>Settings</h2>
+                <p style="margin:5px 0 0;color:#78837d;">
+                    Manage your Udaanix expert account.
+                </p>
+            </div>
+            <button class="close-modal" type="button" onclick="closeUtilityModal('expertSettingsModal')">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="settings-grid" style="grid-template-columns:1fr 1fr;">
+            <div class="setting-card" onclick="closeUtilityModal('expertSettingsModal'); openProfileModal();">
+                <i class="fas fa-user-gear"></i>
+                <strong>Edit Profile</strong>
+                <small>View and update your professional details.</small>
+            </div>
+
+            <div class="setting-card" onclick="closeUtilityModal('expertSettingsModal'); openNotificationModal();">
+                <i class="fas fa-bell"></i>
+                <strong>Notifications</strong>
+                <small>View your account alerts and reminders.</small>
+            </div>
+
+            <div class="setting-card" onclick="showExpertPrivacy();">
+                <i class="fas fa-shield-halved"></i>
+                <strong>Privacy</strong>
+                <small>Review your account privacy information.</small>
+            </div>
+
+            <div class="setting-card" onclick="closeUtilityModal('expertSettingsModal'); openPasswordModal();">
+                <i class="fas fa-lock"></i>
+                <strong>Change Password</strong>
+                <small>Securely change your Udaanix password.</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- NOTIFICATIONS -->
+<div class="modal-overlay" id="expertNotificationModal">
+    <div class="utility-modal small">
+        <div class="modal-header">
+            <div>
+                <h2>Notifications</h2>
+                <p style="margin:5px 0 0;color:#78837d;">
+                    Your latest Udaanix alerts and reminders.
+                </p>
+            </div>
+            <button class="close-modal" type="button" onclick="closeUtilityModal('expertNotificationModal')">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+        <div class="utility-list">
+            <div class="utility-row">
+                <div class="utility-row-icon"><i class="fas fa-calendar-check"></i></div>
+                <div class="utility-row-main">
+                    <strong>Session reminders</strong>
+                    <small>Your upcoming expert sessions are shown in My Sessions.</small>
+                </div>
+            </div>
+            <div class="utility-row">
+                <div class="utility-row-icon"><i class="fas fa-star"></i></div>
+                <div class="utility-row-main">
+                    <strong>Student reviews</strong>
+                    <small>New reviews and ratings are available in Reviews.</small>
+                </div>
+            </div>
+            <div class="utility-row">
+                <div class="utility-row-icon"><i class="fas fa-message"></i></div>
+                <div class="utility-row-main">
+                    <strong>Student messages</strong>
+                    <small>Open Messages to view and reply to student conversations.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CHANGE PASSWORD -->
+<div class="modal-overlay" id="expertPasswordModal">
+    <div class="utility-modal small">
+        <div class="modal-header">
+            <div>
+                <h2>Change Password</h2>
+                <p style="margin:5px 0 0;color:#78837d;">Update your Udaanix login password securely.</p>
+            </div>
+            <button class="close-modal" type="button" onclick="closeUtilityModal('expertPasswordModal')" aria-label="Close">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="password-security-note">
+            <i class="fas fa-shield-halved"></i>
+            <div>Your new password is securely hashed before it is stored. The plain password is never stored in the database.</div>
+        </div>
+
+        <div class="utility-message" id="passwordMessage"></div>
+
+        <form id="expertPasswordForm">
+            <div class="utility-grid" style="grid-template-columns:1fr;">
+                <div>
+                    <label class="utility-label" for="currentPassword">Current Password</label>
+                    <div class="password-input-wrap">
+                        <input class="utility-input" id="currentPassword" type="password" autocomplete="current-password" required>
+                        <button type="button" class="password-toggle" data-target="currentPassword" aria-label="Show current password"><i class="fas fa-eye"></i></button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="utility-label" for="newPassword">New Password</label>
+                    <div class="password-input-wrap">
+                        <input class="utility-input" id="newPassword" type="password" minlength="8" autocomplete="new-password" required>
+                        <button type="button" class="password-toggle" data-target="newPassword" aria-label="Show new password"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <ul class="password-rules">
+                        <li id="ruleLength">At least 8 characters</li>
+                        <li id="ruleUpper">At least 1 uppercase letter</li>
+                        <li id="ruleLower">At least 1 lowercase letter</li>
+                        <li id="ruleNumber">At least 1 number</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <label class="utility-label" for="confirmNewPassword">Confirm New Password</label>
+                    <div class="password-input-wrap">
+                        <input class="utility-input" id="confirmNewPassword" type="password" autocomplete="new-password" required>
+                        <button type="button" class="password-toggle" data-target="confirmNewPassword" aria-label="Show confirm password"><i class="fas fa-eye"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="utility-actions">
+                <button type="button" class="premium-btn soft" onclick="closeUtilityModal('expertPasswordModal')">Cancel</button>
+                <button type="submit" class="premium-btn primary" id="changePasswordBtn"><i class="fas fa-key"></i> Update Password</button>
+            </div>
+        </form>
+    </div>
+</div>/div>
+
+
+<script>
+/* =========================================================
+   UDAANIX EXPERT DASHBOARD
+   Backend-connected management version
+   Existing dashboard look is preserved.
+========================================================= */
+
+let expertData = null;
+let menteesCache = [];
+let messagesCache = [];
+
+/* =========================
+   HELPERS
+========================= */
+
+function showMessage(message) {
+    alert(message);
+}
+
+function getInitials(name) {
+    if (!name) return "E";
+    return name.trim().split(/\s+/).slice(0, 2)
+        .map(part => part.charAt(0).toUpperCase()).join("");
+}
+
+function escapeHtml(value) {
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+function closeUtilityModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.classList.remove("show");
+        modal.style.removeProperty("display");
+        modal.style.removeProperty("visibility");
+        modal.style.removeProperty("opacity");
+        modal.style.removeProperty("pointer-events");
+    }
+}
+
+function openUtilityModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) modal.classList.add("show");
+}
+
+function setUtilityMessage(id, message, type) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = message || "";
+    el.className = "utility-message " + (type || "error") + " show";
+}
+
+function clearUtilityMessage(id) {
+    const el = document.getElementById(id);
+    if (el) {
+        el.textContent = "";
+        el.className = "utility-message";
+    }
+}
+
+function getExpertObject(data) {
+    return data?.expert || data || {};
+}
+
+function getStatsObject(data) {
+    return data?.stats || {};
+}
+
+function setAvatar(profilePicture) {
+    const avatar = document.getElementById("avatar");
+    const modalPhoto = document.getElementById("expertModalPhoto");
+
+    if (avatar) {
+        if (profilePicture) {
+            let imageUrl = profilePicture;
+            if (!/^https?:\/\//i.test(imageUrl) &&
+                !imageUrl.startsWith("data:") &&
+                !imageUrl.startsWith("/")) {
+                imageUrl = "../" + imageUrl;
+            }
+            avatar.innerHTML = "";
+            avatar.style.backgroundImage =
+                "url('" + imageUrl.replace(/'/g, "\\'") + "')";
+            avatar.style.backgroundSize = "cover";
+            avatar.style.backgroundPosition = "center";
+            avatar.style.backgroundRepeat = "no-repeat";
+        } else {
+            avatar.innerHTML = '<i class="fas fa-user-tie"></i>';
+            avatar.style.backgroundImage = "none";
+        }
+    }
+
+    if (modalPhoto) {
+        if (profilePicture) {
+            let imageUrl = profilePicture;
+            if (!/^https?:\/\//i.test(imageUrl) &&
+                !imageUrl.startsWith("data:") &&
+                !imageUrl.startsWith("/")) {
+                imageUrl = "../" + imageUrl;
+            }
+            modalPhoto.innerHTML =
+                '<img src="' + escapeHtml(imageUrl) + '" alt="Expert profile">';
+        } else {
+            modalPhoto.innerHTML = '<i class="fas fa-user-tie"></i>';
+        }
+    }
+}
+
+function updateExpertName(name) {
+    if (!name) return;
+
+    const firstName = name.trim().split(/\s+/)[0] || "Expert";
+    const welcomeName = document.getElementById("welcomeName");
+    const expertName = document.getElementById("expertName");
+
+    if (welcomeName) welcomeName.textContent = firstName;
+    if (expertName) expertName.textContent = "Hi, " + firstName;
+}
+
+function formatDate(value) {
+    if (!value) return "Not scheduled";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return value;
+    return date.toLocaleString("en-IN", {
+        weekday: "short",
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit"
+    });
+}
+
+async function readJson(response, allowEmptySuccess = false) {
+    const text = await response.text();
+
+    // Some existing servlet handlers return HTTP 200 with no response body.
+    // Allow this only for the profile-save request; all other APIs still require JSON.
+    if (!text.trim() && allowEmptySuccess && response.ok) {
+        return {
+            success: true,
+            message: "Profile save request completed. Refreshing profile data…",
+            _emptyResponse: true
+        };
+    }
+
+    try {
+        return JSON.parse(text);
+    } catch {
+        const clean = String(text || "")
+            .replace(/<[^>]*>/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+
+        throw new Error(
+            "Server returned HTTP " + response.status + ". " +
+            (clean.slice(0, 180) || "The server returned an empty or invalid response.")
+        );
+    }
+}
+
+/* =========================
+   PROFILE SUMMARY SYNC
+   Must stay global because dashboard loading and the
+   scroll controller both use it.
+========================= */
+function syncProfileSummaryFromExpert(expert) {
+    if (!expert) return;
+
+    const first = expert.firstName ?? expert.first_name ?? "";
+    const last = expert.lastName ?? expert.last_name ?? "";
+    const fullName = (first + " " + last).trim() || "Expert";
+
+    const setText = (id, value, fallback = "—") => {
+        const el = document.getElementById(id);
+        if (el) el.textContent =
+            value !== undefined && value !== null && String(value).trim() !== ""
+                ? String(value)
+                : fallback;
+    };
+
+    setText("sectionProfileName", fullName);
+    setText("sectionProfileEmail", expert.email);
+    setText("sectionProfileMobile", expert.mobile);
+    setText("sectionProfileJobTitle", expert.jobTitle ?? expert.job_title);
+    setText("sectionProfileCompany", expert.company);
+    setText("sectionProfileIndustry", expert.industry);
+    setText("sectionProfileExpertise", expert.expertise);
+    setText("sectionProfileStream", expert.stream);
+    setText("sectionProfileCareer", expert.primaryCareer ?? expert.primary_career);
+
+    const exp = expert.experienceYears ?? expert.experience_years ?? expert.experience;
+    setText("sectionProfileExperience", exp !== undefined && exp !== null && String(exp).trim() !== "" ? exp + " years" : "—");
+    setText("sectionProfileCity", expert.city);
+    setText("sectionProfileAvailability", expert.availabilityStatus ?? expert.availability ?? "Available");
+    setText("sectionProfileBio", expert.bio);
+}
+
+async function fetchWithTimeout(url, options = {}, timeoutMs = 10000) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+        return await fetch(url, { ...options, signal: controller.signal });
+    } catch (error) {
+        if (error && error.name === "AbortError") {
+            throw new Error("Request timed out while contacting the server.");
+        }
+        throw error;
+    } finally {
+        clearTimeout(timer);
+    }
+}
+
+/* =========================
+   LOAD DASHBOARD
+========================= */
+
+async function loadExpertDashboard() {
+    try {
+        const response = await fetch("../api/expert/dashboard", {
+            method: "GET",
+            credentials: "include",
+            headers: { "Accept": "application/json" }
+        });
+
+        if (response.status === 401 || response.status === 403) {
+            window.location.href = "login.html";
+            return;
+        }
+
+        const data = await readJson(response);
+
+        if (!data.success) {
+            showMessage(data.message || "Unable to load expert dashboard.");
+            return;
+        }
+
+        expertData = data;
+
+        const expert = getExpertObject(data);
+        const statsData = getStatsObject(data);
+
+        const name =
+            expert.fullName ||
+            ((expert.firstName || "") + " " + (expert.lastName || "")).trim() ||
+            data.expertName ||
+            data.name ||
+            "Expert";
+
+        updateExpertName(name);
+        localStorage.setItem("udaanixExpertName", name);
+
+        const profilePicture =
+            expert.profilePicture ||
+            data.profilePicture ||
+            data.expertProfilePicture ||
+            null;
+
+        setAvatar(profilePicture);
+
+        const stats = document.querySelectorAll(".stats-card strong");
+
+        const menteeCount =
+            statsData.activeMentees ??
+            data.activeMentees ??
+            expert.studentsMentored ??
+            0;
+
+        const sessionCount =
+            statsData.totalSessions ??
+            data.totalSessions ??
+            0;
+
+        if (stats.length >= 1) stats[0].textContent = menteeCount;
+        if (stats.length >= 2) stats[1].textContent = sessionCount;
+
+        renderUpcomingSessions(data.upcomingSessions || data.sessions || []);
+        fillExpertProfile(expert);
+        syncProfileSummaryFromExpert(expert);
+
+    } catch (error) {
+        console.error("Dashboard loading error:", error);
+        showMessage(error.message || "Unable to connect to the Udaanix server.");
+    }
+}
+
+/* =========================
+   UPCOMING SESSIONS
+========================= */
+
+function renderUpcomingSessions(sessions) {
+    const activityCard = document.querySelector(".activity-card");
+    if (!activityCard || !Array.isArray(sessions)) return;
+
+    const items = activityCard.querySelectorAll(".activity-item");
+
+    if (sessions.length === 0) {
+        items.forEach(item => item.style.display = "none");
+        return;
+    }
+
+    const visibleCount = Math.min(sessions.length, items.length);
+
+    for (let i = 0; i < visibleCount; i++) {
+        const session = sessions[i];
+        const item = items[i];
+        const title = item.querySelector("strong");
+        const time = item.querySelector("small");
+
+        if (title) {
+            title.textContent =
+                session.title ||
+                session.sessionTitle ||
+                session.bookingType ||
+                "Expert Session";
+        }
+
+        if (time) {
+            time.textContent = formatDate(
+                session.scheduledAt || session.date || session.time
+            );
+        }
+
+        item.style.display = "";
+    }
+
+    for (let i = visibleCount; i < items.length; i++) {
+        items[i].style.display = "none";
+    }
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+function fillExpertProfile(expert) {
+    const map = {
+        epFirstName: expert.firstName ?? expert.first_name,
+        epLastName: expert.lastName ?? expert.last_name,
+        epEmail: expert.email,
+        epMobile: expert.mobile,
+        epAge: expert.age,
+        epJobTitle: expert.jobTitle ?? expert.job_title,
+        epCompany: expert.company,
+        epIndustry: expert.industry,
+        epExpertise: expert.expertise,
+        epStream: expert.stream,
+        epPrimaryCareer: expert.primaryCareer ?? expert.primary_career,
+        epExperience: expert.experienceYears ?? expert.experience_years ?? expert.experience,
+        epCity: expert.city,
+        epFee: expert.sessionFee ?? expert.session_fee,
+        epDuration: expert.sessionDurationMinutes ?? expert.session_duration_minutes,
+        epAvailability: expert.availabilityStatus ?? expert.availability ?? "Available",
+        epLinkedin: expert.linkedinUrl ?? expert.linkedin_url ?? expert.linkedin,
+        epIntroVideo: expert.introVideoUrl ?? expert.intro_video_url,
+        epBio: expert.bio
+    };
+
+    Object.entries(map).forEach(([id, value]) => {
+        const el = document.getElementById(id);
+        if (el) el.value = value ?? "";
+    });
+
+    setAvatar(expert.profilePicture || null);
+}
+
+async function openProfileModal() {
+    openUtilityModal("expertProfileModal");
+    clearUtilityMessage("expertProfileMessage");
+
+    try {
+        const response = await fetch("../api/expert/profile", {
+            method: "GET",
+            credentials: "include",
+            headers: { "Accept": "application/json" }
+        });
+
+        if (response.status === 401 || response.status === 403) {
+            window.location.href = "login.html";
+            return;
+        }
+
+        const data = await readJson(response);
+
+        if (!data.success) {
+            setUtilityMessage(
+                "expertProfileMessage",
+                data.message || "Unable to load profile.",
+                "error"
+            );
+            return;
+        }
+
+        const expert = getExpertObject(data);
+        fillExpertProfile(expert);
+        expertData = { ...(expertData || {}), expert };
+    } catch (error) {
+        setUtilityMessage(
+            "expertProfileMessage",
+            error.message || "Unable to load profile.",
+            "error"
+        );
+    }
+}
+
+document.getElementById("expertProfileForm")?.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const btn = document.getElementById("expertProfileSaveBtn");
+    const original = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+    clearUtilityMessage("expertProfileMessage");
+
+    const formData = new URLSearchParams();
+
+    const fields = {
+        firstName: "epFirstName",
+        lastName: "epLastName",
+        mobile: "epMobile",
+        age: "epAge",
+        jobTitle: "epJobTitle",
+        company: "epCompany",
+        industry: "epIndustry",
+        expertise: "epExpertise",
+        stream: "epStream",
+        primaryCareer: "epPrimaryCareer",
+        experienceYears: "epExperience",
+        sessionFee: "epFee",
+        sessionDurationMinutes: "epDuration",
+        city: "epCity",
+        linkedinUrl: "epLinkedin",
+        introVideoUrl: "epIntroVideo",
+        bio: "epBio",
+        availabilityStatus: "epAvailability"
+    };
+
+    Object.entries(fields).forEach(([key, id]) => {
+        const el = document.getElementById(id);
+        if (el) formData.append(key, el.value.trim());
+    });
+    /* Compatibility aliases for older ExpertProfileServlet versions. */
+    formData.append("experience", document.getElementById("epExperience")?.value.trim() || "");
+    formData.append("linkedin", document.getElementById("epLinkedin")?.value.trim() || "");
+    formData.append("linkedin_url", document.getElementById("epLinkedin")?.value.trim() || "");
+
+    async function saveProfileRequest(method) {
+        return fetch("../api/expert/profile", {
+            method,
+            credentials: "include",
+            headers: {"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8","Accept":"application/json"},
+            body: formData.toString()
+        });
+    }
+
+    try {
+        let response = await saveProfileRequest("POST");
+        let data;
+
+        // A 404/405 means this deployment may expose PUT rather than POST.
+        try {
+            data = await readJson(response, true);
+        } catch (firstError) {
+            if ([404, 405].includes(response.status)) {
+                response = await saveProfileRequest("PUT");
+                data = await readJson(response, true);
+            } else {
+                throw firstError;
+            }
+        }
+
+        if (!response.ok || !data.success) {
+            if (response.status === 405) {
+                response = await saveProfileRequest("PUT");
+                data = await readJson(response, true);
+            }
+            if (!response.ok || !data.success) {
+                throw new Error(data.message || "Unable to save profile.");
+            }
+        }
+
+        // Refresh from the server after saving so the dashboard displays persisted data.
+        await loadExpertDashboard();
+
+        // If the save servlet returned an empty HTTP 200 response, fetch the profile
+        // endpoint again instead of passing the empty save response to UI synchronizers.
+        let savedExpert = getExpertObject(data);
+        if (data._emptyResponse) {
+            const verifyResponse = await fetch("../api/expert/profile", {
+                method: "GET",
+                credentials: "include",
+                headers: { "Accept": "application/json" }
+            });
+
+            if (!verifyResponse.ok) {
+                throw new Error(
+                    "The save request returned HTTP 200, but the updated profile could not be reloaded. " +
+                    "Please check ExpertProfileServlet.java."
+                );
+            }
+
+            const verifyData = await readJson(verifyResponse);
+            if (!verifyData.success) {
+                throw new Error(
+                    verifyData.message ||
+                    "The save request returned HTTP 200, but the profile could not be verified."
+                );
+            }
+            savedExpert = getExpertObject(verifyData);
+            fillExpertProfile(savedExpert);
+        }
+
+        syncProfileSummaryFromExpert(savedExpert);
+        syncAll();
+
+        setUtilityMessage(
+            "expertProfileMessage",
+            data._emptyResponse
+                ? "Save request completed and profile data was reloaded. Confirm the displayed values before closing."
+                : (data.message || "Profile updated successfully."),
+            "success"
+        );
+
+    } catch (error) {
+        setUtilityMessage(
+            "expertProfileMessage",
+            error.message || "Unable to save profile.",
+            "error"
+        );
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = original;
+    }
+});
+
+/* Profile picture upload */
+document.getElementById("expertProfilePictureInput")?.addEventListener("change", async function() {
+    const file = this.files[0];
+    if (!file) return;
+
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+        showMessage("Please select a JPG, PNG or WEBP image.");
+        this.value = "";
+        return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+        showMessage("Profile picture must be 5 MB or smaller.");
+        this.value = "";
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("profilePicture", file);
+
+    try {
+        const response = await fetch("../api/expert/profile-picture", {
+            method: "POST",
+            credentials: "include",
+            body: formData
+        });
+
+        const data = await readJson(response);
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Profile picture upload failed.");
+        }
+
+        const picture = data.profilePicture || data.path || null;
+        setAvatar(picture);
+        localStorage.setItem("udaanixExpertProfilePicture", picture || "");
+        setUtilityMessage(
+            "expertProfileMessage",
+            "Profile picture updated successfully.",
+            "success"
+        );
+
+    } catch (error) {
+        setUtilityMessage(
+            "expertProfileMessage",
+            error.message || "Unable to upload profile picture.",
+            "error"
+        );
+    } finally {
+        this.value = "";
+    }
+});
+
+async function removeExpertPhoto() {
+    if (!confirm("Remove your profile picture?")) return;
+
+    try {
+        const response = await fetch("../api/expert/profile-picture", {
+            method: "DELETE",
+            credentials: "include"
+        });
+
+        const data = await readJson(response);
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to remove profile picture.");
+        }
+
+        setAvatar(null);
+        localStorage.removeItem("udaanixExpertProfilePicture");
+        setUtilityMessage(
+            "expertProfileMessage",
+            "Profile picture removed successfully.",
+            "success"
+        );
+
+    } catch (error) {
+        setUtilityMessage(
+            "expertProfileMessage",
+            error.message || "Unable to remove profile picture.",
+            "error"
+        );
+    }
+}
+
+/* =========================
+   MENTEES
+========================= */
+
+async function openMenteesModal() {
+    openUtilityModal("expertMenteesModal");
+    const list = document.getElementById("menteesList");
+    list.innerHTML = '<div class="utility-empty"><i class="fas fa-spinner fa-spin"></i>Loading mentees...</div>';
+
+    try {
+        const response = await fetchWithTimeout("../api/expert/mentees", {
+            method: "GET",
+            credentials: "include",
+            headers: { "Accept": "application/json" }
+        });
+
+        const data = await readJson(response);
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to load mentees.");
+        }
+
+        menteesCache = data.mentees || data.students || data.data || [];
+
+        if (!menteesCache.length) {
+            list.innerHTML = '<div class="utility-empty"><i class="fas fa-user-graduate"></i><strong>No mentees yet.</strong><br><small>Students connected with you will appear here.</small></div>';
+            populateMessageStudents();
+            return;
+        }
+
+        list.innerHTML = menteesCache.map(mentee => {
+            const name =
+                mentee.studentName ||
+                mentee.name ||
+                ((mentee.firstName || "") + " " + (mentee.lastName || "")).trim() ||
+                "Student";
+
+            const count =
+                mentee.sessionCount ??
+                mentee.sessionsCount ??
+                mentee.totalSessions ??
+                0;
+
+            const last =
+                mentee.lastSession ||
+                mentee.lastSessionAt ||
+                "No completed session";
+
+            const next =
+                mentee.nextSession ||
+                mentee.nextSessionAt ||
+                "No upcoming session";
+
+            return `
+                <div class="utility-row">
+                    <div class="utility-row-icon"><i class="fas fa-user-graduate"></i></div>
+                    <div class="utility-row-main">
+                        <strong>${escapeHtml(name)}</strong>
+                        <small>
+                            Sessions: ${escapeHtml(count)}<br>
+                            Last: ${escapeHtml(formatDate(last))}<br>
+                            Next: ${escapeHtml(formatDate(next))}
+                        </small>
+                    </div>
+                    <div class="utility-row-actions">
+                        <button class="premium-btn soft" type="button"
+                                onclick="openMessagesForStudent(${Number(mentee.studentId || mentee.id || 0)})">
+                            <i class="fas fa-message"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }).join("");
+
+        populateMessageStudents();
+
+    } catch (error) {
+        list.innerHTML =
+            '<div class="utility-empty"><i class="fas fa-circle-exclamation"></i>' +
+            escapeHtml(error.message || "Unable to load mentees.") +
+            '</div>';
+    }
+}
+
+function populateMessageStudents() {
+    const select = document.getElementById("messageStudentSelect");
+    if (!select) return;
+
+    const current = select.value;
+    select.innerHTML = '<option value="">Select student</option>';
+
+    menteesCache.forEach(mentee => {
+        const id = mentee.studentId || mentee.id;
+        if (!id) return;
+
+        const name =
+            mentee.studentName ||
+            mentee.name ||
+            ((mentee.firstName || "") + " " + (mentee.lastName || "")).trim() ||
+            ("Student #" + id);
+
+        const option = document.createElement("option");
+        option.value = id;
+        option.textContent = name;
+        select.appendChild(option);
+    });
+
+    if (current) select.value = current;
+}
+
+/* =========================
+   SESSIONS
+========================= */
+
+async function openSessionsModal() {
+    openUtilityModal("expertSessionsModal");
+    await loadExpertSessions("upcoming");
+}
+
+async function loadExpertSessions(type = "upcoming") {
+    const list = document.getElementById("sessionsList");
+    list.innerHTML = '<div class="utility-empty"><i class="fas fa-spinner fa-spin"></i>Loading sessions...</div>';
+
+    try {
+        const url = "../api/expert/sessions?type=" + encodeURIComponent(type);
+        const response = await fetch(url, {
+            method: "GET",
+            credentials: "include",
+            headers: { "Accept": "application/json" }
+        });
+
+        const data = await readJson(response);
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to load sessions.");
+        }
+
+        const sessions = data.sessions || data.bookings || data.data || [];
+
+        if (!sessions.length) {
+            list.innerHTML =
+                '<div class="utility-empty"><i class="fas fa-calendar-xmark"></i><strong>No sessions found.</strong><br><small>Your sessions will appear here when available.</small></div>';
+            return;
+        }
+
+        list.innerHTML = sessions.map(session => {
+            const status = String(session.status || "PENDING").toUpperCase();
+            const badgeClass =
+                status === "COMPLETED" ? "success" :
+                status === "PENDING" ? "warning" : "";
+
+            const bookingId = Number(session.bookingId || session.id || 0);
+
+            return `
+                <div class="utility-row">
+                    <div class="utility-row-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="utility-row-main">
+                        <strong>${escapeHtml(session.bookingType || session.title || "Expert Session")}</strong>
+                        <small>
+                            Student: ${escapeHtml(session.studentName || "Student")}<br>
+                            ${escapeHtml(formatDate(session.scheduledAt || session.date))}<br>
+                            Duration: ${escapeHtml(session.durationMinutes ?? session.duration ?? "—")} minutes
+                            ${session.meetingLink ? `<br><a href="${escapeHtml(session.meetingLink)}" target="_blank" rel="noopener">Open meeting link</a>` : ""}
+                        </small>
+                        <div style="margin-top:8px;">
+                            <span class="utility-pill ${badgeClass}">${escapeHtml(status)}</span>
+                        </div>
+                    </div>
+                    <div class="utility-row-actions">
+                        ${status === "PENDING" ? `
+                            <button class="premium-btn soft" type="button"
+                                    onclick="updateExpertSession(${bookingId}, 'CONFIRMED')">
+                                Confirm
+                            </button>` : ""}
+                        ${status === "CONFIRMED" ? `
+                            <button class="premium-btn primary" type="button"
+                                    onclick="updateExpertSession(${bookingId}, 'COMPLETED')">
+                                Complete
+                            </button>` : ""}
+                        ${status !== "COMPLETED" && status !== "CANCELLED" ? `
+                            <button class="premium-btn danger" type="button"
+                                    onclick="updateExpertSession(${bookingId}, 'CANCELLED')">
+                                Cancel
+                            </button>` : ""}
+                    </div>
+                </div>
+            `;
+        }).join("");
+
+    } catch (error) {
+        list.innerHTML =
+            '<div class="utility-empty"><i class="fas fa-circle-exclamation"></i>' +
+            escapeHtml(error.message || "Unable to load sessions.") +
+            '</div>';
+    }
+}
+
+async function updateExpertSession(bookingId, status) {
+    if (!bookingId) return;
+
+    try {
+        const body = new URLSearchParams();
+        body.append("bookingId", bookingId);
+        body.append("sessionId", bookingId);
+        body.append("status", status);
+
+        const response = await fetch("../api/expert/sessions", {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+            },
+            body: body.toString()
+        });
+
+        const data = await readJson(response);
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to update session.");
+        }
+
+        await loadExpertSessions("upcoming");
+        await loadExpertDashboard();
+
+    } catch (error) {
+        showMessage(error.message || "Unable to update session.");
+    }
+}
+
+/* =========================
+   MESSAGES
+========================= */
+
+async function openMessagesModal() {
+    openUtilityModal("expertMessagesModal");
+    populateMessageStudents();
+    await loadExpertMessages();
+}
+
+async function loadExpertMessages(studentId = "") {
+    const list = document.getElementById("messagesList");
+    list.innerHTML = '<div class="utility-empty"><i class="fas fa-spinner fa-spin"></i>Loading messages...</div>';
+
+    try {
+        const url = studentId
+            ? "../api/expert/messages?studentId=" + encodeURIComponent(studentId)
+            : "../api/expert/messages";
+
+        const response = await fetch(url, {
+            method: "GET",
+            credentials: "include",
+            headers: { "Accept": "application/json" }
+        });
+
+        const data = await readJson(response);
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to load messages.");
+        }
+
+        messagesCache = data.messages || data.data || [];
+
+        if (!messagesCache.length) {
+            list.innerHTML =
+                '<div class="utility-empty"><i class="fas fa-message"></i><strong>No messages yet.</strong><br><small>Your student conversations will appear here.</small></div>';
+            return;
+        }
+
+        list.innerHTML = messagesCache.map(message => {
+            const sender =
+                message.senderName ||
+                message.studentName ||
+                message.name ||
+                "Student";
+
+            const text =
+                message.messageText ||
+                message.message ||
+                message.text ||
+                "";
+
+            const sentAt =
+                message.createdAt ||
+                message.sentAt ||
+                "";
+
+            const unread =
+                message.isRead === false ||
+                message.is_read === 0;
+
+            return `
+                <div class="utility-row">
+                    <div class="utility-row-icon"><i class="fas fa-user-graduate"></i></div>
+                    <div class="utility-row-main">
+                        <strong>${escapeHtml(sender)}
+                            ${unread ? '<span class="utility-pill warning" style="margin-left:6px;">New</span>' : ""}
+                        </strong>
+                        <div class="review-text">${escapeHtml(text)}</div>
+                        <small>${escapeHtml(formatDate(sentAt))}</small>
+                    </div>
+                </div>
+            `;
+        }).join("");
+
+    } catch (error) {
+        list.innerHTML =
+            '<div class="utility-empty"><i class="fas fa-circle-exclamation"></i>' +
+            escapeHtml(error.message || "Unable to load messages.") +
+            '</div>';
+    }
+}
+
+async function openMessagesForStudent(studentId) {
+    openUtilityModal("expertMessagesModal");
+    populateMessageStudents();
+    const select = document.getElementById("messageStudentSelect");
+    if (select && studentId) select.value = String(studentId);
+    await loadExpertMessages(studentId || "");
+}
+
+async function sendExpertMessage() {
+    const studentId = document.getElementById("messageStudentSelect")?.value;
+    const message = document.getElementById("messageText")?.value.trim();
+
+    if (!studentId) {
+        setUtilityMessage("messageComposeMessage", "Please select a student.", "error");
+        return;
+    }
+
+    if (!message) {
+        setUtilityMessage("messageComposeMessage", "Please enter a message.", "error");
+        return;
+    }
+
+    clearUtilityMessage("messageComposeMessage");
+
+    try {
+        const body = new URLSearchParams();
+        body.append("studentId", studentId);
+        body.append("receiverId", studentId);
+        body.append("message", message);
+        body.append("messageText", message);
+
+        const response = await fetchWithTimeout("../api/expert/messages", {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+            },
+            body: body.toString()
+        });
+
+        const data = await readJson(response);
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to send message.");
+        }
+
+        document.getElementById("messageText").value = "";
+        setUtilityMessage(
+            "messageComposeMessage",
+            data.message || "Message sent successfully.",
+            "success"
+        );
+
+        await loadExpertMessages(studentId);
+
+    } catch (error) {
+        setUtilityMessage(
+            "messageComposeMessage",
+            error.message || "Unable to send message.",
+            "error"
+        );
+    }
+}
+
+/* =========================
+   REVIEWS
+========================= */
+
+async function openReviewsModal() {
+    openUtilityModal("expertReviewsModal");
+
+    const summary = document.getElementById("reviewSummary");
+    const list = document.getElementById("reviewsList");
+
+    summary.innerHTML = "";
+    list.innerHTML = '<div class="utility-empty"><i class="fas fa-spinner fa-spin"></i>Loading reviews...</div>';
+
+    try {
+        const response = await fetchWithTimeout("../api/expert/reviews", {
+            method: "GET",
+            credentials: "include",
+            headers: { "Accept": "application/json" }
+        });
+
+        const data = await readJson(response);
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to load reviews.");
+        }
+
+        const rating = Number(data.averageRating ?? data.rating ?? 0);
+        const count = Number(data.reviewCount ?? data.totalReviews ?? 0);
+        const reviews = data.reviews || data.data || [];
+
+        summary.innerHTML = `
+            <div style="padding:18px;border-radius:17px;background:#faf7f0;">
+                <strong style="font-size:28px;color:#26352d;">${rating.toFixed(1)}</strong>
+                <span class="rating-stars" style="margin-left:10px;">
+                    ${"★".repeat(Math.round(rating))}${"☆".repeat(Math.max(0, 5 - Math.round(rating)))}
+                </span>
+                <div style="margin-top:5px;color:#78837d;font-size:13px;">
+                    Based on ${count} student review${count === 1 ? "" : "s"}
+                </div>
+            </div>
+        `;
+
+        if (!reviews.length) {
+            list.innerHTML =
+                '<div class="utility-empty"><i class="fas fa-star"></i><strong>No reviews yet.</strong><br><small>Completed sessions can receive student reviews.</small></div>';
+            return;
+        }
+
+        list.innerHTML = reviews.map(review => {
+            const r = Number(review.rating || 0);
+            const student =
+                review.studentName ||
+                review.name ||
+                "Student";
+            const text =
+                review.reviewText ||
+                review.review ||
+                "";
+            const date =
+                review.createdAt ||
+                review.date ||
+                "";
+
+            return `
+                <div class="utility-row">
+                    <div class="utility-row-icon"><i class="fas fa-user"></i></div>
+                    <div class="utility-row-main">
+                        <strong>${escapeHtml(student)}</strong>
+                        <div class="rating-stars" style="margin-top:3px;">
+                            ${"★".repeat(Math.round(r))}${"☆".repeat(Math.max(0, 5 - Math.round(r)))}
+                            <span style="color:#78837d;font-size:12px;margin-left:6px;">${r.toFixed(1)}/5</span>
+                        </div>
+                        <div class="review-text">${escapeHtml(text || "No written review.")}</div>
+                        <small>${escapeHtml(formatDate(date))}</small>
+                    </div>
+                </div>
+            `;
+        }).join("");
+
+    } catch (error) {
+        list.innerHTML =
+            '<div class="utility-empty"><i class="fas fa-circle-exclamation"></i>' +
+            escapeHtml(error.message || "Unable to load reviews.") +
+            '</div>';
+    }
+}
+
+/* =========================
+   IMPACT
+========================= */
+
+function openImpactModal() {
+    openUtilityModal("expertImpactModal");
+
+    const grid = document.getElementById("impactGrid");
+    const expert = getExpertObject(expertData || {});
+    const stats = getStatsObject(expertData || {});
+
+    const mentees =
+        stats.activeMentees ??
+        expert.studentsMentored ??
+        0;
+
+    const sessions =
+        stats.totalSessions ??
+        0;
+
+    const rating =
+        Number(stats.rating ?? expert.rating ?? 0);
+
+    const reviews =
+        Number(expert.reviewCount ?? 0);
+
+    grid.innerHTML = `
+        <div class="impact-card">
+            <i class="fas fa-user-graduate"></i>
+            <strong>${escapeHtml(mentees)}</strong>
+            <span>Active mentees</span>
+        </div>
+        <div class="impact-card">
+            <i class="fas fa-calendar-check"></i>
+            <strong>${escapeHtml(sessions)}</strong>
+            <span>Total sessions</span>
+        </div>
+        <div class="impact-card">
+            <i class="fas fa-star"></i>
+            <strong>${rating.toFixed(1)}</strong>
+            <span>Average rating</span>
+        </div>
+        <div class="impact-card">
+            <i class="fas fa-message"></i>
+            <strong>${escapeHtml(reviews)}</strong>
+            <span>Student reviews</span>
+        </div>
+    `;
+}
+
+/* =========================
+   SETTINGS
+========================= */
+
+function openSettingsModal() {
+    openUtilityModal("expertSettingsModal");
+}
+
+function openNotificationModal() {
+    openUtilityModal("expertNotificationModal");
+}
+
+function showExpertPrivacy() {
+    alert(
+        "Your Udaanix expert profile is protected by your authenticated account session. " +
+        "Use the Sign Out option when using a shared device."
+    );
+}
+
+/* =========================
+   CHANGE PASSWORD
+========================= */
+
+function openPasswordModal() {
+    openUtilityModal("expertPasswordModal");
+    clearUtilityMessage("passwordMessage");
+    document.getElementById("expertPasswordForm")?.reset();
+}
+
+function updateExpertPasswordRules(password) {
+    const set = (id, ok) => { const el=document.getElementById(id); if(el) el.className=ok?"valid":"invalid"; };
+    set("ruleLength", password.length >= 8);
+    set("ruleUpper", /[A-Z]/.test(password));
+    set("ruleLower", /[a-z]/.test(password));
+    set("ruleNumber", /[0-9]/.test(password));
+}
+
+document.getElementById("newPassword")?.addEventListener("input", function(){ updateExpertPasswordRules(this.value); });
+
+document.querySelectorAll(".password-toggle").forEach(button => {
+    button.addEventListener("click", function(){
+        const input=document.getElementById(this.dataset.target);
+        const icon=this.querySelector("i");
+        if(!input) return;
+        if(input.type === "password"){
+            input.type="text";
+            if(icon) icon.className="fas fa-eye-slash";
+            this.setAttribute("aria-label","Hide password");
+        }else{
+            input.type="password";
+            if(icon) icon.className="fas fa-eye";
+            this.setAttribute("aria-label","Show password");
+        }
+    });
+});
+
+document.getElementById("expertPasswordForm")?.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const currentPassword=document.getElementById("currentPassword")?.value || "";
+    const newPassword=document.getElementById("newPassword")?.value || "";
+    const confirmPassword=document.getElementById("confirmNewPassword")?.value || "";
+    const btn=document.getElementById("changePasswordBtn");
+
+    if(!currentPassword){ setUtilityMessage("passwordMessage","Enter your current password.","error"); return; }
+    if(newPassword.length<8 || !/[A-Z]/.test(newPassword) || !/[a-z]/.test(newPassword) || !/[0-9]/.test(newPassword)){
+        setUtilityMessage("passwordMessage","New password must contain 8+ characters, uppercase, lowercase and a number.","error"); return;
+    }
+    if(newPassword!==confirmPassword){ setUtilityMessage("passwordMessage","New password and confirm password do not match.","error"); return; }
+    if(currentPassword===newPassword){ setUtilityMessage("passwordMessage","New password must be different from your current password.","error"); return; }
+
+    const original=btn.innerHTML; btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Updating...';
+    try{
+        const response=await fetch("../api/expert/change-password",{
+            method:"POST", credentials:"include",
+            headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8","Accept":"application/json"},
+            body:new URLSearchParams({currentPassword,newPassword,confirmPassword}).toString()
+        });
+        const data=await readJson(response);
+        if(!response.ok || !data.success) throw new Error(data.message || "Unable to change password.");
+        setUtilityMessage("passwordMessage",data.message || "Password changed successfully. Your new password is active now.","success");
+        this.reset(); updateExpertPasswordRules("");
+        setTimeout(()=>closeUtilityModal("expertPasswordModal"),1300);
+    }catch(error){ setUtilityMessage("passwordMessage",error.message || "Unable to change password.","error"); }
+    finally{ btn.disabled=false; btn.innerHTML=original; }
+});
+
+/* =========================
+   MODAL CLOSE BEHAVIOUR
+========================= */
+
+document.querySelectorAll(".modal-overlay").forEach(modal => {
+    modal.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            modal.classList.remove("show");
+        }
+    });
+});
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        document.querySelectorAll(".modal-overlay.show")
+            .forEach(modal => modal.classList.remove("show"));
+    }
+});
+
+
+/* =========================================================
+   EXPERT SCROLL SECTIONS — REAL FUNCTIONALITY
+   Sidebar clicks scroll to the correct section and refresh
+   the section data from the authenticated backend.
+   ========================================================= */
+
+function setExpertActiveNav(sectionId) {
+    document.querySelectorAll(".sidebar-nav a").forEach(link => {
+        const href = link.getAttribute("href") || "";
+        if (href === "#" + sectionId) {
+            link.classList.add("active");
+        } else if (href.startsWith("#expert")) {
+            link.classList.remove("active");
+        }
+    });
+
+    const dashboardLink = document.querySelector('.sidebar-nav a[href="expert-dashboard.html"]');
+    if (dashboardLink) {
+        dashboardLink.classList.toggle("active", sectionId === "expertDashboardSection");
+    }
+}
+
+function scrollToExpertSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+    history.replaceState(null, "", "#" + sectionId);
+    setExpertActiveNav(sectionId);
+}
+
+document.querySelectorAll(".sidebar-nav a[href^='#expert']").forEach(link => {
+    link.addEventListener("click", function(event) {
+        event.preventDefault();
+        const id = this.getAttribute("href").substring(1);
+        scrollToExpertSection(id);
+
+        if (window.innerWidth <= 800) {
+            document.querySelector(".sidebar")?.classList.remove("open");
+        }
+    });
+});
+
+document.querySelector('.sidebar-nav a[href="expert-dashboard.html"]')?.addEventListener("click", function(event) {
+    event.preventDefault();
+    window.scrollTo({top: 0, behavior: "smooth"});
+    history.replaceState(null, "", "expert-dashboard.html");
+    setExpertActiveNav("expertDashboardSection");
+});
+
+function showSectionLoading(id, text = "Loading...") {
+    const el = document.getElementById(id);
+    if (el) {
+        el.innerHTML =
+            '<div class="utility-empty">' +
+            '<i class="fas fa-spinner fa-spin"></i>' +
+            escapeHtml(text) +
+            '</div>';
+    }
+}
+
+function renderSectionEmpty(id, icon, title, message) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML =
+        '<div class="utility-empty">' +
+        '<i class="fas ' + icon + '"></i>' +
+        '<strong>' + escapeHtml(title) + '</strong><br>' +
+        '<small>' + escapeHtml(message) + '</small>' +
+        '</div>';
+}
+
+async function loadMenteesSection() {
+    showSectionLoading("sectionMenteesList", "Loading mentees...");
+
+    try {
+        const response = await fetchWithTimeout("../api/expert/mentees", {
+            credentials: "include",
+            headers: {"Accept":"application/json"}
+        });
+        const data = await readJson(response);
+
+        if (response.status === 401 || response.status === 403) {
+            window.location.href = "login.html";
+            return;
+        }
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to load mentees.");
+        }
+
+        const list = data.mentees || data.students || data.data || [];
+        menteesCache = list;
+
+        if (!list.length) {
+            renderSectionEmpty(
+                "sectionMenteesList",
+                "fa-user-graduate",
+                "No mentees yet.",
+                "Students connected with you will appear here."
+            );
+            populateMessageStudents();
+            return;
+        }
+
+        document.getElementById("sectionMenteesList").innerHTML = list.map(m => {
+            const id = Number(m.studentId || m.id || 0);
+            const name = m.studentName || m.name ||
+                ((m.firstName || "") + " " + (m.lastName || "")).trim() || "Student";
+            const sessions = m.sessionCount ?? m.sessionsCount ?? m.totalSessions ?? 0;
+            return `
+                <div class="utility-row">
+                    <div class="utility-row-icon"><i class="fas fa-user-graduate"></i></div>
+                    <div class="utility-row-main">
+                        <strong>${escapeHtml(name)}</strong>
+                        <small>${escapeHtml(String(sessions))} session(s) supported</small>
+                    </div>
+                    <div class="utility-row-actions">
+                        <button class="premium-btn soft" type="button"
+                            onclick="openMessagesForStudent(${id})">
+                            <i class="fas fa-message"></i> Message
+                        </button>
+                    </div>
+                </div>`;
+        }).join("");
+
+        populateMessageStudents();
+    } catch (e) {
+        renderSectionEmpty("sectionMenteesList","fa-circle-exclamation","Unable to load mentees.",e.message || "Server error.");
+    }
+}
+
+async function loadSessionsSection() {
+    showSectionLoading("sectionSessionsList", "Loading sessions...");
+
+    try {
+        const response = await fetchWithTimeout("../api/expert/sessions?type=all", {
+            credentials: "include",
+            headers: {"Accept":"application/json"}
+        });
+        const data = await readJson(response);
+
+        if (response.status === 401 || response.status === 403) {
+            window.location.href = "login.html";
+            return;
+        }
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to load sessions.");
+        }
+
+        const list = data.sessions || data.bookings || data.data || [];
+
+        if (!list.length) {
+            renderSectionEmpty("sectionSessionsList","fa-calendar-xmark","No sessions yet.","Your sessions will appear here.");
+            return;
+        }
+
+        document.getElementById("sectionSessionsList").innerHTML = list.map(s => {
+            const id = Number(s.bookingId || s.id || 0);
+            const status = String(s.status || "PENDING").toUpperCase();
+            const title = s.bookingType || s.title || "Expert Session";
+            const student = s.studentName || s.name || "Student";
+            const date = formatDate(s.scheduledAt || s.date || s.time);
+
+            let action = "";
+            if (id && (status === "PENDING" || status === "CONFIRMED")) {
+                action = `
+                    <button class="premium-btn soft" type="button"
+                        onclick="updateExpertSessionStatus(${id}, '${status === "PENDING" ? "CONFIRMED" : "COMPLETED"}')">
+                        <i class="fas fa-check"></i>
+                        ${status === "PENDING" ? "Confirm" : "Complete"}
+                    </button>`;
+            }
+
+            return `
+                <div class="utility-row">
+                    <div class="utility-row-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="utility-row-main">
+                        <strong>${escapeHtml(title)}</strong>
+                        <small>${escapeHtml(student)} · ${escapeHtml(date)}</small>
+                    </div>
+                    <div class="utility-row-actions">
+                        <span class="utility-badge">${escapeHtml(status)}</span>
+                        ${action}
+                    </div>
+                </div>`;
+        }).join("");
+    } catch (e) {
+        renderSectionEmpty("sectionSessionsList","fa-circle-exclamation","Unable to load sessions.",e.message || "Server error.");
+    }
+}
+
+async function updateExpertSessionStatus(bookingId, status) {
+    try {
+        const body = new URLSearchParams();
+        body.append("bookingId", bookingId);
+        body.append("sessionId", bookingId);
+        body.append("status", status);
+
+        const response = await fetch("../api/expert/sessions", {
+            method: "POST",
+            credentials: "include",
+            headers: {"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},
+            body: body.toString()
+        });
+        const data = await readJson(response);
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to update session.");
+        }
+
+        showMessage(data.message || "Session updated successfully.");
+        await loadSessionsSection();
+        await loadExpertDashboard();
+    } catch(e) {
+        showMessage(e.message || "Unable to update session.");
+    }
+}
+
+async function loadMessagesSection() {
+    showSectionLoading("sectionMessagesList", "Loading messages...");
+
+    try {
+        const response = await fetchWithTimeout("../api/expert/messages", {
+            credentials: "include",
+            headers: {"Accept":"application/json"}
+        });
+        const data = await readJson(response);
+
+        if (response.status === 401 || response.status === 403) {
+            window.location.href = "login.html";
+            return;
+        }
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to load messages.");
+        }
+
+        const list = data.messages || data.data || [];
+        messagesCache = list;
+
+        if (!list.length) {
+            renderSectionEmpty("sectionMessagesList","fa-message","No messages yet.","Student conversations will appear here.");
+            return;
+        }
+
+        document.getElementById("sectionMessagesList").innerHTML = list.slice(0,8).map(m => {
+            const sender = m.senderName || m.studentName || m.name || "Student";
+            const text = m.messageText || m.message || m.text || "";
+            const id = Number(m.messageId || m.id || 0);
+            return `
+                <div class="utility-row">
+                    <div class="utility-row-icon"><i class="fas fa-comments"></i></div>
+                    <div class="utility-row-main">
+                        <strong>${escapeHtml(sender)}</strong>
+                        <small>${escapeHtml(text)}</small>
+                    </div>
+                    <div class="utility-row-actions">
+                        <button class="premium-btn soft" type="button" onclick="openMessagesModal()">
+                            <i class="fas fa-reply"></i> Reply
+                        </button>
+                    </div>
+                </div>`;
+        }).join("");
+    } catch(e) {
+        renderSectionEmpty("sectionMessagesList","fa-circle-exclamation","Unable to load messages.",e.message || "Server error.");
+    }
+}
+
+async function loadReviewsSection() {
+    const summary = document.getElementById("sectionReviewSummary");
+    const listEl = document.getElementById("sectionReviewsList");
+    if (summary) summary.innerHTML = '<div class="utility-empty"><i class="fas fa-spinner fa-spin"></i>Loading review summary...</div>';
+    if (listEl) listEl.innerHTML = '<div class="utility-empty"><i class="fas fa-spinner fa-spin"></i>Loading reviews...</div>';
+
+    try {
+        const response = await fetchWithTimeout("../api/expert/reviews", {
+            credentials: "include",
+            headers: {"Accept":"application/json"}
+        });
+        const data = await readJson(response);
+
+        if (response.status === 401 || response.status === 403) {
+            window.location.href = "login.html";
+            return;
+        }
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to load reviews.");
+        }
+
+        const reviews = data.reviews || data.data || [];
+        const avg = Number(data.averageRating ?? data.rating ?? 0).toFixed(1);
+        const count = Number(data.reviewCount ?? reviews.length);
+
+        if (summary) {
+            summary.innerHTML = `
+                <div class="expert-review-summary-card">
+                    <div class="review-big">${escapeHtml(avg)}</div>
+                    <div><strong>Average Rating</strong><small>${count} student review(s)</small></div>
+                </div>`;
+        }
+
+        if (!reviews.length) {
+            renderSectionEmpty("sectionReviewsList","fa-star","No reviews yet.","Completed sessions can receive student reviews.");
+            return;
+        }
+
+        listEl.innerHTML = reviews.map(r => `
+            <div class="utility-row">
+                <div class="utility-row-icon"><i class="fas fa-star"></i></div>
+                <div class="utility-row-main">
+                    <strong>${escapeHtml(r.studentName || r.name || "Student")}</strong>
+                    <small>${escapeHtml(String(r.rating ?? 0))}/5 · ${escapeHtml(r.reviewText || r.text || "No written review.")}</small>
+                </div>
+            </div>
+        `).join("");
+    } catch(e) {
+        renderSectionEmpty("sectionReviewsList","fa-circle-exclamation","Unable to load reviews.",e.message || "Server error.");
+    }
+}
+
+async function loadImpactSection() {
+    const grid = document.getElementById("sectionImpactGrid");
+    if (!grid) return;
+
+    try {
+        const [dashboardResponse, reviewsResponse, sessionsResponse] = await Promise.all([
+            fetchWithTimeout("../api/expert/dashboard", {credentials:"include", headers:{"Accept":"application/json"}}),
+            fetchWithTimeout("../api/expert/reviews", {credentials:"include", headers:{"Accept":"application/json"}}),
+            fetchWithTimeout("../api/expert/sessions?type=completed", {credentials:"include", headers:{"Accept":"application/json"}})
+        ]);
+
+        const dashboard = await readJson(dashboardResponse);
+        const reviews = await readJson(reviewsResponse);
+        const sessions = await readJson(sessionsResponse);
+
+        const stats = dashboard.stats || {};
+        const completed = (sessions.sessions || sessions.bookings || sessions.data || []).length;
+        const mentees = stats.activeMentees ?? dashboard.activeMentees ?? dashboard.expert?.studentsMentored ?? 0;
+        const rating = Number(reviews.averageRating ?? dashboard.expert?.rating ?? 0).toFixed(1);
+        const reviewCount = reviews.reviewCount ?? (reviews.reviews || []).length;
+
+        grid.innerHTML = `
+            <div class="impact-stat"><i class="fas fa-user-graduate"></i><strong>${escapeHtml(String(mentees))}</strong><span>Active Mentees</span></div>
+            <div class="impact-stat"><i class="fas fa-calendar-check"></i><strong>${escapeHtml(String(completed))}</strong><span>Completed Sessions</span></div>
+            <div class="impact-stat"><i class="fas fa-star"></i><strong>${escapeHtml(rating)}</strong><span>Average Rating</span></div>
+            <div class="impact-stat"><i class="fas fa-comments"></i><strong>${escapeHtml(String(reviewCount))}</strong><span>Student Reviews</span></div>
+        `;
+    } catch(e) {
+        renderSectionEmpty("sectionImpactGrid","fa-chart-line","Impact unavailable.",e.message || "Server error.");
+    }
+}
+
+/* Load every section once after authentication. */
+async function loadAllExpertSections() {
+    await Promise.allSettled([
+        loadMenteesSection(),
+        loadSessionsSection(),
+        loadMessagesSection(),
+        loadReviewsSection(),
+        loadImpactSection()
+    ]);
+
+    const hash = window.location.hash.replace("#", "");
+    if (hash && document.getElementById(hash)) {
+        setTimeout(() => {
+            document.getElementById(hash)?.scrollIntoView({behavior:"instant", block:"start"});
+            setExpertActiveNav(hash);
+        }, 100);
+    } else {
+        setExpertActiveNav("expertDashboardSection");
+    }
+}
+
+/* Keep the sidebar highlight synchronized while scrolling. */
+const expertSectionObserver = new IntersectionObserver(entries => {
+    const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (visible) setExpertActiveNav(visible.target.id);
+}, {
+    root: null,
+    rootMargin: "-15% 0px -65% 0px",
+    threshold: [0.1,0.3,0.6]
+});
+
+document.querySelectorAll(".expert-scroll-section").forEach(section => {
+    expertSectionObserver.observe(section);
+});
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+document.getElementById("logoutBtn")?.addEventListener("click", async function() {
+    try {
+        await fetch("../api/auth/logout", {
+            method: "POST",
+            credentials: "include"
+        });
+    } catch (error) {
+        console.error("Logout error:", error);
+    }
+
+    localStorage.removeItem("udaanixExpertName");
+    localStorage.removeItem("udaanixExpertProfilePicture");
+    window.location.href = "login.html";
+});
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+document.getElementById("menuBtn")?.addEventListener("click", function() {
+    document.getElementById("sidebar")?.classList.toggle("open");
+});
+
+/* =========================
+   INITIAL LOAD
+========================= */
+
+document.addEventListener("DOMContentLoaded", async function() {
+    await loadExpertDashboard();
+    try {
+        // Use the globally scoped loader defined by the main dashboard script.
+        // loadAllSectionData() is private to the scroll-controller IIFE.
+        await loadAllExpertSections();
+    } catch (sectionError) {
+        console.error("Expert sections loading error:", sectionError);
+        [
+            ["sectionMenteesList", "Unable to load mentees."],
+            ["sectionSessionsList", "Unable to load sessions."],
+            ["sectionMessagesList", "Unable to load messages."],
+            ["sectionReviewsList", "Unable to load reviews."]
+        ].forEach(([id, title]) => {
+            const el = document.getElementById(id);
+            if (el && el.textContent.includes("Loading")) {
+                el.innerHTML = `<div class="utility-empty"><i class="fas fa-circle-exclamation"></i><strong>${title}</strong><br><small>${escapeHtml(sectionError.message || "Please try Refresh.")}</small></div>`;
+            }
+        });
+    }
+
+
+    /* Keep profile button useful if it exists in the topbar. */
+    document.getElementById("avatar")?.addEventListener("click", function() {
+        openProfileModal();
+    });
+
+    document.getElementById("expertProfileModal")?.addEventListener("click", function() {
+        /* no-op; keeps event target available for keyboard/mobile */
+    });
+});
+</script>
+
+
+
+<script id="udaanix-expert-scroll-controller">
+(function () {
+    const sectionMap = [
+        ["expertMenteesSection", "sectionMenteesList", "menteesList"],
+        ["expertSessionsSection", "sectionSessionsList", "sessionsList"],
+        ["expertMessagesSection", "sectionMessagesList", "messagesList"],
+        ["expertReviewsSection", "sectionReviewsList", "reviewsList"],
+    ];
+
+    function copyHtml(sourceId, targetId) {
+        const source = document.getElementById(sourceId);
+        const target = document.getElementById(targetId);
+        if (source && target) target.innerHTML = source.innerHTML;
+    }
+
+    function syncImpact() {
+        const source = document.getElementById("impactGrid");
+        const target = document.getElementById("sectionImpactGrid");
+        if (source && target) target.innerHTML = source.innerHTML;
+    }
+
+    function syncReviews() {
+        copyHtml("reviewsList", "sectionReviewsList");
+        copyHtml("reviewSummary", "sectionReviewSummary");
+    }
+
+    function syncAll() {
+        sectionMap.forEach(item => copyHtml(item[2], item[1]));
+        syncReviews();
+        syncImpact();
+    }
+
+    async function loadAllSectionData() {
+        /* Load visible sections directly from their APIs. Never open hidden modals just to hydrate the page. */
+        await Promise.allSettled([
+            loadMenteesSection(),
+            loadSessionsSection(),
+            loadMessagesSection(),
+            loadReviewsSection(),
+            loadImpactSection()
+        ]);
+
+        if (expertData?.expert) syncProfileSummaryFromExpert(expertData.expert);
+
+        document.querySelectorAll(".modal-overlay").forEach(function(modal){
+            modal.classList.remove("show");
+            modal.style.removeProperty("display");
+            modal.style.removeProperty("visibility");
+            modal.style.removeProperty("opacity");
+            modal.style.removeProperty("pointer-events");
+        });
+
+    }
+
+    function val(id) {
+        return document.getElementById(id)?.value || "—";
+    }
+
+    function text(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value || "—";
+    }
+
+
+
+    function syncProfileSummary() {
+        const first = val("epFirstName");
+        const last = val("epLastName");
+        const fullName = (first + " " + last).trim() || "Expert";
+
+        text("sectionProfileName", fullName);
+        text("sectionProfileEmail", val("epEmail"));
+        text("sectionProfileMobile", val("epMobile"));
+        text("sectionProfileJobTitle", val("epJobTitle"));
+        text("sectionProfileCompany", val("epCompany"));
+        text("sectionProfileIndustry", val("epIndustry"));
+        text("sectionProfileExpertise", val("epExpertise"));
+        text("sectionProfileStream", val("epStream"));
+        text("sectionProfileCareer", val("epPrimaryCareer"));
+
+        const experience = val("epExperience");
+        text("sectionProfileExperience",
+            experience !== "—" && experience !== "" ? experience + " years" : "—");
+
+        text("sectionProfileCity", val("epCity"));
+        text("sectionProfileAvailability", val("epAvailability"));
+        text("sectionProfileBio", val("epBio"));
+    }
+
+    function setupObservers() {
+        sectionMap.forEach(item => {
+            const source = document.getElementById(item[2]);
+            if (!source) return;
+            new MutationObserver(() => copyHtml(item[2], item[1]))
+                .observe(source, {childList:true, subtree:true, characterData:true});
+        });
+
+        ["reviewSummary", "reviewsList", "impactGrid"].forEach(id => {
+            const source = document.getElementById(id);
+            if (!source) return;
+            new MutationObserver(syncAll)
+                .observe(source, {childList:true, subtree:true, characterData:true});
+        });
+    }
+
+    function setupActiveNavigation() {
+        const links = Array.from(document.querySelectorAll(".sidebar-nav a[href^='#expert']"));
+        const sections = links
+            .map(link => document.getElementById(link.getAttribute("href").substring(1)))
+            .filter(Boolean);
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                links.forEach(link => {
+                    link.classList.toggle(
+                        "active",
+                        link.getAttribute("href") === "#" + entry.target.id
+                    );
+                });
+            });
+        }, {
+            root: null,
+            rootMargin: "-25% 0px -60% 0px",
+            threshold: 0
+        });
+
+        sections.forEach(section => observer.observe(section));
+
+        links.forEach(link => {
+            link.addEventListener("click", function () {
+                const target = document.getElementById(
+                    this.getAttribute("href").substring(1)
+                );
+                if (target) {
+                    setTimeout(() => {
+                        target.scrollIntoView({behavior:"smooth", block:"start"});
+                    }, 0);
+                }
+            });
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        setupActiveNavigation();
+        setupObservers();
+
+        /* Section data is loaded by the main dashboard initializer. */
+    });
+})();
+
+/* =========================================================
+   COUNSELLOR-STYLE SIDEBAR NAVIGATION
+========================================================= */
+document.querySelectorAll('.sidebar-nav a').forEach(function(link){
+    link.addEventListener('click', function(){
+        document.getElementById('sidebar')?.classList.remove('open');
+        document.querySelectorAll('.sidebar-nav a').forEach(function(a){a.classList.remove('active');});
+        this.classList.add('active');
+    });
+});
+
+</script>
+
+</body>
+
+</html>

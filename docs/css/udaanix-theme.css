@@ -14,8 +14,75 @@ a{text-decoration:none;color:inherit}button,input{font:inherit}button{cursor:poi
 em{font-family:"Playfair Display",serif;font-weight:600;color:#684bd0}
 .scroll-line{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#3974f4,#7853df,#f39a62);z-index:9999}
 .cursor-glow{position:fixed;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(100,125,255,.09),transparent 68%);pointer-events:none;z-index:0;transform:translate(-50%,-50%);opacity:0;transition:opacity .3s}
-.preloader{position:fixed;inset:0;background:#13284b;color:#fff;z-index:10000;display:grid;place-content:center;text-align:center;transition:opacity .6s,visibility .6s}
-.preloader.hide{opacity:0;visibility:hidden}.preloader-plane{font-size:34px;width:72px;height:72px;border-radius:24px;background:linear-gradient(135deg,#fff,#dfe8ff);color:#426be7;display:grid;place-items:center;margin:auto;animation:planeFloat 1.4s ease-in-out infinite}.preloader-name{font-family:Manrope;font-weight:800;letter-spacing:5px;margin:18px 0 9px}.preloader small{color:#9fb0cf;font-size:11px}.loader-track{height:3px;width:130px;background:#33486a;border-radius:5px;margin:auto;overflow:hidden}.loader-track span{display:block;width:35%;height:100%;background:#8aa8ff;animation:load 1.2s ease-in-out infinite}@keyframes load{50%{transform:translateX(190px)}}@keyframes planeFloat{50%{transform:translateY(-7px) rotate(-3deg)}}
+
+/* UDAANIX LOADER */
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: #13284b;
+    color: #fff;
+    z-index: 10000;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    text-align: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    padding: 24px;
+}
+
+.preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Original Udaanix logo */
+.preloader-logo {
+    display: block;
+    width: 180px;
+    max-width: 70vw;
+    max-height: 150px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 24px;
+    animation: planeFloat 1.4s ease-in-out infinite;
+}
+
+/* Loading progress bar */
+.loader-track {
+    width: 130px;
+    height: 3px;
+    background: #33486a;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 auto 12px;
+}
+
+.loader-track span {
+    display: block;
+    width: 35%;
+    height: 100%;
+    background: #8aa8ff;
+    animation: load 1.2s ease-in-out infinite;
+}
+
+.preloader small {
+    color: #9fb0cf;
+    font-size: 11px;
+}
+
+@keyframes load {
+    50% {
+        transform: translateX(190px);
+    }
+}
+
+@keyframes planeFloat {
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
 
 /* NAV */
 .navbar{position:sticky;top:0;z-index:1000;background:rgba(251,252,255,.83);backdrop-filter:blur(18px);border-bottom:1px solid rgba(224,230,240,.85)}
